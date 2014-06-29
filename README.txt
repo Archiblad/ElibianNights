@@ -1,0 +1,1 @@
+Take what is useful to you, leave the rest.

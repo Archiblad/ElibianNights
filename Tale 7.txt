@@ -46,8 +46,6 @@ UNIT Empty
 
 MockBandits:
 UNIT Sykes Swordmaster Sykes Level(12,Enemy,False) [3,26] [3,26] [SteelBlade,WingClipper,RazorSword] AttackInRange
-UNIT 
-
 UNIT 0xBA PegasusKnight Sykes Level(16,Enemy,True) [2,22] [2,22] [SteelLance] AttackInRange
 UNIT 0xBA PegasusKnight Sykes Level(16,Enemy,True) [1,23] [1,23] [SteelLance] AttackInRange
 UNIT 0xBA PegasusKnight Sykes Level(16,Enemy,True) [3,23] [3,23] [SteelLance] AttackInRange
