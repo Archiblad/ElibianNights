@@ -1,0 +1,254 @@
+//Items
+#define BronzeSword 0x02
+#define WingClipper 0xB0
+#define Cutlass 0x96
+#define Shamshir 0x76
+#define VeninEdge 0xA4
+#define LadySword 0x9F
+#define QuickSword 0xA7
+#define SilverRapier 0xA0
+#define RazorSword 0xAC
+#define Kingsword 0xB1
+#define Amatsu 0xAA
+#define Claymore 0xB2
+#define SleepSword 0xB6
+#define MasterSword 0xAE
+#define Lobera 0x84
+#define Berveil 0x80
+#define Cinquedea 0x90
+#define Hrunting 0x97
+#define Agrona 0xC1
+#define Eckesachs 0x9B
+
+#define BronzeLance 0x15
+#define Greatlance 0x91
+#define QuickLance 0xA8
+#define Pilum 0xA5
+#define WingSpear 0xA6
+#define Dragonspear 0x18
+#define Partisan 0x8B
+#define Espontoon 0xC2
+
+#define BronzeAxe 0x66
+#define BoltAxe 0x63
+#define Pugi 0xB3
+#define BattleAxe 0x59
+#define QuickAxe 0xA2
+#define ShortAxe 0xAB
+#define GigantAxe 0x85
+#define Leviathan 0x86
+#define CanisBeil 
+
+#define BronzeBow 0x67
+#define CleaveBow 0x83
+#define RuneBow 0xA1
+#define QuickBow 0xA9
+#define Greatbow 0x93
+#define TowerBow 0x93
+#define Silencer 0x98
+#define Murgleis 0x8F
+#define Swift 0xC0
+
+#define Shaver 0x81
+#define Combust 0x64
+#define Aircalibur 0x60
+#define Dimebolt 0x65
+#define Meteor 0xB5
+#define Vainoinen 0x8A
+
+#define Artemis 0x62
+
+#define Worm 0x44
+#define Fenris 0xAD
+#define Dulam 0x82
+
+#define RuneStaff 0x7A
+#define PowerStaff 0x7C
+
+#define Salve 0x4F
+#define FakeElixir 0x9C
+#define Tonic 0x6B
+#define RustySword 0xAF
+#define AgedScroll 0x73
+#define OddOrb 0x74
+#define OldBracelet 0x75
+#define Grimoire 0xBF
+
+#define Arrowspate 0x34
+#define Veninbolt 0x35
+#define Killerarch 0x36
+
+#define Firestone 0x77
+#define Earthstone 0x78
+#define Divinestone 0x79
+#define Icestone 0x88
+
+
+//Classes
+#define Emperor 0x06
+#define GreatKnight 0x17
+#define General_b 0x15
+#define Valkyrie_b 0x2C
+#define MageKnight 0x50
+#define Rogue 0x3D
+#define Ranger 0x31
+#define Halberdier 0x29
+#define Summoner 0x55
+#define Phantom 0x43
+#define Cyclops 0x56
+#define Gargoyle 0x4F
+#define Ballistician 0x5B
+#define Manakete 0x05
+
+
+//Characters
+#define Prasad 0x2A
+#define Orun 0x3A
+#define Douglas 0x3C
+#define Dayan 0x7B
+#define Dan 0x33
+#define Zealot 0x03
+#define Sykes 0x46
+#define Natalie_EN 0x35
+#define Louise_EN 0x39
+#define Siglud 0x4F
+#define Opal 0x0D
+#define Nando 0x17
+#define Everrett 0x1C
+#define Jan 0x1D
+#define Dieter 0x41
+#define Niime 0x5D
+#define Efta 0x47
+#define Jake 0x43
+#define Shen 0x2B
+#define Toni 0xDA
+#define Gaufrid 0xDB
+#define Murdock 0x68
+#define Brenya 0x69
+#define Narshen 0x67
+
+#define Warner 0x87
+#define Khitan 0x8E
+#define Dawson 0x94
+#define Yorrick 0x50
+#define Ephidel 0x85
+#define Alastor 0xAD
+#define Arcard 0x4D
+#define Stephaeo 0x54
+#define Gigais 0xF4
+#define Riordan 0x99
+#define Barbaros 0x89
+#define Karmann 0x9F
+#define Tybalt 0xB6
+#define Ortega 0xBE
+#define Dieter_Boss 0x40
+#define Montresor 0xC5
+#define Onslow 0x3F
+#define Wayra 0x65
+#define PrasadBoss 0xA6
+#define Hervor 0xDC
+#define Tessa 0x49
+#define Cedric 0x3D
+#define Thorben 0x8D
+
+#define Wolt 0xD4
+#define Klein 0xD5
+#define Clarine 0xD6
+#define Igrene 0xD7
+#define Hugh 0xD8
+#define Mercutio 0xD9
+
+
+//Tale Completion Variables
+#define Tale1Clear 0x66
+#define Tale2Clear 0x67
+#define Tale3Clear 0x68
+#define Tale4Clear 0x69
+#define Tale5Clear 0x6A
+#define Tale6Clear 0x6B
+#define Tale7Clear 0x6C
+#define Tale8Clear 0x6D
+#define FinalTaleClear 0x6E
+#define Tale1xClear 0x6F
+#define Tale2xaClear 0x70
+#define Tale2xbClear 0x98
+#define Tale4xClear 0x71
+
+
+//Gaiden Tale Variables
+#define Tale1xUnlock 0x72
+#define Tale2xaUnlock 0x73
+#define Tale2xbUnlock 0x97
+#define Tale4xUnlock 0x74
+
+
+//Achievement Variables
+#define Dastards 0x7E
+#define BabyTalkToMe 0x75
+#define JumpingTheShark 0x83
+#define Trororo 0x8B
+#define TraitorousSwine 0x7D
+#define KingOfSecrets 0x78
+#define Basiliskglance 0x76
+#define Emblemologist 0x77
+#define AngelOfLife 0x7C
+#define NeverSayDie 0x8C
+#define DemonicStreak 0x7A
+#define LookingForLove 0x84
+#define TheThreeAmigops 0x7B
+#define TheLastReed 0x8A
+#define TempleOfTime 0x89
+#define UnknownAchievement 0x85
+#define CompulsiveCollector 0x86
+#define MasterfulMinstrel 0x8D
+
+
+//Other Variables
+#define HolyWarMode 0x7F
+#define SigludFound 0x80
+#define EltonFound 0x81
+#define QuinnFound 0x82
+#define FargusHector 0x88
+#define PiratesCheck 0x79
+#define CanasCheck 0x9B
+#define EphidelLives 0x87
+#define DieterSlain 0x8E
+
+#define MasterTale3 0x8F
+#define MasterTale7 0x90
+#define MasterTale8 0x91
+
+
+//More AI Commands
+#define WaitOneTurn [0x00,0x12,0x02,0x00]
+
+//Custom Macros
+#define ClearPortraits        "MORETEXT 0x08A7"
+#define ClearScreen        "MORETEXT 0x08A7; REBU; BACG 0x5B"
+#define ClearAllUnits 		"ASMC 0x7A8B9"
+#define BecomeAlly(Char)      "CUSI Char $00"
+#define BecomeEnemy(Char)     "CUSI Char $A7"
+#define BecomeNPC(Char)       "CUSI Char $47"
+#define Drop(UnitPtr,Rescuer) "LOU1 UnitPtr; ENUN; UNCR Rescuer 0x10; ENUN"
+#define UnitFlash(Char,Time) "UNCM Char 1b; STAL Time; UNCR Char 1b; STAL Time; UNCM Char 1b; STAL Time; UNCR Char 1b; STAL Time; UNCM Char 1b; STAL Time; UNCR Char 1b; STAL Time; UNCM Char 1b; STAL Time; UNCR Char 1b; STAL Time"
+#define Lightning(Xpositioning) "CODE 0xE1 0x00 0x00 0x00; CODE 0xE0 0x00 0x00 0x00; CODE 0xFF 0xFF 0xFF 0xFF; CODE 0x04 0x00 0x00 0x00; CODE 0x80 0x00 0x02 0x08; CODE 0x5A 0x00 0x01 0x00; CODE 0xB9 0xA3 0x07 0x08; CODE 0x7F 0x00 0xF5 0x00; CODE 0xDD 0x00 0x00 0x00; CODE Xpositioning 0xFF 0xFF 0xFF; CODE 0xF0 0xFF 0xFF 0xFF; CODE 0x42 0x00 0x00 0x00; CODE 0x99 0x14 0x01 0x08; CODE 0xE0 0x00 0x00 0x00; CODE 0xFF 0xFF 0xFF 0xFF; CODE 0x04 0x00 0x00 0x00; CODE 0x00 0x01 0x04 0x10; CODE 0xE2 0x00 0x00 0x00; CODE 0x3B 0x00 0x00 0x00"
+#define IPUO(evid) "CODE $48; CODE $01; CODE 0xF1 0xA2 0x07 0x08; ENUT evid; CODE $45; CODE $09; CODE $44; CODE $01"
+#define ENDPUO "CODE $44; CODE $09"
+#define EarthquakeStart "ASMC $0807D645"
+#define EarthquakeStop "ASMC $0807D689"
+#define DiableEnd "CODE 0xA3 0x0 0x0 0x0 0xA4 0x0 0x0 0x0 0x71 0x0 0x0 0x0"
+#define ClearUnitData "ASMC $DC0000"
+#define GotoTaleSelect "MNCH 0x0B"
+#define NoItems "0x00,0x00,0x00,0x00"
+#define REBB "_ASM0x42 0x83181"
+#define BonusContentUnlocked "TEX6 0x5 [0,0] 0xDE0; REBB"
+#define TurnEventNPC(eventID,pointer,startTurn,amountOfTurns) "TURN eventID pointer [startTurn, startTurn +amountOfTurns+1] 0x24 0x00"
+#define ForceNormalMode "ASMC 0xBE2621; ASMC 0xBE2601"
+#define ForceHardMode "ASMC 0xBE2611"
+
+//Ballista
+#define Ballista(X,Y) "BLST [X,Y] 0x34"
+#define PoisonBallista(X,Y) "BLST [X,Y] 0x35"
+
+
+#define UnitFlash(X,Y,Time) "UNCM [X,Y] 1b; STAL Time; UNCR [X,Y] 1b; STAL Time; UNCM [X,Y] 1b; STAL Time; UNCR [X,Y] 1b; STAL Time; UNCM [X,Y] 1b; STAL Time; UNCR [X,Y] 1b; STAL Time; UNCM [X,Y] 1b; STAL Time; UNCR [X,Y] 1b; STAL Time"

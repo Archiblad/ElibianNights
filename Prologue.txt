@@ -1,0 +1,105 @@
+//For assembling as separate chapter
+#define DISABLE_TUTORIALS
+#ifndef RELEASE_FE4A
+#include "EAstdlib.event"
+#include "BSFE7 definitions.txt"
+
+EventPointerTable(6,ThisChapter)
+
+ORG 0xD80000
+ThisChapter:
+#endif //End of RELEASE_FE4A
+
+//Actual events:
+POIN Turn_events Character_events Location_events Misc_events
+POIN Ballista_filler Ballista_filler
+POIN Bandits Bandits Bandits Bandits 
+POIN Knights Knights Knights Knights 
+POIN Opening_event Opening_event
+
+Knights:
+UNIT Empty
+
+Bandits:
+UNIT Empty
+
+SecondBatch:
+UNIT Empty
+
+Turn_events:
+TURN 0x00 Opening_event [01,00] 0x0 0x00
+TURN
+
+Character_events:
+CHAR
+
+Location_events:
+LOCA
+
+
+Misc_events:
+AFEV
+
+
+Ballista_filler:
+BLST
+ALIGN 4
+
+
+Opening_event:
+
+MUS1 0x004C
+BACG 0x14
+TEXTIFTACTF 0x813 0x814
+
+MUS1 0x45
+FADI 5
+_0x87
+ClearScreen
+SHCG 0x1A //Map Design
+FADU 5
+STAL 0xFF
+FADI 5
+SHCG 0x16 //Black CG
+SHCG 0x2C //Hacking Assistance
+FADU 5
+STAL 0xFF
+FADI 5
+SHCG 0x15 //Writing Assistance
+FADU 5
+STAL 0xFF
+FADI 5
+SHCG 0x1E //Beta & Music
+FADU 5
+STAL 0xFF
+FADI 5
+SHCG 0x17 //Graphic Artists
+FADU 5
+STAL 0xFF
+FADI 5
+SHCG 0x1C //Graphic Artists2
+FADU 5
+STAL 0xFF
+FADI 5
+SHCG 0x19 //Special Thanks
+FADU 5
+STAL 0xFF
+FADI 5
+SHCG 0x18 //Special Thanks2
+FADU 5
+STAL 0xFF
+FADI 5
+SHCG 0x1B //Director Credits
+FADU 5
+STAL 0xFF
+FADI 5
+SHCG 0x1D //Enjoy
+FADU 5
+STAL 0xFF
+GotoTaleSelect
+ENDA
+
+
+#ifndef RELEASE_FE4A
+MESSAGE Events end at offset currentOffset
+#endif //End of RELEASE_FE4A

@@ -1,0 +1,601 @@
+//For assembling as separate chapter
+#define DISABLE_TUTORIALS
+#include "EAstdlib.event"
+#include "BSFE7 definitions.txt"
+#define SecondPlay 0x06
+
+EventPointerTable(0x39,ThisChapter)
+EventPointerTable(0x38,TileChanges)
+
+
+ORG 0xD81420
+ThisChapter:
+
+//Actual events:
+POIN TurnEvents TalkEvents LocationEvents MiscEvents
+POIN TerrainEvents TerrainEvents 
+POIN Bandits Bandits Bandits Bandits
+POIN Players1 Players1 Players1 Players1
+POIN OpeningEvent EndingEvent
+
+Eliwood1:
+UNIT Eliwood EliwoodLord 0x00 Level(6,Ally,False) [14,5] [14,5] [SilverSword,ChestKey,Elixir] NoAI
+UNIT Empty
+
+EndingUnits:
+UNIT Dan Berserker Merlinus Level(12,Ally,False) [15,6] [15,6] [SilverAxe,KillerAxe] NoAI
+UNIT 0xEF 0x47 0x00 Level(8,Ally,False) [13,6] [13,6] [SilverLance,Javelin,SteelSword] NoAI
+UNIT Marcus Paladin Merlinus Level(11,Ally,False) [14,6] [14,6] [SilverLance] NoAI
+UNIT Empty
+
+Eliwood2:
+UNIT Eliwood EliwoodLord 0x00 Level(6,Ally,False) [14,11] [14,5] [SilverSword,ChestKey,Elixir] NoAI
+UNIT Empty
+
+Merlinus1:
+UNIT 0xEF 0x47 0x00 Level(8,Ally,False) [14,6] [14,6] [SilverLance,Javelin,SteelSword] NoAI
+UNIT Empty
+
+Eliwood3:
+UNIT 0xF4 KnightLord 0x00 Level(6,Ally,False) [9,4] [13,9] [SilverSword,ChestKey,Elixir] NoAI
+UNIT Empty
+
+Wallace1:
+UNIT Wallace General 0x00 Level(14,NPC,False) [18,13] [16,11] [Greatlance,SteelBlade,Vulnerary] NoAI
+UNIT Empty
+
+Players1:
+UNIT Merlinus TransporterHorse 0x00 Level(1,Ally,False) [9,4] [9,4] [Elixir] NoAI
+UNIT Marcus Paladin Merlinus Level(11,Ally,False) [9,5] [9,5] [SilverLance,SteelSword] NoAI
+UNIT Empty
+
+RoyalKnights:
+UNIT Lowen GreatKnight Merlinus Level(8,Ally,False) [9,4] [11,5] [SteelAxe,Javelin] NoAI
+UNIT Rebecca Sniper_F Merlinus Level(8,Ally,False) [9,4] [7,5] [Longbow,Vulnerary] NoAI
+UNIT Empty
+
+Militia:
+UNIT Dan Berserker Merlinus Level(9,Ally,False) [13,11] [9,6] [IronAxe,HandAxe] NoAI
+UNIT Dorcas Warrior Merlinus Level(2,Ally,False) [13,11] [10,6] [Hammer,IronAxe,SteelBow,Vulnerary] NoAI
+UNIT Wil Ranger Raven Level(6,Ally,False) [13,11] [8,6] [CleaveBow,SteelSword,Vulnerary] NoAI
+UNIT Empty
+
+
+
+Bandits:
+UNIT 0x90 Brigand 0x00 Level(16,Enemy,True) [18,0] [18,3] [SteelAxe,HandAxe] NoAI
+UNIT 0x90 Brigand 0x00 Level(15,Enemy,True) [18,0] [15,1] [SteelAxe] NoAI
+UNIT 0x90 Brigand 0x00 Level(15,Enemy,True) [18,0] [16,2] [HandAxe] NoAI
+UNIT Empty
+
+DamasDaddy:
+UNIT Onslow Rogue 0x00 Level(20,Enemy,True) [10,20] [13,19] [Shamshir] AttackInRange
+UNIT 0x90 Thief 0x00 Level(1,Enemy,True) [10,20] [12,19] [IronSword] NoAI
+UNIT Empty
+
+Brandits:
+UNIT 0x90 Brigand 0x00 Level(18,Enemy,True) [5,20] [6,18] [Hammer] NoAI
+UNIT 0xC8 Swordmaster 0x00 Level(2,Enemy,True) [5,20] [5,17] [Lancereaver] NoAI
+UNIT 0x90 Brigand 0x00 Level(17,Enemy,True) [5,20] [6,16] [ShortAxe] NoAI
+UNIT 0x90 Brigand 0x00 Level(17,Enemy,True) [5,20] [7,17] [IronAxe] NoAI
+UNIT 0x90 Brigand 0x00 Level(17,Enemy,True) [5,20] [8,18] [IronAxe] NoAI
+UNIT 0x90 Brigand 0x00 Level(17,Enemy,True) [5,20] [7,19] [SteelAxe] NoAI
+UNIT Empty
+
+Bandits3:
+UNIT 0xA0 Berserker 0x00 Level(3,Enemy,False) [0,5] [0,5] [BattleAxe] NoAI
+UNIT 0xC7 Myrmidon 0x00 Level(11,Enemy,True) [0,6] [0,6] [IronBlade] NoAI
+UNIT Empty
+
+Bandits4:
+UNIT 0x90 Brigand 0x00 Level(20,Enemy,True) [5,20] [6,18] [Halberd] NoAI
+UNIT 0xC8 Brigand 0x00 Level(16,Enemy,True) [5,20] [5,17] [QuickAxe] NoAI
+UNIT 0x90 Brigand 0x00 Level(19,Enemy,True) [5,20] [6,16] [HandAxe] NoAI
+UNIT 0x90 Brigand 0x00 Level(19,Enemy,True) [5,20] [7,17] [SteelAxe] NoAI
+UNIT 0x90 Brigand 0x00 Level(19,Enemy,True) [5,20] [8,18] [SteelAxe] NoAI
+UNIT 0x90 Brigand 0x00 Level(19,Enemy,True) [5,20] [7,19] [SteelAxe] NoAI
+UNIT Empty
+
+
+TurnEvents:
+TURN 0x00 OpeningEvent [01,00] 0x0 0x00
+TURN 0x00 TurnTwo [02,00] 0x8 0x00
+TURN 0x00 MasterTurnEvent [02,99] 0x0 0x00
+TURN 0x00 EndingEvent [02,99] 0x0 0x00
+TURN 0x00 TurnThree [04,00] 0x8 0x00
+TURN 0x00 TurnFive [06,00] 0x00 0x00
+TURN 0x00 TurnNine [09,00] 0x00 0x00
+
+TURN
+
+TalkEvents:
+CHAR 0x10 WilDan1 Wil Dan $00000000
+CHAR 0x10 WilDan1 Dan Wil $00000000
+CHAR 0x11 DanRebecca1 Rebecca Dan $00100003
+CHAR 0x11 DanRebecca1 Dan Rebecca $00100003
+CHAR 0x12 RebeccaWil1 Rebecca Wil $00110003
+CHAR 0x12 RebeccaWil1 Wil Rebecca $00110003
+CHAR 0x13 WilDan2 Wil Dan $00120003
+CHAR 0x13 WilDan2 Dan Wil $00120003
+CHAR 0x14 DanRebecca2 Rebecca Dan $00130003
+CHAR 0x14 DanRebecca2 Dan Rebecca $00130003
+CHAR 0x15 WilDan3 Wil Dan $00140003
+CHAR 0x15 WilDan3 Dan Wil $00140003
+CHAR 0x16 RebeccaWil2 Rebecca Wil $00150003
+CHAR 0x16 RebeccaWil2 Wil Rebecca $00150003
+CHAR 0x17 WilDan4 Wil Dan $00160003
+CHAR 0x17 WilDan4 Dan Wil $00160003
+CHAR 0x18 DanRebecca3 Rebecca Dan $00170003
+CHAR 0x18 DanRebecca3 Dan Rebecca $00170003
+CHAR 0x19 MarcusMerlinus Marcus Merlinus $00060003
+CHAR 0x19 MarcusMerlinus Merlinus Marcus $00060003
+CHAR 0x1A LowenMarcus Lowen Marcus $00060003
+CHAR 0x1A LowenMarcus Marcus Lowen $00060003
+CHAR
+
+LocationEvents:
+Village(0x0D,Village1,1,3)
+Village(0x0E,Village2,8,9)
+Village(0x0F,Village3,16,19)
+LOCA
+
+MiscEvents:
+AFEV 0 0xCA749C 0x65
+AFEV 0x07 CloseVillage 0x06
+AFEV 0x09 CloseVillage2 0x08
+AFEV 0x0B CloseVillage3 0x0A
+AFEV
+
+TerrainEvents:
+BLST
+ALIGN 4
+
+
+OpeningEvent:
+UNCR Lowen 04
+UNCR Marcus 04
+UNCR Rebecca 04
+UNCR Dorcas 04
+UNCR Dan 04
+MUS1 0x003D
+CAM1 [10,7]
+CMOF
+OOBB
+STAL 0x30
+LOU1 Eliwood3
+ENUN
+DISA 0xF4
+BecomeNPC(0xF4)
+CURF [13,9]
+FADI 10
+BACG 0x36
+FADU 10
+TEX1 0x0842
+FADI 10
+CMON
+LOU1 Eliwood1 Merlinus1
+ENUN
+LOMA 0x01 [15,5]
+CMOF
+MUS1 0x004C
+REMA
+FADU 10
+TEX1 0x0843
+REMA
+FADI 10
+BecomeNPC(Eliwood)
+BecomeNPC(0xEF)
+ClearAllUnits
+LOU1 Players1
+ENUN
+LOMA 0x0C [9,4]
+FADU 10
+MUS1 0x0033
+TEX1 0x0844
+REMA
+LOU1 Militia
+ENUN
+LOU1 RoyalKnights
+ENUN
+TEX1 0x0845
+REMA
+TEX1 0x0846
+REMA
+ENDA
+
+TurnTwo:
+MUS1 0x0026
+LOU1 DamasDaddy
+LOU1 Brandits
+ENUN
+TEX1 0x0854
+REMA
+MOVE [12,19] [11,20]
+ENUN
+DISA [11,20]
+ENDA
+
+TurnThree:
+MUS1 0x26
+LOU1 Bandits
+ENUN
+ENDA
+
+TurnFive:
+LOU1 Bandits3
+ENUN
+ENDA
+
+TurnNine:
+LOU1 Bandits4
+ENUN
+ENDA
+
+EndingEvent:
+IFET 0x01 0x22
+IFET 0x02 0x24
+IFET 0x03 0x26
+CAM1 Merlinus
+CURF Merlinus
+MUS1 0x0038
+TEX1 0x085F
+REMA
+STAL 0x20
+FADI 10
+BecomeNPC(Merlinus)
+BecomeNPC(Rebecca)
+BecomeNPC(Lowen)
+BecomeNPC(Dorcas)
+BecomeNPC(Wil)
+ClearAllUnits
+LOU1 EndingUnits
+ENUN
+LOMA 0x01 [15,5]
+CMOF
+FADU 10
+STAL 0x20
+LOU1 Eliwood2
+ENUN
+TEX1 0x860
+REMA
+BecomeNPC(Eliwood)
+BecomeNPC(Marcus)
+BecomeNPC(Dan)
+BecomeNPC(0xEF)
+ENUT Tale1xClear
+GotoTaleSelect
+ENIF 0x03
+ENIF 0x02
+ENIF 0x01
+ENDA
+
+
+//Villages
+
+Village1:
+IFET 0x04 0x22
+FADI 10
+BACG 0x02
+FADU 10
+IFCA 0x00 0x06 0x08 //If Dorcas visits the rebuilt village
+MUS2 0x0024
+TEX1 0x859
+ELSE 0x07
+ENIF 0x06
+TEX1 0x85A
+ENIF 0x07
+REMA
+MURE 0x05
+ELSE 0x05
+ENIF 0x04
+IFCA 0x00 0x08 Merlinus //Merlinus Visits, he delivers supplies
+MUS2 0x0081
+TEX8 0x0855 [70,50]
+STAL 0x70
+MURE 0x01
+RETB
+ENUT 0x21
+ENUF 0x35
+ENUT 0x06
+ELSE 0x09
+ENIF 0x08
+FADI 10
+BACG 0x09
+FADU 10
+TEX1 0x0858
+REMA
+ENUF 0x0D
+ENUT 0x06
+ENIF 0x09
+ENIF 0x05
+ENDA
+
+Village2:
+IFEF 0x0A 0x24 //If you visit ruined village
+IFCA 0x00 0x0C Merlinus //Merlinus Visits, he delivers supplies
+MUS2 0x0081
+TEX8 0x0855 [70,50]
+STAL 0x70
+MURE 0x01
+RETB
+ENUT 0x23
+ENUF 0x33
+ENUT 0x08
+ELSE 0x0D
+ENIF 0x0C
+FADI 10
+BACG 0x09
+FADU 10
+TEX1 0x0856
+REMA
+ENUF 0x33
+ENUT 0x08
+ENUF 0x0E
+ENIF 0x0D
+ELSE 0x0B //If you visit rebuilt village
+ENIF 0x0A
+FADI 10
+BACG 0x02
+FADU 10
+TEX1 0x857
+REMA
+ITGV Cutlass
+ENIF 0x0B
+ENDA
+
+Village3:
+IFET 0x0E 0x26
+FADI 10
+BACG 0x02
+FADU 10
+TEX1 0x085C
+REMA
+ELSE 0x0F
+ENIF 0x0E
+IFCA 0x00 0x10 Merlinus //Merlinus Visits, he delivers supplies
+MUS2 0x0081
+TEX8 0x0855 [70,50]
+STAL 0x70
+MURE 0x01
+RETB
+ENUT 0x25
+ENUF 0x37
+ENUT 0x0A
+ELSE 0x11
+ENIF 0x10
+FADI 10
+BACG 0x09
+FADU 10
+TEX1 0x085B
+REMA
+ENUF 0x0F
+ENUT 0x0A
+ENIF 0x11
+ENIF 0x0F
+ENDA
+
+MasterTurnEvent:
+MUS1 0x0006
+IFET 0x12 0x21 //First Village Rebuilding
+CAM1 [3,5]
+MAC1 0x00 0x00
+MAC1 0x01 0x00
+MAC1 0x02 0x00
+MAC1 0x03 0x00
+MAC1 0x04 0x00
+MAC1 0x05 0x00
+MAC1 0x06 0x00
+MAC1 0x07 0x00
+MAC1 0x08 0x00
+ENUT 0x22
+ENUF 0x21
+ENUF 0x0D
+ENIF 0x12
+IFET 0x13 0x23 //Second Village Rebuilding
+CAM1 [8,9]
+MAC1 0x09 0x00
+MAC1 0x0A 0x00
+MAC1 0x0B 0x00
+MAC1 0x0C 0x00
+MAC1 0x0D 0x00
+MAC1 0x0E 0x00
+MAC1 0x0F 0x00
+MAC1 0x10 0x00
+MAC1 0x11 0x00
+ENUT 0x24
+ENUF 0x23
+ENUF 0x0E
+ENIF 0x13
+IFET 0x14 0x25 //Third Village Rebuilding
+CAM1 [11,16]
+MAC1 0x12 0x00
+MAC1 0x13 0x00
+MAC1 0x14 0x00
+MAC1 0x15 0x00
+MAC1 0x16 0x00
+MAC1 0x17 0x00
+MAC1 0x18 0x00
+MAC1 0x19 0x00
+MAC1 0x1A 0x00
+ENUT 0x26
+ENUF 0x25
+ENUF 0x0F
+ENIF 0x14
+ENDA
+
+CloseVillage:
+MAC1 0x07 0x00
+ENUF 0x06
+ENDA
+
+CloseVillage2:
+MAC1 0x10 0x00
+ENUF 0x08
+ENDA
+
+CloseVillage3:
+MAC1 0x19 0x00
+ENUF 0x0A
+ENDA
+
+
+//Conversations
+
+WilDan1:
+TEX1 0x0847
+REMA
+ENDA
+
+DanRebecca1:
+TEX1 0x0848
+REMA
+ENDA
+
+RebeccaWil1:
+TEX1 0x0849
+REMA
+ENDA
+
+WilDan2:
+TEX1 0x084A
+REMA
+ENDA
+
+DanRebecca2:
+TEX1 0x084B
+REMA
+ENDA
+
+WilDan3:
+TEX1 0x084C
+REMA
+ENDA
+
+RebeccaWil2:
+TEX1 0x084D
+REMA
+ENDA
+
+WilDan4:
+TEX1 0x084E
+REMA
+ENDA
+
+DanRebecca3:
+TEX1 0x084F
+REMA
+IFEF 0x15 0x75
+ENUT BabyTalkToMe
+TEX6 0x5 [0,0] 0x850
+_ASM0x42 0x83181
+ENIF 0x15
+IFEF 0x16 0x79 
+IFET 0x17 0x88 //Fargus x Hector: Tale 3
+IFET 0x18 BabyTalkToMe
+TEX6 0x5 [0,0] 0xDE0
+REBB
+ENUT 0x79 //Unlocks "A Pirate's Life"
+ENIF 0x18
+ENIF 0x17
+ENIF 0x16
+ENDA
+
+LowenMarcus:
+MUS1 0x1F
+TEX1 0x0851
+MUS1 0x41
+MORETEXT 0x852
+REMA
+ENDA
+
+MarcusMerlinus:
+MUS2 0x004C
+TEX1 0x0853
+REMA
+MURE 0x05
+ENDA
+
+
+MESSAGE Tile changes begin at currentOffset
+
+TileChanges:
+TileMap(0x00,0x00,0x01,0x01,0x01,Village11) //First Village
+TileMap(0x01,0x01,0x01,0x01,0x01,Village12)
+TileMap(0x02,0x02,0x01,0x01,0x01,Village13)
+TileMap(0x03,0x00,0x02,0x01,0x01,Village14)
+TileMap(0x04,0x01,0x02,0x01,0x01,Village15)
+TileMap(0x05,0x02,0x02,0x01,0x01,Village16)
+TileMap(0x06,0x00,0x03,0x01,0x01,Village17)
+TileMap(0x07,0x01,0x03,0x01,0x01,Village18)
+TileMap(0x08,0x02,0x03,0x01,0x01,Village19)
+TileMap(0x09,0x07,0x07,0x01,0x01,Village11) //Second Village
+TileMap(0x0A,0x08,0x07,0x01,0x01,Village12)
+TileMap(0x0B,0x09,0x07,0x01,0x01,Village13)
+TileMap(0x0C,0x07,0x08,0x01,0x01,Village14)
+TileMap(0x0D,0x08,0x08,0x01,0x01,Village15)
+TileMap(0x0E,0x09,0x08,0x01,0x01,Village16)
+TileMap(0x0F,0x07,0x09,0x01,0x01,Village17)
+TileMap(0x10,0x08,0x09,0x01,0x01,Village20)
+TileMap(0x11,0x09,0x09,0x01,0x01,Village19)
+TileMap(0x12,0x0F,0x11,0x01,0x01,Village11) //Third Village
+TileMap(0x13,0x10,0x11,0x01,0x01,Village12)
+TileMap(0x14,0x11,0x11,0x01,0x01,Village13)
+TileMap(0x15,0x0F,0x12,0x01,0x01,Village14)
+TileMap(0x16,0x10,0x12,0x01,0x01,Village15)
+TileMap(0x17,0x11,0x12,0x01,0x01,Village16)
+TileMap(0x18,0x0F,0x13,0x01,0x01,Village17)
+TileMap(0x19,0x10,0x13,0x01,0x01,Village20)
+TileMap(0x1A,0x11,0x13,0x01,0x01,Village19)
+TileMap(0x1B,0x01,0x03,0x01,0x01,VillageClose)
+TileMap(0x1C,0x08,0x09,0x01,0x01,VillageClose2)
+TileMap(0x1D,0x10,0x13,0x01,0x01,VillageClose2)
+TileMapEnd
+
+Village11:
+BYTE 0x9C 
+BYTE 0x0C 
+
+Village12:
+BYTE 0xA0
+BYTE 0x0C 
+
+Village13:
+BYTE 0xA4
+BYTE 0x0C 
+
+Village14:
+BYTE 0x1C
+BYTE 0x0D 
+
+Village15:
+BYTE 0x20
+BYTE 0x0D 
+
+Village16:
+BYTE 0x24
+BYTE 0x0D 
+
+Village17:
+BYTE 0x9C
+BYTE 0x0D 
+
+Village18:
+BYTE 0xA8
+BYTE 0x0D 
+
+Village19:
+BYTE 0xA4
+BYTE 0x0D
+
+Village20:
+BYTE 0xA0
+BYTE 0x0D
+
+VillageClose:
+BYTE 0x28
+BYTE 0x0E
+
+VillageClose2:
+SHORT 0x80
+
+MESSAGE Events end at offset currentOffset

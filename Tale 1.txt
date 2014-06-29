@@ -1,0 +1,516 @@
+
+#include "EAstdlib.event"
+#include "BSFE7 definitions.txt"
+
+
+EventPointerTable(0x09,ThisChapter)
+EventPointerTable(0x0E,TileChanges)
+
+ORG 0xD80420
+ThisChapter:
+
+POIN Turn_events Character_events Location_events Misc_events
+POIN Ballista_filler Ballista_filler
+POIN Bandits Bandits Bandits Bandits 
+POIN Knights Knights Knights Knights 
+POIN Opening_event EndingEvent
+
+
+
+FirstBatch:
+UNIT Eliwood EliwoodLord 0x00 Level(6,Ally,False) [14,5] [14,5] [SilverRapier,SilverSword,ChestKey,Elixir] NoAI
+UNIT Ninian Dancer 0x00 Level(2,Ally,False) [14,6] [14,6] [Elixir] NoAI
+UNIT Marcus Paladin 0x00 Level(8,Ally,False) [14,16] [14,16] [SilverLance,SteelSword,Javelin] NoAI
+UNIT Natalie_EN Valkyrie_b 0x00 Level(3,Ally,False) [15,16] [15,16] [Physic,Heal,Tonic] NoAI
+UNIT Empty
+
+Isadora1:
+UNIT Isadora Paladin_F Eliwood Level(6,Ally,False) [22,16] [14,18] [SilverSword,ShortSpear,Elixir] NoAI
+UNIT Empty
+
+Knights:
+UNIT Rebecca Sniper_F Eliwood Level(5,Ally,False) [14,17] [16,7] [SilverBow,Longbow,Tonic] NoAI
+UNIT Lowen GreatKnight Eliwood Level(6,Ally,False) [13,17] [15,9] [SteelAxe,SteelBlade] NoAI
+UNIT Harken Hero Eliwood Level(8,Ally,False) [15,17] [12,7] [BraveSword,ShortAxe,Tonic] NoAI
+UNIT Empty
+
+Reinforcements1:
+UNIT 0xA0 Berserker 0x00 Level(4,Enemy,False) [7,27] [7,25] [SteelAxe] NoAI
+UNIT Empty
+
+Reinforcements2:
+UNIT 0xA0 Berserker 0x00 Level(4,Enemy,False) [21,27] [21,25] [Swordreaver] NoAI
+UNIT Empty
+
+Bosses:
+UNIT Onslow Rogue 0x00 Level(20,Enemy,True) [14,25] [14,25] [Shamshir] AttackInRange
+UNIT Warner Berserker 0x00 Level(12,Enemy,False) [13,25] [13,25] [BraveAxe,Swordreaver] AttackInRange
+UNIT Empty
+
+Bandits:
+UNIT 0xC7 Shaman 0x00 Level(18,Enemy,True) [19,18] [19,18] [Flux] NoAI
+UNIT 0x90 Fighter 0x00 Level(14,Enemy,True) [23,15] [23,13] [HandAxe] AttackInRange
+UNIT 0x90 Brigand 0x00 Level(14,Enemy,True) [22,27] [22,26] [SteelAxe] NoAI
+UNIT 0x90 Brigand 0x00 Level(14,Enemy,True) [4,13] [8,16] [Swordreaver] NoAI
+UNIT 0xC7 Myrmidon 0x00 Level(14,Enemy,True) [11,18] [11,18] [Lancereaver] NoAI
+UNIT 0xC7 Myrmidon 0x00 Level(19,Enemy,True) [23,21] [23,21] [Runesword] AttackInRange
+UNIT 0x90 Brigand 0x00 Level(14,Enemy,True) [24,11] [24,11] [DevilAxe] NoAI
+UNIT 0x90 Fighter 0x00 Level(14,Enemy,True) [20,18] [15,18] [SteelAxe] NoAI
+UNIT 0x90 Brigand 0x00 Level(14,Enemy,True) [13,17] [13,17] [PoisonAxe] NoAI
+UNIT 0xC6 Warrior 0x00 Level(2,Enemy,True) [0,18] [0,18] [SteelBow,SteelAxe] NoAI
+UNIT 0x90 Brigand 0x00 Level(16,Enemy,True) [1,18] [1,17] [SteelAxe] NoAI
+UNIT 0x90 Brigand 0x00 Level(16,Enemy,True) [1,18] [1,17] [PoisonAxe] NoAI
+UNIT 0x90 Brigand 0x00 Level(20,Enemy,True) [5,21] [5,21] [SilverAxe] AttackInRange
+UNIT 0x90 Brigand 0x00 Level(20,Enemy,True) [4,22] [4,22] [SilverAxe] AttackInRange
+UNIT 0x90 Brigand 0x00 Level(20,Enemy,True) [27,18] [27,18] [SilverAxe] AttackInRange
+UNIT 0x90 Brigand 0x00 Level(20,Enemy,True) [28,19] [28,19] [SilverAxe] AttackInRange
+UNIT 0xC6 Warrior 0x00 Level(3,Enemy,True) [5,8] [5,8] [KillerAxe] AttackInRange
+UNIT 0xC7 Shaman 0x00 Level(18,Enemy,True) [2,14] [2,11] [Luna] NoAI
+UNIT 0xC7 Shaman 0x00 Level(18,Enemy,True) [3,19] [3,19] [Eclipse,Flux] AttackInRange
+UNIT 0xC7 Myrmidon 0x00 Level(16,Enemy,True) [4,12] [4,12] [SilverRapier] NoAI
+UNIT 0xC6 Warrior 0x00 Level(3,Enemy,True) [22,2] [21,5] [Longbow] NoAI
+UNIT 0x90 Brigand 0x00 Level(18,Enemy,True) [23,8] [23,8] [BattleAxe] NoAI
+UNIT 0xC7 Myrmidon 0x00 Level(16,Enemy,True) [24,9] [24,9] [SteelBlade] NoAI
+UNIT 0xC7 Druid 0x00 Level(7,Enemy,True) [7,24] [7,24] [Nosferatu,Physic] AttackInRange
+UNIT 0xC7 Druid 0x00 Level(7,Enemy,True) [21,24] [21,24] [Nosferatu,Physic] AttackInRange
+UNIT 0xC8 Swordmaster 0x00 Level(4,Enemy,True) [1,14] [1,14] [VeninEdge] AttackInRange
+UNIT 0xC8 Swordmaster 0x00 Level(4,Enemy,True) [23,11] [23,11] [SteelSword] NoAI
+UNIT 0xC8 Swordmaster 0x00 Level(4,Enemy,True) [3,2] [3,2] [Longsword] NoAI
+UNIT 0x90 Fighter 0x00 Level(16,Enemy,True) [6,3] [6,3] [Tomahawk] AttackInRange
+UNIT 0x90 Brigand 0x00 Level(17,Enemy,True) [7,4] [7,4] [SteelAxe] AttackInRange
+UNIT 0x90 Fighter 0x00 Level(16,Enemy,True) [6,6] [6,6] [SteelAxe] NoAI
+UNIT 0x90 Brigand 0x00 Level(14,Enemy,True) [5,10] [5,10] [PoisonAxe] NoAI
+UNIT 0x90 Fighter 0x00 Level(13,Enemy,True) [14,16] [15,13] [ShortAxe] NoAI
+UNIT 0xA0 Berserker 0x00 Level(7,Enemy,False) [28,13] [28,13] [QuickAxe] AttackInRange
+UNIT 0xC7 Druid 0x00 Level(3,Enemy,True) [26,3] [26,3] [Worm,Heal] AttackInRange
+UNIT Empty
+
+BranditRogues:
+UNIT 0x91 Rogue 0x00 Level(12,Enemy,True) [15,27] [15,26] [SteelSword,LockPick] StealFromChests
+UNIT 0xE8 Rogue 0x00 Level(12,Enemy,True) [13,27] [13,26] [SteelSword,LockPick] StealFromChests
+UNIT Empty
+
+SecondBatch:
+UNIT Eliwood EliwoodLord 0x00 Level(6,Ally,False) [12,3] [12,3] [SilverSword,Rapier,ChestKey,Elixir] NoAI
+UNIT Ninian Dancer 0x00 Level(2,Ally,False) [15,11] [15,11] [NinissGrace,Heal,DoorKey,Elixir] NoAI
+UNIT Natalie_EN Bishop_F 0x00 Level(3,Ally,False) [15,12] [15,12] [Physic,Recover] NoAI
+UNIT Empty
+
+ThirdBatch:
+UNIT Eliwood EliwoodLord 0x00 Level(6,Ally,False) [14,5] [14,5] [SilverSword,Rapier,ChestKey,Elixir] NoAI
+UNIT Marcus Paladin 0x00 Level(1,Ally,False) [14,6] [14,6] [Elixir] NoAI
+UNIT Empty
+
+
+Turn_events:
+//TURN 0x00 Opening_event [01,00] 0x0 0x00
+TURN 0x00 StaircaseCheckEnd [01,255] 0x8 0x00
+TURN 0x00 StaircaseUnitREPA [01,255] 0x0 0x00
+TURN 0x00 RogueDisappear [01,255] 0x8 0x00
+TURN 0x00 TurnThree [03,00] 0x8 0x00
+TURN 0x00 ReinfocementsCome [07,09] 0x8 0x00
+TURN 0x00 ReinfocementsCome [11,00] 0x8 0x00
+TURN 0x00 ReinfocementsCome [13,00] 0x8 0x00
+TURN 0x00 ReinfocementsCome [15,17] 0x8 0x00
+TURN 0x00 Warning [06,00] 0x8 0x00
+TURN 0x00 EnemyOpening [01,00] 0x8 0x00
+TURN
+
+Character_events:
+CHAR 0x0A HarkenIsadora Harken Isadora $00000000
+CHAR 0x0A HarkenIsadora Isadora Harken $00000000
+CHAR 0x0B LowenMarcus Lowen Marcus $00000000
+CHAR 0x0B LowenMarcus Marcus Lowen $00000000
+CHAR 0x0C NatalieEliwood Eliwood Natalie_EN $00000000
+CHAR 0x0C NatalieEliwood Natalie_EN Eliwood $00000000
+CHAR 0x0D LowenRebecca Lowen Rebecca $00000000
+CHAR 0x0D LowenRebecca Rebecca Lowen $00000000
+CHAR 0x0E NinianNatalie Ninian Natalie_EN 0x110003
+CHAR 0x0E NinianNatalie Natalie_EN Ninian 0x110003
+CHAR 0x1A EliwoodMarcus Marcus Eliwood $00000000
+CHAR
+
+Location_events:
+CHES 0x0F Lobera [14,20] 0x12
+CHES 0x10 IronRune [3,2] 0x12
+CHES 0x11 NinissGrace [10,6] 0x12
+CHES 0x12 Boots [18,6] 0x12
+CHES 0x13 Elixir [25,2] 0x12
+LOCA
+
+Misc_events:
+CauseGameOverIfLordDies
+DefeatAll(EndingEvent)
+AFEV 0x14 ElbertsSword 0x0F
+AFEV 0x15 RoguesDisappear 0x10
+AFEV 0x16 RoguesDisappear 0x11
+AFEV 0x17 RoguesDisappear 0x12
+AFEV 0x18 RoguesDisappear 0x13
+AREA 0x19 KingswordHiding [14,5] [14,5]
+AREA 0x1D StairTutorial [0,0] [5,6]
+AREA 0x1D StairTutorial2 [23,0] [28,6]
+AREA 0x21 StaircaseLeft [1,6] [1,6]
+AREA 0x22 StaircaseRight [27,6] [27,6]
+AFEV
+
+
+Ballista_filler:
+BLST
+ALIGN 4
+
+
+Opening_event:
+CMOF
+LOU1 FirstBatch
+ENUN
+CAM1 [14,5]
+MUS1 0x003A
+OOBB
+TEX1 0x0826
+REMA
+MUEN 0x05
+CAM1 Marcus
+CURF Marcus
+MUS1 0x0058
+TEX1 0x0827
+REMA
+MOVE Ninian [14,15]
+ENUN
+TEX1 0x0828
+REMA
+CAM1 [14,5]
+MUS1 0x005D
+TEX1 0x0829
+REMA
+MUEN 0x05
+CAM1 Marcus
+TEX1 0x082A
+REBU
+LOU1 Isadora1
+ENUN
+MUS1 0x32
+SCRO
+REMA
+CMON
+MOVE Ninian [15,6]
+MOVE Marcus [14,7]
+MOVE Natalie_EN [13,6]
+MOVE Isadora [13,9]
+ENUN
+CAM1 Eliwood
+CMOF
+TEX1 0x082C
+REMA
+LOU1 Knights
+ENUN
+TEX1 0x082D
+REMA
+LOU1 Bosses
+ENUN
+LOU1 Bandits
+ENUN
+ENDB
+
+EnemyOpening:
+MUS1 0x0C
+CAM1 Warner
+CURF Onslow
+TEX1 0x082E
+REMA
+ENDA
+
+EndingEvent:
+IFEF 0x01 Tale1Clear
+TEX6 0x5 [0,0] 0xDE0
+REBB
+ENIF 0x01
+IFEF 0x02 Dastards
+IFTU 0x03 15
+TEX6 0x5 [0,0] 0x83A
+REBB
+ENUT Dastards
+ENIF 0x03
+ENIF 0x02
+CAM1 Eliwood
+CURF Eliwood
+MUS1 0x0038
+TEX1 0x0839
+REMA
+FADI 10
+ClearAllUnits
+CMOF
+LOU1 ThirdBatch
+ENUN
+CAM1 Eliwood
+FADU 10
+MUS1 0x0038
+TEX1 0x083B
+REMA
+FADI 10
+ClearAllUnits
+BACG 0x12
+FADU 10
+MUS1 0x006A
+TEX1 0x083C
+MORETEXT 0x83D
+MUS1 0x004B
+MORETEXT 0x83E
+REMA
+STAL 0x20
+FADI 10
+CAM1 [12,5]
+BACG 0x1A
+ClearAllUnits
+FADU 10
+MUS1 0x003A
+TEX1 0x83F
+REMA
+ENUT Tale1Clear
+IFET 0x04 0x23
+IFET 0x05 0x0E
+IFEF 0x05 Tale1xUnlock
+ENUT Tale1xUnlock
+TEX6 0x5 [0,0] 0xDE1
+REBB
+ENIF 0x06
+ENIF 0x05
+ENIF 0x04
+IFET 0x07 Tale1xUnlock
+FADI 5
+BACG 0x5B
+FADU 5
+TEX6 0x5 [0,0] 0x96C
+_ASM0x42 0x83181
+IFYN 0x08
+BecomeNPC(Ninian)
+BecomeNPC(Eliwood)
+BecomeNPC(Harken)
+BecomeNPC(Isadora)
+ASMC 0xDE0091
+MNCH 0x0C
+ELSE 0x09
+ENIF 0x08
+BecomeNPC(Ninian)
+BecomeNPC(Eliwood)
+BecomeNPC(Natalie_EN)
+BecomeNPC(Harken)
+BecomeNPC(Isadora)
+BecomeNPC(Lowen)
+BecomeNPC(Marcus)
+BecomeNPC(Rebecca)
+GotoTaleSelect
+ENIF 0x09
+ELSE 0x0A
+ENIF 0x07
+BecomeNPC(Ninian)
+BecomeNPC(Eliwood)
+BecomeNPC(Natalie_EN)
+BecomeNPC(Harken)
+BecomeNPC(Isadora)
+BecomeNPC(Lowen)
+BecomeNPC(Marcus)
+BecomeNPC(Rebecca)
+GotoTaleSelect
+ENIF 0x0A
+ENDA
+
+LowenMarcus:
+MUS2 AKnightsOath
+TEX1 0x0834
+REMA
+MURE 0x05
+ENDA
+
+HarkenIsadora:
+MUS2 0x24
+TEX1 0x0835
+REMA
+ITGC Isadora LadySword
+MURE 0x02
+ENDA
+
+LowenRebecca:
+MUS2 0x004F
+TEX1 0x0836
+REMA
+MURE 0x05
+ENDA
+
+NinianNatalie:
+MUS2 0x003A
+TEX1 0x0837
+REMA
+MURE 0x05
+ENDA
+
+NatalieEliwood:
+MUS2 0x51
+TEX1 0x0838
+REMA
+ITGC Natalie_EN Lightning
+MURE 0x05
+ENDA
+
+EliwoodMarcus:
+MUS2 0x43
+TEX1 0x082B
+REMA
+ITGC Marcus Espontoon
+MURE 0x05
+ENDA
+
+TurnThree:
+MUS1 0x0C
+LOU1 BranditRogues
+ENUN
+ENDA
+
+ReinfocementsCome:
+MUS1 0x0C
+LOU1 Reinforcements1
+LOU1 Reinforcements2
+ENUN
+ENDA
+
+Warning:
+MUS1 0x0C
+CAM1 Onslow
+CURF Onslow
+TEX1 0x0830
+REMA
+MOVE Onslow [14,27]
+ENUN
+DISA Onslow
+CURF Batta
+TEX1 0x0833
+REMA
+ENDA
+
+KingswordHiding:
+IFCA 0x00 0x0B Eliwood
+ITGV Kingsword
+ENIF 0x0B
+ENDA
+
+ElbertsSword:
+IFCA 0x00 0x0C Eliwood
+MUSI
+TEX1 0x082F
+REMA
+MUNO
+ENUT 0x23
+ENIF 0x0C
+IFCA 0x00 0x0D 0x91
+ENUT 0x31
+ENIF 0x0D
+IFCA 0x00 0x0E 0xE8
+ENUT 0x32
+ENIF 0x0E
+ENDA
+ENDA
+
+StairTutorial:
+IFAF 0x0F 0x7A2F1
+TEX1 0x98F
+REMA
+CURF [1,6]
+STAL 0x40
+TEX6 0x5 [0,0] 0x990
+REBB
+ELSE 0x10
+ENIF 0x0F
+ENUF 0x20
+ENIF 0x10
+ENDA
+
+StairTutorial2:
+IFAF 0x11 0x7A2F1
+TEX1 0x98F
+REMA
+CURF [27,6]
+STAL 0x40
+TEX6 0x5 [0,0] 0x990
+REBB
+ELSE 0x12
+ENIF 0x11
+ENUF 0x20
+ENIF 0x12
+ENDA
+
+#define EliwoodLeft 0x1B
+#define EliwoodRight 0x1C
+
+StaircaseLeft:
+ENUT EliwoodLeft
+ENDA
+
+StaircaseRight:
+ENUT EliwoodRight
+ENDA
+
+StaircaseCheckEnd:
+IFET 0x13 EliwoodLeft
+REPOS [1,6] [29,0]
+ENIF 0x13
+IFET 0x14 EliwoodRight
+REPOS [27,6] [29,1]
+ENIF 0x14
+ENDA
+
+StaircaseUnitREPA:
+ENUF 0x21
+IFET 0x15 EliwoodLeft
+MOVE [27,6] [27,7]
+ENUN
+REPOS [29,0] [27,6]
+STAL 0x10
+CAM1 [21,6]
+ENUF EliwoodLeft
+ENIF 0x15
+IFET 0x16 EliwoodRight
+MOVE [1,6] [1,7]
+ENUN
+REPOS [29,1] [1,6]
+STAL 0x10
+CAM1 [1,6]
+ENUF EliwoodRight
+ENIF 0x16
+ENDA
+
+RogueDisappear:
+IFET 0x17 0x31
+CAM1 0x91
+UnitFlash(0x91,5)
+DISA 0x91
+ENIF 0x17
+IFET 0x18 0x31
+CAM1 0xE8
+UnitFlash(0xE8,5)
+DISA 0xE8
+ENIF 0x18
+ENDA
+
+RoguesDisappear:
+IFCA 0x00 0x19 0x91
+ENUT 0x31
+ENIF 0x19
+IFCA 0x00 0x1A 0xE8
+ENUT 0x32
+ENIF 0x1A
+ENDA
+
+MESSAGE Tile changes begin at currentOffset
+
+
+TileChanges:
+TileMap(0x00,0x0A,0x06,0x01,0x01,ChestOpened)
+TileMap(0x01,0x12,0x06,0x01,0x01,ChestOpened)
+TileMap(0x02,0x19,0x02,0x01,0x01,ChestOpened)
+TileMap(0x03,0x03,0x02,0x01,0x01,ChestOpened)
+TileMap(0x04,0x0E,0x14,0x01,0x01,ChestOpened)
+TileMapEnd
+
+ChestOpened:
+SHORT 0x04 0x00
+
+MESSAGE Chapter ends at offset currentOffset
