@@ -1,0 +1,1194 @@
+//For assembling as separate chapter
+#define DISABLE_TUTORIALS
+#include "EAstdlib.event"
+#include "BSFE7 definitions.txt"
+
+EventPointerTable(0x36,TaleSelects)
+
+ORG 0xDD0000
+TaleSelects:
+
+POIN TaleTurns TaleTalks LocationEvents MiscEvents
+POIN Ballista_filler Ballista_filler
+POIN Default Default Default Default
+POIN Me Me Me Me
+POIN OpeningEvent EndingEvent
+
+
+Me:
+UNIT 0x56 Prince 0x00 Level(1,Ally,False) [7,11] [7,11] [NoItems] NoAI
+UNIT Empty
+
+MeGirl:
+UNIT 0x56 Queen 0x00 Level(1,Ally,False) [7,11] [7,11] [NoItems] NoAI
+UNIT Empty
+
+Default:
+UNIT Eliwood EliwoodLord 0x00 Level(6,NPC,False) [7,9] [7,9] [0xA0,ChestKey,Elixir] GuardTile
+UNIT Lyn BladeLord 0x00 Level(6,NPC,False) [5,10] [5,10] [SolKatti,ManiKatti,ShortBow,Vulnerary] GuardTile
+UNIT Hector GreatLord 0x00 Level(8,NPC,False) [9,10] [9,10] [SilverSword,Tomahawk,Elixir] GuardTile
+UNIT Pent Sage 0x00 Level(14,NPC,False) [4,11] [4,11] [Forblaze,Shine,Elixir] GuardTile
+UNIT Raven Hero 0x00 Level(10,NPC,False) [10,11] [10,11] [SteelBlade,SteelSword,IronRune,Tonic] GuardTile
+UNIT Karel Swordmaster 0x00 Level(17,NPC,False) [5,12] [5,12] [WoDao,Elixir,IronRune] GuardTile
+UNIT Zealot Halberdier 0x00 Level(4,NPC,False) [9,12] [9,12] [Partisan,SteelLance,Elixir] GuardTile
+UNIT Legault Assassin 0x00 Level(11,NPC,False) [7,13] [7,13] [RegalBlade,Lancereaver] GuardTile
+UNIT Empty
+
+Storytellers:
+UNIT Pascal Paladin 0x00 Level(1,Enemy,False) [8,18] [8,18] [0x00] GuardTile
+UNIT Kenneth Sniper 0x00 Level(1,Enemy,False) [6,18] [6,18] [NoItems] GuardTile
+UNIT
+
+Merlinus1:
+UNIT Merlinus TransporterHorse 0x00 Level(1,NPC,False) [3,9] [3,9] [Elixir] GuardTile
+UNIT Empty
+
+Merlinus2:
+UNIT Merlinus TransporterHorse 0x00 Level(1,Ally,False) [19,7] [19,7] [Elixir] GuardTile
+UNIT Empty
+
+Rath1:
+UNIT Rath NomadTrooper 0x00 Level(9,NPC,False) [3,13] [3,13] [KillerBow,SteelSword,Vulnerary] GuardTile
+UNIT Empty
+
+Kent1:
+UNIT Kent Paladin 0x00 Level(8,NPC,False) [11,13] [11,13] [SilverSword,ShortSpear,Elixir] GuardTile
+UNIT Empty
+
+Douglas1:
+UNIT 0x39 Sniper_F 0x00 Level(8,NPC,False) [11,9] [11,9] [SilverBow,BraveBow,Elixir] GuardTile
+UNIT
+
+//UNIT Douglas General 0x00 Level(11,NPC,False) [11,9] [11,9] [SilverSpear,SilverAxe,Vulnerary] GuardTile
+
+
+Athos1:
+UNIT 0x42 0x4A 0x00 Level(20,NPC,False) [7,16] [7,16] [Forblaze,Luce,Gespenst] GuardTile
+UNIT Empty
+
+Rearrange:
+UNIT Zephiel Emperor 0x00 Level(20,NPC,False) [7,9] [7,9] [0x9B,Elixir] GuardTile
+UNIT Eliwood EliwoodLord 0x00 Level(6,NPC,False) [5,10] [5,10] [Lobera,0xA0,Elixir] GuardTile
+UNIT Lyn BladeLord 0x00 Level(6,NPC,False) [9,10] [9,10] [SolKatti,ManiKatti,ShortBow,Vulnerary] GuardTile
+UNIT Hector GreatLord 0x00 Level(8,NPC,False) [4,11] [4,11] [WolfBeil,Tomahawk,SilverSword,Elixir] GuardTile
+UNIT Pent Sage 0x00 Level(14,NPC,False) [10,11] [10,11] [Forblaze,Shine,Elixir] GuardTile
+UNIT Raven Hero 0x00 Level(10,NPC,False) [5,12] [5,12] [Berveil,SteelBlade,Elixir] GuardTile
+UNIT Karel Swordmaster 0x00 Level(17,NPC,False) [9,12] [9,12] [WoDao,Elixir] GuardTile
+UNIT Zealot Halberdier 0x00 Level(7,NPC,False) [6,13] [6,13] [Partisan,SilverLance,Elixir] GuardTile
+UNIT Legault Assassin 0x00 Level(11,NPC,False) [8,13] [8,13] [RegalBlade,Lancereaver] GuardTile
+UNIT Empty
+
+TaleTurns:
+TURN 0x00 OpeningEvent [01,00] 0x0 0x00
+TURN 0x00 Cursor [01,255] 0x0 0x00
+TURN 0x00 Cursor [01,255] 0x8 0x00
+TURN 0x00 SkipEnemy [01,255] 0x8 0x00
+TURN
+
+TaleTalks:
+CHAR 0x06 MeEliwood 0x56 Eliwood $00000000
+CHAR 0x07 MeLyn 0x56 Lyn $00000000
+CHAR 0x08 MeHector 0x56 Hector $00000000
+CHAR 0x09 MePent 0x56 Pent $00000000
+CHAR 0x0A MeRaven 0x56 Raven $00000000
+CHAR 0x0B MeKarel 0x56 Karel $00000000
+CHAR 0x0C MeZealot 0x56 Zealot $00000000
+CHAR 0x0D MeLegault 0x56 Legault $00000000
+CHAR 0x0E MeZephiel 0x56 Zephiel $00000000
+CHAR 0x0F MeMerlinus 0x56 Merlinus $00000000
+CHAR 0x10 MeRath 0x56 Rath $00000000
+CHAR 0x10 MeKent 0x56 Kent $00000000
+CHAR 0x11 MeDouglas 0x56 0x39 $00000000
+CHAR 0x14 MeDane 0x56 Kenneth $00000000
+CHAR 0x15 MeDane2 0x56 Kenneth $00140003
+CHAR 0x26 MeJacob 0x56 Pascal $00000000
+CHAR 0x27 MeJacob2 0x56 Pascal $00260003
+CHAR 
+
+
+LocationEvents:
+SHOP 0x16 SecretShop [7,9] 0x15
+LOCA
+
+
+MiscEvents:
+CauseGameOverIfLordDies
+AREA 0x00 DifficultyToggle [7,11] [7,11]
+AFEV
+
+
+Ballista_filler:
+BLST
+ALIGN 4
+
+
+SkipEnemy:
+ASMC 0xDE0001
+ENDA
+
+OpeningEvent:
+IFET 0x03 0x9C
+ENUF 0x9C
+ENIF 0x03
+IFAF 0x01 0xE01471
+LOU1 Me
+ELSE 0x02
+ENIF 0x01
+LOU1 MeGirl
+ENIF 0x02
+ASMC 0xDE0011
+CALL TaleSelect
+OOBB
+ENDA
+
+TaleSelect:
+CMOF
+IFEF 0x04 Tale1Clear //Normal Tale Select
+IFEF 0x05 Tale2Clear
+IFEF 0x06 Tale3Clear
+IFEF 0x07 Tale4Clear
+IFEF 0x08 Tale5Clear
+IFEF 0x09 Tale6Clear
+IFEF 0x0A Tale7Clear
+IFEF 0x0B Tale8Clear
+LOU1 Default
+ELSE 0x0C  //Complete Tale Select (post-Tale 8)
+ENIF 0x0B
+ENIF 0x0A
+ENIF 0x09
+ENIF 0x08
+ENIF 0x07
+ENIF 0x06
+ENIF 0x05
+ENIF 0x04
+LOU1 Rearrange
+ENIF 0x0C
+//IFET 0x44 Tale1Clear
+ENUT Tale1xUnlock
+ENUT Tale2xaUnlock
+ENUT Tale2xbUnlock
+ENUT Tale4xUnlock
+LOU1 Merlinus1
+ENIF 0x44
+//IFET 0x45 Tale2Clear
+LOU1 Rath1
+LOU1 Kent1
+ENIF 0x45
+//IFET 0x46 Tale4Clear
+LOU1 Douglas1
+ENIF 0x46
+LOU1 Storytellers
+CAM1 0x56
+ENDA
+
+
+Cursor:
+IFEF 0x0D 0x92
+TEX6 0x5 [0,0] 0x815
+_ASM0x42 0x83181
+ENUT 0x92
+ENIF 0x0D
+CAM1 0x56
+IFEF 0x0E Tale1xUnlock
+UNCM Merlinus 10b
+ENIF 0x0E
+IFEF 0x0F Tale2xaUnlock
+UNCM Rath 10b
+ENIF 0x0F
+IFEF 0x10 Tale2xbUnlock
+UNCM Kent 10b
+ENIF 0x10
+IFEF 0x11 Tale4xUnlock
+UNCM 0x39 10b
+ENIF 0x11
+ENDA
+
+EndingEvent:
+ENDA
+
+MeEliwood:
+TEX1 0x816
+IFYN 0x12
+BecomeNPC(0x56)
+ASMC 0xDE0011
+MNCH 0x01
+ELSE 0x13
+ENIF 0x12
+ENUF 0x06
+ENIF 0x13
+ENDA
+
+MeLyn:
+TEX1 0x817
+IFYN 0x14
+BecomeNPC(0x56)
+ASMC 0xDE0011
+MNCH 0x02
+ELSE 0x15
+ENIF 0x14
+ENUF 0x07
+ENIF 0x15
+ENDA
+
+MeHector:
+TEX1 0x818
+IFYN 0x16
+BecomeNPC(0x56)
+ASMC 0xDE0011
+ASMC 0xBE2571
+MNCH 0x03
+ELSE 0x17
+ENIF 0x16
+ENUF 0x08
+ENIF 0x17
+ENDA
+
+MePent:
+TEX1 0x819
+IFYN 0x18
+BecomeNPC(0x56)
+ASMC 0xDE0011
+MNCH 0x04
+ELSE 0x19
+ENIF 0x18
+ENUF 0x09
+ENIF 0x19
+ENDA
+
+MeRaven:
+TEX1 0x81A
+IFYN 0x1A
+BecomeNPC(0x56)
+ASMC 0xDE0011
+ASMC 0xBE2591
+MNCH 0x05
+ELSE 0x1B
+ENIF 0x1A
+ENUF 0x0A
+ENIF 0x1B
+ENDA
+
+MeKarel:
+TEX1 0x81B
+IFYN 0x1C
+BecomeNPC(0x56)
+ASMC 0xDE0011
+MNCH 0x06
+ELSE 0x1D
+ENIF 0x1C
+ENUF 0x0B
+ENIF 0x1D
+ENDA
+
+MeZealot:
+TEX1 0x820
+IFYN 0x1E
+BecomeNPC(0x56)
+ASMC 0xDE0011
+MNCH 0x07
+ELSE 0x1F
+ENIF 0x1E
+ENUF 0x0C
+ENIF 0x1F
+ENDA
+
+MeLegault:
+TEX1 0x821
+IFYN 0x20
+BecomeNPC(0x56)
+ASMC 0xDE0011
+MNCH 0x08
+ELSE 0x21
+ENIF 0x20
+ENUF 0x0D
+ENIF 0x21
+ENDA
+
+MeZephiel:
+TEX1 0x822
+IFYN 0x22
+BecomeNPC(0x56)
+ASMC 0xDE0011
+MNCH 0x2B
+ELSE 0x23
+ENIF 0x22
+ENUF 0x0E
+ENIF 0x23
+ENDA
+
+MeMerlinus:
+IFET 0x24 Tale1xUnlock
+TEX1 0x823
+IFYN 0x26
+BecomeNPC(0x56)
+ASMC 0xDE0011
+MNCH 0x0C
+ELSE 0x27
+ENIF 0x26
+ENUF 0x0F
+ENIF 0x27
+
+ELSE 0x25
+ENIF 0x24
+TEX1 0xAEF
+IFYN 0x28
+MORETEXT 0xAF0
+REMA
+ENUF 0x0F
+ELSE 0x29
+ENIF 0x28
+REMA
+ENUF 0x0F
+ENIF 0x29
+ENIF 0x25
+ENDA
+
+MeRath:
+IFET 0x2A Tale2xaUnlock
+TEX1 0x824
+
+IFYN 0x2C
+BecomeNPC(0x56)
+ASMC 0xDE0011
+MNCH 0x0D
+ELSE 0x2D
+ENIF 0x2C
+ENUF 0x10
+ENIF 0x2D
+
+ELSE 0x2B
+ENIF 0x2A
+
+TEX1 0xAE8
+IFYN 0x2E
+MORETEXT 0xAE9
+REMA
+ENUF 0x10
+ELSE 0x2F
+ENIF 0x2E
+REMA
+ENUF 0x10
+ENIF 0x2F
+ENIF 0x2B
+ENDA
+
+MeKent:
+IFET 0x30 Tale2xbUnlock
+TEX1 0xAEC
+IFYN 0x32
+BecomeNPC(0x56)
+ASMC 0xDE0011
+MNCH 0x11
+ELSE 0x33
+ENIF 0x32
+ENUF 0x10
+ENIF 0x33
+
+ELSE 0x31
+ENIF 0x30
+TEX1 0xAEA
+IFYN 0x34
+MORETEXT 0xAEB
+REMA
+ENUF 0x10
+ELSE 0x35
+ENIF 0x34
+REMA
+ENUF 0x10
+ENIF 0x35
+ENIF 0x31
+ENDA
+
+MeDouglas:
+IFET 0x36 Tale4xUnlock
+TEX1 0x825
+IFYN 0x38
+BecomeNPC(0x56)
+ASMC 0xDE0011
+MNCH 0x0E
+ELSE 0x39
+ENIF 0x38
+ENUF 0x11
+ENIF 0x39
+
+ELSE 0x37
+ENIF 0x36
+TEX1 0xAED
+IFYN 0x3A
+MORETEXT 0xAEE
+REMA
+ENUF 0x11
+ELSE 0x3B
+ENIF 0x3A
+REMA
+ENUF 0x11
+ENIF 0x3B
+ENIF 0x37
+ENDA
+
+Achievements:
+CMOF
+LOU1 Storytellers
+LOU1 AchievementUnits
+ENUN
+ENDA
+
+MeDane:
+TEX1 0x81C
+REMA
+IFYN 0x3C
+FADI 10
+LOMA 0x20 [0,0]
+ClearAllUnits
+CALL Achievements
+ENUN
+ENUF 0x26
+ENUF 0x27
+CAM1 0x56
+FADU 10
+ELSE 0x3D
+ENIF 0x3C
+ENUF 0x14
+ENIF 0x3D
+ENDA
+
+MeDane2:
+TEX1 0x81E
+REMA
+IFYN 0x3E
+FADI 10
+ENUF 0x14
+ENUF 0x15
+LOMA 0x0B [0,0]
+ClearAllUnits
+CALL TaleSelect
+ENUN
+CAM1 0x56
+FADU 10
+ELSE 0x3F
+ENIF 0x3E
+ENUF 0x15
+ENIF 0x3F
+ENDA
+
+MeJacob:
+//TEX1 0x81D
+TEX1 0xB67 - Disabled
+REMA
+/* IFYN 0x40
+FADI 10
+ClearAllUnits
+LOMA 0x21 [0,0]
+CALL BonusScenes
+ENUN
+ENUF 0x14
+ENUF 0x15
+CAM1 0x56
+FADU 10
+ELSE 0x41
+ENIF 0x40
+ENUF 0x26
+ENIF 0x41 */
+ENDA
+
+
+MeJacob2:
+TEX1 0x81F
+REMA
+IFYN 0x42
+FADI 10
+ENUF 0x26
+ENUF 0x27
+LOMA 0x0B [0,0]
+ClearAllUnits
+CALL TaleSelect
+ENUN
+CAM1 0x56
+FADU 10
+ELSE 0x43
+ENIF 0x42
+ENUF 0x27
+ENIF 0x43
+ENDA
+
+MESSAGE Tale Select ends at offset currentOffset
+
+
+EventPointerTable(0xB3,Achievementss)
+
+ORG 0xDD0E50
+
+Achievementss:
+POIN AchievementTurns AchievementTalks LocationEvents MiscEvents
+POIN Ballista_filler Ballista_filler
+POIN Default Default Default Default
+POIN Me Me Me Me
+POIN OpeningEvent EndingEvent
+
+AchievementUnits:
+UNIT 0x4B Fighter 0x00 Level(5,NPC,False) [2,9] [2,9] [SteelAxe] GuardTile
+UNIT Rebecca Sniper_F Merlinus Level(8,NPC,False) [4,9] [4,9] [Longbow] GuardTile
+UNIT 0x4E NomadTrooper 0x00 Level(12,NPC,False) [6,9] [6,9] [SilverSword,SilverBow] GuardTile
+UNIT 0x51 Berserker 0x00 Level(5,NPC,False) [8,9] [8,9] [KillerAxe,HandAxe] GuardTile
+UNIT 0x4A Cavalier 0x00 Level(20,NPC,False) [10,9] [10,9] [SilverRapier,SilverLance,Elixir] GuardTile
+UNIT Matthew Rogue Hector Level(5,NPC,False) [12,9] [12,9] [Cutlass,BraveSword] GuardTile
+UNIT Canas Druid 0x00 Level(9,NPC,False) [3,11] [3,11] [0xAF,WhiteGem,BlueGem,RedGem] GuardTile
+UNIT Efta Shaman 0x00 Level(1,NPC,False) [5,11] [5,11] [HeavenSeal] GuardTile
+UNIT Jaffar Assassin 0x00 Level(17,NPC,False) [7,11] [7,11] [KillingEdge,Elixir] GuardTile
+UNIT Lucius Bishop Raven Level(5,NPC,False) [9,11] [9,11] [Divine,Lightning,Heal,Tonic] GuardTile
+UNIT Bool Swordmaster 0x0 Level(20,NPC,False) [11,11] [11,11] [Shamshir,IronRune] GuardTile
+UNIT Sain_t Paladin 0x00 Level(10,NPC,False) [2,13] [2,13] [SilverLance,Horseslayer,IronBlade,HandAxe] GuardTile
+UNIT 0x4F KnightLord 0x0 Level(5,NPC,False) [4,13] [4,13] [Rapier] GuardTile
+//UNIT Gaufrid Halberdier Kent Level(12,NPC,False) [10,13] [10,13] [Greatlance,KillerLance,ShortSpear,Tonic] GuardTile
+UNIT 0x55 Hero_F 0x00 Level(17,NPC,False) [8,13] [8,13] [MasterSword] GuardTile
+UNIT Kaim Warrior 0x00 Level(20,NPC,False) [6,13] [6,13] [Basilikos] GuardTile
+UNIT 0x43 0x48 0x00 Level(1,NPC,True) [10,13] [10,13] [NoItems] GuardTile
+UNIT Nils Bard 0x00 Level(1,NPC,False) [12,13] [12,13] [NoItems] GuardTile
+UNIT Empty
+
+AchievementTurns:
+TURN 0x00 CursorA [01,255] 0x0 0x00
+TURN 0x00 CursorA [01,255] 0x8 0x00
+TURN 0x00 SkipEnemy [01,255] 0x8 0x00
+TURN
+
+AchievementTalks:
+CHAR 0x06 DastardsTalk 0x56 0x4B $00000000
+CHAR 0x07 BabyTalkToMeTalk 0x56 Rebecca $00000000
+CHAR 0x08 JumpingTheSharkTalk 0x56 0x4E $00000000
+CHAR 0x09 TrorororoTalk 0x56 0x51 $00000000
+CHAR 0x0A TraitorousSwineTalk 0x56 0x4A $00000000
+CHAR 0x0B KingOfHeartsTalk 0x56 Matthew $00000000
+CHAR 0x0C BasiliskglanceTalk 0x56 Efta $00000000
+CHAR 0x0D EmblemologistTalk 0x56 Canas $00000000
+CHAR 0x0E AngelOfLifeTalk 0x56 Jaffar $00000000
+CHAR 0x0F NeverSayDieTalk 0x56 Lucius $00000000
+CHAR 0x10 DemonicStreakTalk 0x56 Bool $00000000
+CHAR 0x11 LookingForLoveTalk 0x56 Sain_t $00000000
+CHAR 0x12 ThreeAmigopsTalk 0x56 Siglud $00000000
+CHAR 0x13 TheLastReedTalk 0x56 Kaim $00000000
+CHAR 0x16 TempleOfTimeTalk 0x56 0x55 $00000000
+CHAR 0x17 UnknownTalk 0x56 Gaufrid $00000000
+CHAR 0x18 CompulsiveCollectorTalk 0x56 0x43 $00000000
+CHAR 0x19 MasterfulMinstrelTalk 0x56 Nils $00000000
+CHAR 0x14 MeDane 0x56 Kenneth $00000000
+CHAR 0x15 MeDane2 0x56 Kenneth $00140003
+CHAR 0x26 MeJacob 0x56 Pascal $00000000
+CHAR 0x27 MeJacob2 0x56 Pascal $00260003
+CHAR
+
+CursorA:
+CAM1 0x56
+IFEF 0x01 Dastards
+UNCM 0x4B 10b //Damas
+ENIF 0x01
+IFEF 0x02 BabyTalkToMe
+UNCM Rebecca 10b
+ENIF 0x02
+IFEF 0x03 JumpingTheShark
+UNCM 0x4E 10b //Khitan
+ENIF 0x03
+IFEF 0x04 TheThreeAmigops
+UNCM Siglud 10b
+ENIF 0x04
+IFEF 0x05 KingOfSecrets
+UNCM Matthew 10b
+ENIF 0x05
+IFEF 0x06 TraitorousSwine
+UNCM 0x4A 10b //Erik
+ENIF 0x06
+IFEF 0x07 Emblemologist
+UNCM Canas 10b
+ENIF 0x07
+IFEF 0x08 Basiliskglance
+UNCM Efta 10b
+ENIF 0x08
+IFEF 0x09 AngelOfLife
+UNCM Jaffar 10b
+ENIF 0x09
+IFEF 0x0A NeverSayDie
+UNCM Lucius 10b //Arcard
+ENIF 0x0A
+IFEF 0x0B DemonicStreak
+UNCM Bool 10b //Kaherdin
+ENIF 0x0B
+IFEF 0x0C LookingForLove
+UNCM Sain_t 10b
+ENIF 0x0C
+IFEF 0x0D UnknownAchievement
+UNCM Gaufrid 10b //Brendan
+ENIF 0x0D
+IFEF 0x0E TheLastReed
+UNCM Kaim 10b
+ENIF 0x0E
+IFEF 0x0F TempleOfTime
+UNCM 0x55 10b
+ENIF 0x0F
+IFEF 0x10 Trororo
+UNCM 0x51 10b
+ENIF 0x10
+IFEF 0x11 CompulsiveCollector
+UNCM Jake 10b
+ENIF 0x11
+IFEF 0x12 MasterfulMinstrel
+UNCM Nils 10b
+ENIF 0x12
+ENDA
+
+
+DastardsTalk:
+IFEF 0x13 Dastards
+TEX6 0x5 [0,0] 0x840
+_ASM0x42 0x83181
+ELSE 0x14
+ENIF 0x13
+TEX1 0x841
+REMA
+ENIF 0x14
+ENUF 0x06
+ENDA
+
+BabyTalkToMeTalk:
+IFEF 0x15 BabyTalkToMe
+TEX6 0x5 [0,0] 0x861
+_ASM0x42 0x83181
+ELSE 0x16
+ENIF 0x15
+TEX1 0x862
+REMA
+ENIF 0x16
+ENUF 0x07
+ENDA
+
+JumpingTheSharkTalk:
+IFET 0x17 JumpingTheShark
+TEX1 0x864
+REMA
+ELSE 0x18
+ENIF 0x17
+TEX6 0x5 [0,0] 0x0863
+_ASM0x42 0x83181
+ENIF 0x17
+ENUF 0x08
+ENDA
+
+TrorororoTalk:
+IFEF 0x18 Trororo
+TEX6 0x5 [0,0] 0x87D
+_ASM0x42 0x83181
+ELSE 0x19
+ENIF 0x18
+TEX1 0x87E
+REMA
+ENIF 0x19
+ENUF 0x09
+ENDA
+
+TraitorousSwineTalk:
+IFEF 0x1A TraitorousSwine
+TEX6 0x5 [0,0] 0x867
+_ASM0x42 0x83181
+REMA
+ELSE 0x1B
+ENIF 0x1A
+TEX1 0x868
+REMA
+ENIF 0x1B
+ENUF 0x0A
+ENDA
+
+KingOfHeartsTalk:
+IFEF 0x1C KingOfSecrets
+TEX6 0x5 [0,0] 0x869
+_ASM0x42 0x83181
+ELSE 0x1D
+ENIF 0x1C
+TEX1 0x86A
+REMA
+ITGV MemberCard
+ENIF 0x1D
+ENUF 0x0B
+ENDA
+
+BasiliskglanceTalk:
+IFEF 0x1E Basiliskglance
+TEX6 0x5 [0,0] 0x86F
+_ASM0x42 0x83181
+ELSE 0x1F
+ENIF 0x1E
+TEX1 0x870
+REMA
+ENIF 0x1F
+ENUF 0x0C
+ENDA
+
+EmblemologistTalk:
+IFET 0x20 Emblemologist
+TEX1 0x86E
+REMA
+ELSE 0x21
+ENIF 0x20
+TEX6 0x5 [0,0] 0x86D
+_ASM0x42 0x83181
+ENIF 0x21
+ENUF 0x0D
+ENDA
+
+AngelOfLifeTalk:
+IFEF 0x22 AngelOfLife
+TEX6 0x5 [0,0] 0x0871
+_ASM0x42 0x83181
+ELSE 0x23
+ENIF 0x22
+TEX1 0x872
+REMA
+ENIF 0x23
+ENUF 0x0E
+ENDA
+
+NeverSayDieTalk:
+IFEF 0x24 NeverSayDie
+TEX6 0x5 [0,0] 0x873
+_ASM0x42 0x83181
+ELSE 0x25
+ENIF 0x24
+TEX1 0x874
+REMA
+ENIF 0x25
+ENUF 0x0F
+ENDA
+
+DemonicStreakTalk:
+IFET 0x26 DemonicStreak
+TEX1 0x876
+REMA
+ELSE 0x27
+ENIF 0x26
+TEX6 0x5 [0,0] 0x875
+_ASM0x42 0x83181
+ENIF 0x27
+ENUF 0x10
+ENDA
+
+LookingForLoveTalk:
+IFEF 0x28 LookingForLove
+TEX6 0x5 [0,0] 0x877
+_ASM0x42 0x83181
+ELSE 0x29
+ENIF 0x28
+TEX1 0x878
+REMA
+ENIF 0x29
+ENUF 0x11
+ENDA
+
+ThreeAmigopsTalk:
+IFEF 0x2A TheThreeAmigops
+TEX6 0x5 [0,0] 0x0865
+_ASM0x42 0x83181
+REMA
+ELSE 0x2B
+ENIF 0x2A
+TEX1 0x866
+ IFYN 0x2C
+ ENUT HolyWarMode
+ REMA
+ TEX6 0x5 [0,0] 0x0975
+ _ASM0x42 0x83181
+ ELSE 0x2D
+ ENIF 0x2C
+ ENUF HolyWarMode
+ REMA
+ TEX6 0x5 [0,0] 0x0976
+ _ASM0x42 0x83181
+ REMA
+ ENIF 0x2D
+ENIF 0x2B
+ENUF 0x12
+ENDA
+
+TheLastReedTalk:
+IFEF 0x2E TheLastReed
+TEX6 0x5 [0,0] 0x879
+_ASM0x42 0x83181
+ELSE 0x2F
+ENIF 0x2E
+TEX1 0x86C
+REMA
+ENIF 0x2F
+ENUF 0x13
+ENDA
+
+TempleOfTimeTalk:
+IFEF 0x30 TempleOfTime
+TEX6 0x5 [0,0] 0x87B
+_ASM0x42 0x83181
+ELSE 0x31
+ENIF 0x30
+TEX1 0x87C
+REMA
+ENIF 0x31
+ENUF 0x16 
+ENDA
+
+UnknownTalk:
+IFEF 0x32 0x85
+TEX6 0x5 [0,0] 0x86B
+_ASM0x42 0x83181
+REMA
+ELSE 0x33
+ENIF 0x32
+TEX1 0x87A
+REMA
+ENIF 0x33
+ENUF 0x17
+ENDA
+
+CompulsiveCollectorTalk:
+IFEF 0x34 0x86
+TEX6 0x5 [0,0] 0x87F
+REBB
+ELSE 0x35
+ENIF 0x34
+TEX1 0x880
+REMA
+ENIF 0x35
+ENUF 0x18
+ENDA
+
+MasterfulMinstrelTalk:
+IFEF 0x36 MasterfulMinstrel
+TEX6 0x5 [0,0] 0x881
+_ASM0x42 0x83181
+ELSE 0x37
+ENIF 0x36
+TEX1 0x882
+REMA
+ENIF 0x37
+ENUF 0x19
+ENDA
+
+MESSAGE Achievement Screen ends at offset currentOffset
+
+
+EventPointerTable(0xBC,BonusContent)
+
+ORG 0xDD19D0
+
+BonusContent:
+POIN BonusTurns BonusTalks LocationEvents MiscEvents
+POIN Ballista_filler Ballista_filler
+POIN Default Default Default Default
+POIN Me Me Me Me
+POIN OpeningEvent EndingEvent
+
+Eleanora1:
+UNIT 0x63 Bishop_F 0x00 Level(1,NPC,False) [7,9] [7,9] [NoItems] GuardTile
+UNIT Empty
+
+GoneAgain1:
+UNIT Nino Sage_F 0x00 Level(9,NPC,False) [4,11] [4,11] [Elfire,Combust,Vulnerary] GuardTile
+UNIT Empty
+
+Orun1:
+UNIT Orun GreatKnight Hector Level(5,NPC,False) [9,10] [9,10] [BattleAxe,ShortSpear,Elixir] GuardTile
+UNIT Empty
+
+Fargus1:
+UNIT Fargus Berserker 0x00 Level(18,NPC,False) [8,13] [8,13] [KillerAxe,Elixir] GuardTile
+UNIT Empty
+
+FatErik:
+UNIT 0x52 Cavalier 0x00 Level(10,NPC,False) [5,10] [5,10] [SteelSword,Javelin] GuardTile
+UNIT Empty
+
+CrazyEphidel:
+UNIT 0x0F Sage 0x00 Level(20,NPC,False) [10,11] [10,11] [Fenrir] GuardTile
+UNIT Empty
+
+FangScenes:
+UNIT Everrett Hero Legault Level(12,NPC,False) [5,12] [5,12] [Hrunting,LightBrand] GuardTile
+UNIT Nando MageKnight 0x00 Level(7,NPC,False) [7,12] [7,12] [Excalibur,Elfire,Mend] GuardTile
+UNIT Opal Sniper_F Legault Level(9,NPC,False) [9,12] [9,12] [Silencer,CleaveBow] GuardTile
+UNIT Empty
+
+KillKaleva:
+UNIT Prasad NomadTrooper Rath Level(8,NPC,False) [8,11] [8,11] [0xB7,Salve] GuardTile
+UNIT Empty
+
+SheSain:
+UNIT Canas Druid 0x00 Level(9,NPC,False) [6,13] [6,13] [Nosferatu,Shaver,Dulam] GuardTile
+UNIT Empty
+
+FadDieter:
+UNIT 0x41 GreatKnight 0x00 Level(14,NPC,False) [4,13] [4,13] [Spear,BraveAxe,Elixir] GuardTile
+UNIT Empty
+
+Gui:
+UNIT Guy Swordmaster 0x00 Level(7,NPC,False) [6,11] [6,11] [Shamshir,WindSword,Vulnerary] GuardTile
+UNIT Empty
+
+Alastor1:
+UNIT Alastor Assassin 0x00 Level(10,NPC,False) [7,14] [7,14] [MasterSword,Elixir,Berveil] GuardTile
+UNIT Empty
+
+Astohl:
+UNIT 0x3E Thief 0x00 Level(14,NPC,False) [10,13] [10,13] [IronSword,LockPick,0x9A] GuardTile
+UNIT Empty
+
+
+BonusTurns:
+TURN 0x00 SkipEnemy [01,255] 0x8 0x00
+TURN
+
+BonusTalks:
+CHAR 0x06 MeNino 0x56 Nino $00000000
+CHAR 0x07 MeOrun 0x56 Orun $00000000
+CHAR 0x08 MeEleanora 0x56 0x63 $00000000
+CHAR 0x09 MeErik 0x56 0x52 $00000000
+CHAR 0x0A MeEphidel 0x56 0x0F $00000000
+CHAR 0x0B MeEverrett 0x56 Everrett $00000000
+CHAR 0x0C MeNando 0x56 Nando $00000000
+CHAR 0x0D MeDieter 0x56 0x41 $00000000
+CHAR 0x0E MeFargus 0x56 Fargus $00000000
+CHAR 0x0F MeOpal 0x56 Opal $00000000
+CHAR 0x10 MeCanas 0x56 Canas $00000000
+CHAR 0x11 MeGuy 0x56 Guy $00000000
+CHAR 0x12 MePrasad 0x56 Prasad $00000000
+CHAR 0x13 MeAlastor 0x56 Alastor $00000000
+CHAR 0x16 MeAstor 0x56 0x3E $00000000
+CHAR 0x14 MeDane 0x56 Kenneth $00000000
+CHAR 0x15 MeDane2 0x56 Kenneth $00140003
+CHAR 0x26 MeJacob 0x56 Pascal $00000000
+CHAR 0x27 MeJacob2 0x56 Pascal $00260003
+CHAR
+
+
+BonusScenes:
+CMOF
+LOU1 Storytellers
+ENUN
+IFET 0x01 Tale1Clear
+LOU1 Eleanora1 //Eleanora's Death
+ENIF 0x01
+IFET 0x02 TraitorousSwine
+LOU1 FatErik //The Alliance Collapses
+ENIF 0x02
+IFET 0x03 Tale3Clear
+LOU1 Orun1 //Lakeside Chat
+ENIF 0x03
+IFET 0x04 AngelOfLife
+LOU1 GoneAgain1 //GonaAgain
+ENIF 0x04
+ENUN
+IFET 0x05 Tale2Clear
+LOU1 Gui //The Cyan Flash
+ENIF 0x05
+IFET 0x06 Tale2xaClear
+LOU1 KillKaleva //Silkworms
+ENIF 0x06
+IFET 0x07 0x87
+LOU1 CrazyEphidel //A Life of Servitude
+ENIF 0x07
+IFET 0x08 Tale8Clear
+LOU1 FangScenes
+ENIF 0x08
+ENUN
+IFET 0x09 0x8E
+LOU1 FadDieter
+ENIF 0x09
+IFET 0x0A 0x79
+LOU1 Fargus1
+ENIF 0x0A
+IFET 0x0B LookingForLove
+LOU1 SheSain
+ENIF 0x0B
+IFET 0x0C Tale5Clear
+IFET 0x0D Tale2xaClear
+IFET 0x0E Tale6Clear
+IFET 0x0F Tale4xClear
+IFET 0x10 Tale8Clear
+LOU1 Alastor1
+ENIF 0x10
+ENIF 0x0F
+ENIF 0x0E
+ENIF 0x0D
+ENIF 0x0C
+ENUN
+//0x11
+LOU1 Astohl
+ENUN
+ENDA
+
+MeEleanora:
+TEX1 0x933
+TEX6 0x1 [90,60] 0x934
+_ASM0x42 0x83181
+REMA
+IFYN 0x12
+MNCH 0x24
+ENIF 0x12
+ENUF 0x08
+ENDA
+
+MeErik:
+TEX1 0x935
+TEX6 0x1 [90,60] 0x936
+_ASM0x42 0x83181
+REMA
+IFYN 0x13
+MNCH 0x25
+ENIF 0x13
+ENUF 0x09
+ENDA
+
+MeOrun:
+TEX1 0x937
+TEX6 0x1 [90,60] 0x938
+_ASM0x42 0x83181
+REMA
+IFYN 0x14
+MNCH 0x23
+ENIF 0x14
+ENUF 0x07
+ENDA
+
+MeNino:
+TEX1 0x939
+TEX6 0x1 [90,60] 0x93A
+_ASM0x42 0x83181
+REMA
+IFYN 0x15
+MNCH 0x17
+ENIF 0x15
+ENUF 0x06
+ENDA
+
+MeGuy:
+TEX1 0x93B
+TEX6 0x1 [90,60] 0x93C
+_ASM0x42 0x83181
+REMA
+IFYN 0x16
+MNCH 0x1A
+ENIF 0x16
+ENUF 0x11
+ENDA
+
+MePrasad:
+TEX1 0x93D
+TEX6 0x1 [90,60] 0x93E
+_ASM0x42 0x83181
+REMA
+IFYN 0x17
+MNCH 0x1F
+ENIF 0x17
+ENUF 0x12
+ENDA
+
+MeEphidel:
+TEX1 0x93F
+TEX6 0x1 [90,60] 0x940
+_ASM0x42 0x83181
+REMA
+IFYN 0x18
+MNCH 0x18
+ENIF 0x18
+ENUF 0x0A
+ENDA
+
+MeEverrett:
+TEX1 0x941
+TEX6 0x1 [90,60] 0x942
+_ASM0x42 0x83181
+REMA
+IFYN 0x19
+MNCH 0x1B
+ENIF 0x19
+ENUF 0x0B
+ENDA
+
+MeNando:
+TEX1 0x943
+TEX6 0x1 [90,60] 0x944
+_ASM0x42 0x83181
+REMA
+IFYN 0x1A
+MNCH 0x1C
+ENIF 0x1A
+ENUF 0x0C
+ENDA
+
+MeOpal:
+TEX1 0x945
+TEX6 0x1 [90,60] 0x946
+_ASM0x42 0x83181
+REMA
+IFYN 0x1B
+MNCH 0x1D
+ENIF 0x1B
+ENUF 0x0F
+ENDA
+
+MeDieter:
+TEX1 0x947
+TEX6 0x1 [90,60] 0x948
+_ASM0x42 0x83181
+REMA
+IFYN 0x1C
+MNCH 0x19
+ENIF 0x1C
+ENUF 0x0D
+ENDA
+
+MeFargus:
+TEX1 0x94B
+TEX6 0x1 [90,60] 0x94C
+_ASM0x42 0x83181
+REMA
+IFYN 0x1D
+MNCH 0x1E
+ENIF 0x1D
+ENUF 0x0E
+ENDA
+
+MeCanas:
+TEX1 0x94D
+TEX6 0x1 [90,60] 0x94E
+_ASM0x42 0x83181
+REMA
+IFYN 0x1E
+MNCH 0x22
+ENIF 0x1E
+ENUF 0x10
+ENDA
+
+MeAlastor:
+TEX1 0x98E
+IFYN 0x1F
+BecomeNPC(0x56)
+KILL Alastor
+KILL Tessa
+KILL Wayra
+KILL Riordan
+KILL Ortega
+MNCH 0x12
+ENIF 0x1F
+ENUF 0x13
+ENDA
+
+MeAstor:
+TEX1 0x94D
+TEX6 0x1 [90,60] 0x94E
+_ASM0x42 0x83181
+REMA
+IFYN 0x20
+MNCH 0x26
+ENIF 0x20
+ENUF 0x16
+ENDA
+
+SecretShop:
+SHLI Lobera Berveil Artemis ManiKatti SolKatti Murgleis Forblaze OrionsBolt WolfBeil WoDao Armads Partisan RegalBlade Excalibur 0x97 0x98 0x9B 0x86 0x8A 0x8E
+
+MESSAGE Bonus Content ends at offset currentOffset
