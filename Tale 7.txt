@@ -1,0 +1,757 @@
+//For assembling as separate chapter
+#define DISABLE_TUTORIALS
+#ifndef RELEASE_FE4A
+#include "EAstdlib.event"
+#include "BSFE7 definitions.txt"
+
+EventPointerTable(0x28,ThisChapter)
+EventPointerTable(0x27,TileChanges)
+
+ORG 0xD8B590
+ThisChapter:
+#endif //End of RELEASE_FE4A
+
+//Actual events:
+POIN Turn_events Character_events Location_events Misc_events
+POIN Ballista_filler Ballista_filler
+POIN Ilians Ilians Ilians Ilians
+POIN ZealotsWomen ZealotsWomen ZealotsWomen ZealotsWomen
+POIN OpeningEvent EndingEvent
+
+TheCommander:
+UNIT Zealot Halberdier 0x00 Level(4,Ally,False) [2,7] [2,7] [Partisan,SteelLance,Elixir] NoAI
+UNIT Empty
+
+HolyCommander:
+UNIT Zealot Halberdier 0x00 Level(4,Ally,False) [2,7] [2,7] [0x5E,Partisan,Elixir] NoAI
+UNIT Empty
+
+MockZealot:
+UNIT 0xDF Halberdier 0x00 Level(4,Ally,False) [24,28] [22,25] [Partisan,SteelLance,Elixir] NoAI
+UNIT Empty
+
+ZealotsWomen:
+UNIT Fiora FalcoKnight Zealot Level(8,Ally,False) [5,10] [5,10] [Spear,SteelSword,Vulnerary] NoAI
+UNIT Farina FalcoKnight Zealot Level(7,Ally,False) [6,8] [6,8] [SilverSword,SteelLance,Vulnerary] NoAI
+UNIT Empty
+
+ZealotsMen:
+UNIT Sain_t Paladin Zealot Level(10,Ally,False) [4,17] [4,8] [SilverLance,Horseslayer,IronBlade,HandAxe] NoAI
+UNIT Wallace General Zealot Level(14,Ally,False) [4,17] [3,9] [BattleAxe,SteelBow,Vulnerary] NoAI
+UNIT Empty
+
+OldHag:
+UNIT Niime Druid_F Zealot Level(16,NPC,False) [7,5] [9,7] [Grimoire,Nosferatu,Physic,Hammerne] GuardTile
+UNIT Empty
+
+MockBandits:
+UNIT Sykes Swordmaster Sykes Level(12,Enemy,False) [3,26] [3,26] [SteelBlade,WingClipper,RazorSword] AttackInRange
+UNIT 
+
+UNIT 0xBA PegasusKnight Sykes Level(16,Enemy,True) [2,22] [2,22] [SteelLance] AttackInRange
+UNIT 0xBA PegasusKnight Sykes Level(16,Enemy,True) [1,23] [1,23] [SteelLance] AttackInRange
+UNIT 0xBA PegasusKnight Sykes Level(16,Enemy,True) [3,23] [3,23] [SteelLance] AttackInRange
+UNIT 0xBA FalcoKnight Sykes Level(8,Enemy,True) [2,24] [2,24] [SteelLance] AttackInRange
+UNIT 0xB3 Cavalier Sykes Level(15,Enemy,True) [4,18] [4,18] [IronBlade] NoAI
+UNIT 0xB3 Cavalier Sykes Level(15,Enemy,True) [5,18] [5,18] [ShortSpear] NoAI
+UNIT 0xB3 Cavalier Sykes Level(15,Enemy,True) [4,20] [4,20] [SteelSword,Javelin] NoAI
+UNIT 0xB3 Cavalier Sykes Level(15,Enemy,True) [5,20] [5,20] [SteelLance] NoAI
+UNIT 0xB3 Paladin Sykes Level(8,Enemy,True) [6,19] [6,19] [SilverLance] NoAI
+UNIT 0xB8 Brigand Sykes Level(18,Enemy,True) [6,22] [6,22] [ShortAxe] AttackInRange
+UNIT 0xB8 Brigand Sykes Level(18,Enemy,True) [5,23] [5,23] [ShortAxe] AttackInRange
+UNIT 0xB8 Brigand Sykes Level(18,Enemy,True) [3,15] [3,15] [SteelAxe] NoAI
+UNIT 0xB8 Brigand Sykes Level(18,Enemy,True) [9,12] [9,12] [HandAxe] NoAI
+UNIT Empty
+
+TheDick:
+UNIT Tybalt WyvernLord_F 0x00 Level(10,Enemy,False) [22,25] [22,25] [SilverAxe,Tomahawk,Vulnerary] GuardTile
+UNIT Empty
+
+HolyDick:
+UNIT Tybalt WyvernLord_F 0x00 Level(10,Enemy,False) [22,25] [22,25] [0x5F,Tomahawk,Vulnerary] GuardTile
+UNIT Empty
+
+MockAllies:
+UNIT 0xB2 Ballistician Tybalt Level(12,NPC,False) [14,9] [14,9] [Arrowspate] GuardTile
+UNIT 0xB2 Ballistician Tybalt Level(12,NPC,False) [10,17] [10,17] [Arrowspate] GuardTile
+UNIT Empty
+
+Ilians:
+UNIT 0xB2 Ballistician Tybalt Level(12,Enemy,False) [19,22] [19,22] [Arrowspate] GuardTile
+UNIT 0xB2 Ballistician Tybalt Level(12,Enemy,False) [24,14] [24,14] [Veninbolt] GuardTile
+UNIT 0xB5 Cavalier Tybalt Level(15,Enemy,True) [14,15] [14,15] [IronBlade] NoAI
+UNIT 0xB5 Cavalier Tybalt Level(15,Enemy,True) [15,15] [15,15] [ShortSpear] NoAI
+UNIT 0xB5 Cavalier Tybalt Level(15,Enemy,True) [14,17] [14,17] [SteelSword,Javelin] NoAI
+UNIT 0xB5 Cavalier Tybalt Level(15,Enemy,True) [15,17] [15,17] [SteelLance,KillingEdge] NoAI
+UNIT 0xB5 GreatKnight Tybalt Level(3,Enemy,True) [13,16] [13,16] [SteelAxe] NoAI
+UNIT 0xB4 Mercenary Tybalt Level(10,Enemy,True) [21,20] [21,20] [WingClipper] NoAI
+UNIT 0xB4 Mercenary Tybalt Level(10,Enemy,True) [23,20] [23,20] [SteelSword] NoAI
+UNIT 0xB4 Mercenary Tybalt Level(18,Enemy,True) [21,22] [21,22] [Lancereaver] AttackInRange
+UNIT 0xB4 Mercenary Tybalt Level(18,Enemy,True) [23,22] [23,22] [QuickSword] AttackInRange
+UNIT 0xB4 Hero Tybalt Level(5,Enemy,True) [22,27] [22,27] [SilverAxe] AttackInRange
+UNIT 0x8B General Tybalt Level(5,Enemy,True) [23,26] [23,26] [SteelBlade] GuardTile
+UNIT 0x8B 0x15 Tybalt Level(5,Enemy,True) [21,26] [21,26] [SilverBow,SteelLance] GuardTile
+UNIT 0x83 PegasusKnight Tybalt Level(15,Enemy,True) [26,26] [26,26] [SteelLance] NoAI
+UNIT 0xB7 Valkyrie Tybalt Level(7,Enemy,True) [25,22] [25,22] [Physic,Thunder,Tonic] NoAI
+UNIT 0x83 FalcoKnight Tybalt Level(3,Enemy,True) [21,9] [21,9] [ShortSpear] AttackInRange
+UNIT 0x83 FalcoKnight Tybalt Level(4,Enemy,True) [22,10] [22,10] [HeavySpear] AttackInRange
+UNIT 0xB5 GreatKnight Tybalt Level(3,Enemy,True) [22,6] [22,6] [SteelLance] AttackInRange
+UNIT 0xB5 GreatKnight Tybalt Level(4,Enemy,True) [25,5] [25,5] [WindSword] AttackInRange
+UNIT 0xB4 Hero Tybalt Level(2,Enemy,True) [22,19] [22,19] [SteelBlade] NoAI
+UNIT 0xB4 Hero Tybalt Level(4,Enemy,True) [22,21] [22,21] [SteelBlade] AttackInRange
+UNIT 0xB9 Swordmaster Tybalt Level(8,Enemy,True) [2,7] [2,7] [MasterSword] GuardTile
+UNIT 0xB7 Valkyrie Tybalt Level(7,Enemy,True) [16,13] [16,13] [Aircalibur,Mend] NoAI
+UNIT 0xB9 Swordmaster Tybalt Level(2,Enemy,True) [23,14] [23,14] [Cutlass] AttackInRange
+UNIT 0x83 PegasusKnight Tybalt Level(16,Enemy,True) [15,19] [15,19] [SteelLance] AttackInRange
+UNIT 0x83 PegasusKnight Tybalt Level(16,Enemy,True) [15,21] [15,21] [SteelLance] AttackInRange
+UNIT 0x83 PegasusKnight Tybalt Level(16,Enemy,True) [17,19] [17,19] [SteelLance] AttackInRange
+UNIT 0x83 PegasusKnight Tybalt Level(16,Enemy,True) [17,21] [17,21] [QuickLance] AttackInRange
+UNIT 0x83 FalcoKnight Tybalt Level(8,Enemy,True) [16,20] [16,20] [SilverLance] AttackInRange
+UNIT 0x97 Paladin Tybalt Level(3,Enemy,True) [22,13] [22,13] [Greatlance] AttackInRange
+UNIT 0xB4 Hero Tybalt Level(5,Enemy,True) [14,25] [14,25] [SteelBlade] NoAI
+UNIT 0xB9 Swordmaster Tybalt Level(4,Enemy,True) [11,19] [11,19] [SteelBlade] NoAI
+UNIT 0x83 FalcoKnight Tybalt Level(6,Enemy,True) [26,24] [26,24] [Spear] AttackInRange
+UNIT 0x83 FalcoKnight Tybalt Level(6,Enemy,True) [25,25] [25,25] [SilverLance] AttackInRange
+UNIT 0x8C Sage Tybalt Level(7,Enemy,True) [19,4] [19,4] [Bolting] AttackInRange
+UNIT 0x8C Sniper Tybalt Level(4,Enemy,True) [20,16] [20,16] [CleaveBow] AttackInRange
+UNIT 0x8C Sage Tybalt Level(7,Enemy,True) [25,27] [25,27] [Fimbulvetr] AttackInRange
+UNIT 0xB4 Mercenary Tybalt Level(10,Enemy,True) [21,15] [21,15] [SteelSword] AttackInRange
+UNIT Empty
+
+Turn_events:
+TURN 0x00 OpeningEvent [01,00] 0x0 0x00
+TURN 0x00 EnemyTurnOne [01,00] 0x8 0x00
+TURN 0x27 PhaseTwo [01,255] 0x0 0x00
+TURN 0x00 FirstHint [03,00] 0x0 0x00
+TURN 0x00 OldHagArrives [05,00] 0x0 0x00
+TURN 0x00 SnowOff [07,00] 0x0 0x00
+
+TURN 0x00 Weather1 [10,00] 0x0 0x00 //Either Fair or Short
+TURN 0x00 SnowOn [11,00] 0x0 0x00
+TURN 0x00 SnowControl1 [13,00] 0x0 0x00 //Ends the Short from Turn11
+TURN 0x00 SnowControl2 [15,00] 0x0 0x00 //Ends the Fair from Turn11
+TURN 0x00 Weather3 [16,00] 0x0 0x00 //Either Fair or None
+TURN 0x00 SnowOn [17,00] 0x0 0x00
+TURN 0x00 Weather2 [18,00] 0x0 0x00 //Either Short or Long
+TURN 0x00 SnowOn [19,00] 0x0 0x00
+TURN 0x00 SnowControl2 [21,00] 0x0 0x00 //Ends the Fair from Turn17
+TURN 0x00 SnowControl1 [21,00] 0x0 0x00 //Ends the Short from Turn21
+TURN 0x00 SnowControl3 [24,00] 0x0 0x00 //Ends the Long from Turn19
+TURN 0x00 Weather4 [26,00] 0x0 0x00 //Either Short or Fair
+TURN 0x00 SnowOn [27,00] 0x0 0x00
+TURN 0x00 SnowControl1 [29,00] 0x0 0x00 //Ends the Short from Turn27
+TURN 0x00 SnowControl2 [31,00] 0x0 0x00 //Ends the Fair from Turn27
+TURN 0x00 Weather4 [32,00] 0x0 0x00 //Either Short or None
+TURN 0x00 SnowOn [33,00] 0x0 0x00
+TURN 0x00 SnowControl1 [35,00] 0x0 0x00 //Ends the Short from Turn33
+TURN 0x00 Weather5 [37,00] 0x0 0x00 //Either Long or Fair
+TURN 0x00 SnowOn [38,00] 0x0 0x00
+TURN 0x00 SnowControl2 [42,00] 0x0 0x00 //Ends the Fair from Turn38
+TURN 0x00 SnowControl3 [44,00] 0x0 0x00 //Ends the Long from Turn38
+TURN
+
+Character_events:
+CharacterEvent(0x08,SykesZealot,Zealot,Sykes)
+CharacterEvent(0x0A,NiimeZealot,Zealot,Niime)
+CharacterEventBothWays(0x0B,WallaceZealot,Zealot,Wallace)
+CharacterEventBothWays(0x0C,FioraFarina,Fiora,Farina)
+CHAR 0x1F SainSigune Sain_t Zealot $00000000
+CHAR 0x1D SainFiora Sain_t Fiora $001E0003
+CHAR 0x1E SainFarina Sain_t Farina $001F0003
+CHAR 0x1C SainNiime Sain_t Niime $001D0003
+CHAR 0x1A FarinaSykes Farina Sykes $00070003
+CHAR 0x1B WallaceSain Wallace Sain_t $00070003
+CHAR 0x1B WallaceSain Sain_t Wallace $00070003
+CHAR
+
+Location_events:
+House(0x20,House1,10,12)
+House(0x11,House2,10,7)
+House(0x12,House3,13,26)
+House(0x21,House4,6,27)
+House(0x22,House5,19,4)
+Village(0x13,SouthVillage,3,26)
+Village(0x14,QuinnVillage,24,4)
+LOCA 0x05 EndingEvent [22,25] 0xF
+LOCA
+
+Misc_events:
+CauseGameOverIfLordDies
+AFEV 0x07 SykesDefeated 0x0D
+AFEV
+
+Ballista_filler:
+BLST
+ALIGN 4
+
+OpeningEvent:
+MUS1 0x0024
+BACG 0x01
+TEX1 0xA36
+MUS1 0x0044
+MORETEXT 0xA37
+MUS1 0x0024
+MORETEXT 0xA38
+IFET 0x27 HolyWarMode
+LOU1 HolyCommander
+ELSE 0x28
+ENIF 0x27
+LOU1 TheCommander
+ENIF 0x28
+LOU1 ZealotsWomen
+LOU1 MockBandits
+ENUN
+LOU1 MockAllies
+ENUN
+CAM1 [20,24]
+MUEN 0x03
+REMA
+CMOF
+STAL 0x10
+LOU1 MockZealot
+ENUN
+DISA [22,25]
+ENUN
+CURF [22,25]
+BecomeNPC(0xDF)
+FADI 10
+VCBF 0x03
+BACG 0x19
+FADU 10
+MUS1 0x0053
+TEX1 0xA39
+CAM1 Zealot
+REMA
+MUS1 0x0033
+STAL 20
+TEX1 0xA3A
+MORETEXT 0xA3B
+REMA
+LOU1 ZealotsMen
+ENUN
+MUS1 0x0032
+TEX1 0xA3C
+REMA
+ENUT 0x05
+ENDA
+
+EnemyTurnOne:
+MUS1 0x0F
+CAM1 Sykes
+CURF Sykes
+FADI 5
+BACG 0x08
+FADU 5
+TEX1 0xA3D
+REMA
+ENDA
+
+EndingEvent:
+FADI 10
+BACG 0x1A
+ClearAllUnits
+FADU 10
+MUSI
+MUS1 0x15
+TEX1 0xA69
+MUNO
+MUS1 0x35
+MORETEXT 0xA6A
+REBU
+MORETEXT 0xA6B
+MUEN 0x01
+FAWI 10
+SOUN 0xEB
+SOUN 0xEA
+SOUN 0xD4
+REBU
+ClearPortraits
+FAWU 10
+TEX1 0xA6C
+FADI 5
+ClearPortraits
+REBU
+BACG 0x12
+FADU 5
+MUS1 0x39
+TEX1 0xA6D
+FADI 3
+BACG 0x08
+FADU 3
+MUS1 0x34
+TEX1 0xA6E
+REBU
+MORETEXT 0xA6F
+MUS1 0x3B
+MORETEXT 0xA70
+FADI 5
+MUEN 0x05
+ClearPortraits
+REBU
+BACG 0x5B
+FADU 5
+BecomeNPC(Zealot)
+BecomeNPC(Farina)
+BecomeNPC(Fiora)
+BecomeNPC(Sain_t)
+BecomeNPC(Wallace)
+BecomeNPC(Sykes)
+BecomeNPC(Niime)
+ENUT Tale7Clear
+GotoTaleSelect
+ENDA
+
+FirstHint:
+MUS1 0x0A
+TEX1 0xA41
+REMA
+ENDA
+
+House1:
+IFCA 0x00 0x01 Wallace
+MUSI
+FADI 10
+BACG 0x01
+FADU 10
+TEX1 0xA5F
+REMA
+MUNO
+ELSE 0x04
+ENIF 0x01
+MUSI
+FADI 10
+BACG 0x01
+FADU 10
+TEX1 0xA60
+REMA
+MUNO
+ENIF 0x04
+ENUF 0x20
+ENDA
+
+House2:
+MUSI
+FADI 10
+BACG 0x01
+FADU 10
+TEX1 0xA61
+REMA
+MUNO
+ENUF 0x11
+ENDA
+
+House3:
+MUSI
+FADI 10
+BACG 0x01
+FADU 10
+TEX1 0xA62 //9F
+REMA
+MUNO
+ENUF 0x12
+ENDA
+
+House4:
+MUSI
+FADI 10
+BACG 0x01
+FADU 10
+TEX1 0xA63 //9F
+REMA
+MUNO
+ENUF 0x21
+ENDA
+
+House5:
+MUSI
+FADI 10
+BACG 0x01
+FADU 10
+TEX1 0xA64 //9F
+REMA
+MUNO
+ENUF 0x22
+ENDA
+
+SykesZealot:
+MUS1 0x40
+TEX1 0xA54
+MUS1 0x3B
+MORETEXT 0xA55
+REMA
+BecomeAlly(Sykes)
+ENUT 0x07
+ENUT 0x0D
+ENDA
+
+SykesDefeated:
+ENUT 0x07
+ENDA
+
+PhaseTwo:
+IFET 0x12 0x07
+CMOF
+IFET 0x29 HolyWarMode
+LOU1 HolyDick
+ELSE 0x2A
+ENIF 0x29
+LOU1 TheDick
+ENIF 0x2A
+LOU1 Ilians
+ENUN
+BecomeEnemy(0xB2)
+BecomeEnemy(0xB2)
+MUS1 0x0053
+CAM1 Tybalt
+FADI 5
+HIDEMAP
+LOMA 0x10 [22,23]
+MAC1 0x04 0x00
+MAC1 0x05 0x00
+MAC1 0x06 0x00
+IFET 
+BACG 0x1A
+FADU 5
+TEX1 0xA56
+SHOWMAP
+REMA
+CMOF
+CAM1 Zealot
+CURF Zealot
+IFET 0x14 0x08
+FIGH 0xB2 Zealot SwingAndMiss [0x00,0x00,0x00,0x00]
+CAM1 Zealot
+MUS1 0x0022
+TEX1 0xA57
+ELSE 0x15
+ENIF 0x14
+MUS1 0x51
+TEX1 0xA58
+MUEN 0x05
+MORETEXT 0xA59
+MUS1 0x0022
+MORETEXT 0xA5A
+ENIF 0x15
+REMA
+ENUF 0x04
+ELSE 0x13
+ENIF 0x12
+ENUF 0x27
+ENIF 0x13
+ENUF 0x05
+ENDA
+
+SwingAndMiss:
+AttackerMiss(00)
+EndOfBattle
+
+SouthVillage:
+FADI 10
+BACG 0x08
+FADU 10
+MUSI
+IFCA 0x00 0x1B Zealot
+MUS1 0x43
+TEX1 0xA3F
+ELSE 0x1C
+ENIF 0x1B
+TEX1 0xA40
+ENIF 0x1C
+REMA
+MUNO
+ITGV Elixir
+ENDA
+
+QuinnVillage:
+FADI 10
+BACG 0x08
+FADU 10
+MUS2 0x76
+TEX1 0xA3E
+REMA
+IFEF 0x01 TheThreeAmigops
+IFET 0x01 SigludFound
+IFET 0x01 EltonFound
+IFET 0x01 QuinnFound
+TEX6 0x5 [0,0] 0xE0F
+REBB
+ENUT TheThreeAmigops
+ENIF 0x01
+MURE 0x05
+ENDA
+
+OldHagArrives:
+WEA1 Snow
+CMON
+LOU1 OldHag
+ENUN
+MUS1 0x75
+TEX1 0xA42
+REMA
+ENDA
+
+NiimeZealot:
+MUS1 0x42
+TEX1 0xA43
+REMA
+BecomeAlly(Niime)
+ENDA
+
+FioraFarina:
+TEX1 0xA44
+REMA
+ENDA
+
+WallaceZealot:
+MUS2 0x43
+TEX1 0xA45
+REMA
+ITGC Zealot SilverLance
+MURE 0x05
+ENDA
+
+SainSigune:
+MUEN 0x10
+TEX1 0xA46
+MUS2 0x44
+MORETEXT 0xA47
+REMA
+MURE 0x05
+ENDA
+
+SainFarina:
+MUS2 0x44
+TEX1 0xA48
+REMA
+MURE 0x05
+ENDA
+
+SainFiora:
+MUS2 0x44
+TEX1 0xA49
+REMA
+MURE 0x05
+ENDA
+
+SainNiime:
+MUS2 0x44
+TEX1 0xA4A
+REMA
+IFEF 0x21 LookingForLove
+TEX6 0x5 [0,0] 0xA4B
+REBB
+ENUT LookingForLove
+TEX6 0x5 [0,0] 0xDE0
+REBB
+ENIF 0x21
+MURE 0x05
+ENDA
+
+FarinaSykes:
+MUS2 0x51
+TEX1 0xA4C
+REMA
+MURE 0x05
+ENDA
+
+WallaceSain:
+MUS2 0x43
+TEX1 0xA4D
+REMA
+ITGC Sain_t BraveLance
+MURE 0x05
+ENDA
+
+SnowOff:
+WEA1 0x00
+ENDA
+
+WarningFair:
+IFEF 0x01 0x16
+TEX1 0xA5C
+REMA
+ENUT 0x18
+ELSE 0x02
+ENIF 0x01
+ENUT 0x18
+ENIF 0x02
+ENDA
+
+WarningLong:
+IFEF 0x01 0x16
+TEX1 0xA5D
+REMA
+ENUT 0x19
+ELSE 0x02
+ENIF 0x01
+ENUT 0x19
+ELSE 0x02
+ENDA
+
+WarningShort:
+IFEF 0x01 0x16
+TEX1 0xA5E
+REMA
+ENUT 0x17
+ELSE 0x02
+ENIF 0x01
+ENUT 0x17
+ENIF 0x02
+ENDA
+
+Weather1:
+IFEF 0x03 0x17
+IFEF 0x03 0x18
+IFEF 0x03 0x19
+IFAT 0x01 0xBE2321
+CALL WarningShort
+ELSE 0x02
+ENIF 0x01
+CALL WarningFair
+ENIF 0x02
+ENIF 0x03
+ENDA
+
+//0xDB0201
+
+Weather2:
+IFEF 0x03 0x17
+IFEF 0x03 0x18
+IFEF 0x03 0x19
+IFAT 0x01 0xBE2321
+CALL WarningShort
+ELSE 0x02
+ENIF 0x01
+CALL WarningLong
+ENIF 0x02
+ENIF 0x03
+ENDA
+
+Weather3:
+IFEF 0x03 0x17
+IFEF 0x03 0x18
+IFEF 0x03 0x19
+IFAT 0x01 0xBE2321
+CALL WarningFair
+ELSE 0x02
+ENIF 0x01
+//No Weather
+ENIF 0x02
+ENIF 0x03
+ENDA
+
+Weather4:
+IFEF 0x03 0x17
+IFEF 0x03 0x18
+IFEF 0x03 0x19
+IFAT 0x01 0xBE2321
+CALL WarningShort
+ELSE 0x02
+ENIF 0x01
+//No Weather
+ENIF 0x02
+ENIF 0x03
+ENDA
+
+Weather5:
+IFEF 0x03 0x17
+IFEF 0x03 0x18
+IFEF 0x03 0x19
+IFAT 0x01 0xBE2321
+CALL WarningFair
+ELSE 0x02
+ENIF 0x01
+CALL WarningLong
+ENIF 0x02
+ENIF 0x03
+ENDA
+
+SnowControl1:
+IFET 0x01 0x17
+WEA1 0x00
+STAL 255
+ENUF 0x17
+ENUF 0x10
+ENIF 0x01
+ENDA
+
+SnowControl2:
+IFET 0x01 0x18
+WEA1 0x00
+STAL 255
+ENUF 0x18
+ENUF 0x0E
+ENIF 0x01
+ENDA
+
+SnowControl3:
+IFET 0x01 0x19
+WEA1 0x00
+STAL 255
+ENUF 0x19
+ENUF 0x0F
+ENIF 0x01
+ENDA
+
+SnowOn:
+IFET 0x01 0x17
+IFEF 0x01 0x10
+WEA1 Snow
+ENUT 0x0E
+ENIF 0x01
+IFET 0x02 0x18
+IFEF 0x02 0x0E
+WEA1 Snow
+ENUT 0x0E
+ENIF 0x02
+IFET 0x03 0x19
+IFEF 0x03 0x0F
+WEA1 Snow
+ENUT 0x0F
+ENIF 0x03
+ENDA
+
+TempleOfTimeUnlock:
+ENUT MasterTale7
+STAL 255
+IFEF 0x01 TempleOfTime
+IFET 0x01 MasterTale3
+IFET 0x01 Tale6Clear
+IFET 0x01 MasterTale7
+IFET 0x01 MasterTale8
+TEX6 0x5 [0,0] 0xA5B
+REBB
+ENUT TempleOfTime
+ENIF 0x01
+ENDA
+
+
+TileChanges:
+TileMap(0x00,2,24,0x03,0x03,VillageDestroyed)
+TileMap(0x01,3,26,0x01,0x01,VillageGate)
+TileMap(0x02,23,2,0x03,0x03,VillageDestroyed)
+TileMap(0x03,24,4,0x01,0x01,VillageGate)
+TileMap(0x04,7,22,0x01,0x01,Bridge)
+TileMap(0x05,8,17,0x01,0x01,Bridge)
+TileMap(0x06,13,9,0x01,0x01,Bridge)
+TileMapEnd
+
+VillageGate:
+SHORT 0x0080
+
+VillageDestroyed:
+SHORT 0x0C1C
+SHORT 0x0C20
+SHORT 0x0C24
+SHORT 0x0C9C
+SHORT 0x0CA0
+SHORT 0x0CA4
+SHORT 0x0D1C
+SHORT 0x0D20
+SHORT 0x0D24
+
+Bridge:
+SHORT 0x0008
+
+
+MESSAGE Tale 7 Events end at offset currentOffset

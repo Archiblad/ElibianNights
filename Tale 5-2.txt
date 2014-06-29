@@ -1,0 +1,663 @@
+
+#include "EAstdlib.event"
+#include "BSFE7 definitions.txt"
+
+EventPointerTable(0xA6,ThisChapter)
+
+ORG 0xD895B0
+ThisChapter:
+
+POIN TurnEvents CharacterEvents LocationEvents MiscEvents
+POIN Ballista Ballista
+POIN Etrurians Etrurians Etrurians Etrurians
+POIN Cornwell Cornwell Cornwell Cornwell
+POIN OpeningEvent EndingEvent
+
+Cornwell:
+UNIT Raven Hero 0x00 Level(10,Ally,False) [10,7] [10,7] [SteelBlade,SteelSword,IronRune,Elixir] NoAI
+UNIT Priscilla Valkyrie Raven Level(4,Ally,False) [8,9] [8,9] [Physic,Thunder] NoAI
+UNIT Lucius Bishop Raven Level(5,Ally,False) [11,7] [11,7] [Divine,Lightning,Heal,Tonic] NoAI
+UNIT Geitz Warrior Raven Level(7,Ally,False) [11,9] [11,9] [QuickBow,CleaveBow,SteelAxe,Tonic] NoAI
+UNIT
+
+Heath1:
+UNIT Heath WyvernKnight Raven Level(10,Ally,False) [3,1] [9,8] [Axereaver,Greatlance] NoAI
+UNIT
+
+Shen1:
+UNIT Shen Warrior 0x00 Level(12,Ally,False) [10,10] [10,10] [ShortAxe,BattleAxe,Tonic] NoAI
+UNIT
+
+Arcard1:
+UNIT Arcard GreatKnight 0x00 Level(12,Enemy,False) [4,37] [4,35] [SilverAxe,Spear] GuardTile
+UNIT
+
+Erk1:
+UNIT Erk MageKnight Pent Level(7,Enemy,True) [4,35] [7,36] [Dimebolt,Bolting,Heal] AttackInRange
+UNIT
+
+Etrurians:
+UNIT 0x7D Sage 0x00 Level(6,Enemy,True) [4,35] [7,36] [Bolting,Thunder] NoAI
+UNIT 0x7E Paladin 0x00 Level(11,Enemy,True) [4,35] [6,33] [ShortSpear] NoAI
+UNIT 0x7E Paladin 0x00 Level(10,Enemy,True) [4,35] [7,34] [SteelBlade] NoAI
+UNIT 0x7E Paladin 0x00 Level(13,Enemy,True) [4,35] [2,32] [Tomahawk] AttackInRange
+UNIT 0x7D Sniper 0x00 Level(4,Enemy,True) [4,35] [6,37] [Greatbow] AttackInRange
+UNIT 0x7C Halberdier 0x00 Level(6,Enemy,True) [4,35] [0,33] [Spear] NoAI
+UNIT 0x6A Hero 0x00 Level(6,Enemy,True) [4,35] [1,34] [Swordslayer] NoAI
+UNIT
+
+Etrurians2:
+UNIT 0x7E Paladin 0x00 Level(11,Enemy,True) [4,35] [6,33] [Tomahawk] NoAI
+UNIT 0x7D Sniper 0x00 Level(10,Enemy,True) [4,35] [7,34] [SilverBow] NoAI
+UNIT 0x7C Halberdier 0x00 Level(6,Enemy,True) [4,35] [1,33] [Spear] NoAI
+UNIT 0x72 FalcoKnight 0x00 Level(6,Enemy,True) [4,35] [2,34] [SilverLance] NoAI
+UNIT
+
+Etrurians3:
+UNIT 0x7D Sage 0x00 Level(9,Enemy,True) [4,35] [6,35] [Elfire,Tonic] NoAI
+UNIT 0x6B GreatKnight 0x00 Level(11,Enemy,True) [4,35] [6,33] [Tomahawk] NoAI
+UNIT 0x7C Halberdier 0x00 Level(10,Enemy,True) [4,35] [7,34] [SilverLance] NoAI
+UNIT 0x6A Hero 0x00 Level(8,Enemy,True) [4,35] [1,33] [SilverAxe] NoAI
+UNIT 0x7E Paladin 0x00 Level(9,Enemy,True) [4,35] [2,34] [SilverLance] NoAI
+UNIT
+
+Etrurians4:
+UNIT 0x6C Valkyrie_b 0x00 Level(9,Enemy,True) [4,35] [7,34] [Purge] NoAI
+UNIT 0x7E Paladin 0x00 Level(11,Enemy,True) [4,35] [6,33] [Tomahawk] NoAI
+UNIT 0x7D Sniper 0x00 Level(10,Enemy,True) [4,35] [0,33] [SilverBow] NoAI
+UNIT 0x7C Halberdier 0x00 Level(6,Enemy,True) [4,35] [1,33] [Spear] NoAI
+UNIT 0x72 FalcoKnight 0x00 Level(6,Enemy,True) [4,35] [2,34] [SilverLance] NoAI
+UNIT
+
+Guardsmen:
+UNIT 0x71 General_b 0x00 Level(14,Enemy,True) [4,35] [3,36] [SilverBow] GuardTile
+UNIT 0x71 General 0x00 Level(14,Enemy,True) [4,35] [5,36] [SilverBlade] GuardTile
+UNIT
+
+Guardsmen2:
+UNIT 0x6B GreatKnight 0x00 Level(11,Enemy,True) [5,19] [5,19] [Tomahawk] GuardTile
+UNIT 0x71 General_b 0x00 Level(14,Enemy,True) [9,25] [9,25] [SilverBow,SteelLance] GuardTile
+UNIT
+
+Fort1:
+UNIT 0x6B GreatKnight 0x00 Level(7,Enemy,True) [12,26] [11,22] [Greatlance] NoAI
+UNIT 0x7E Paladin 0x00 Level(7,Enemy,True) [12,26] [8,21] [Pilum] NoAI
+UNIT 0x6A Hero 0x00 Level(6,Enemy,True) [12,26] [13,24] [SteelBlade] AttackInRange
+UNIT 0x72 FalcoKnight 0x00 Level(6,Enemy,True) [12,26] [10,23] [Dragonspear] NoAI
+UNIT 0x7D Sniper 0x00 Level(6,Enemy,True) [12,26] [13,25] [SteelBow] AttackInRange
+UNIT 0x7F Bishop 0x00 Level(9,Enemy,True) [12,26] [12,26] [Physic,Lightning] NoAI
+UNIT
+
+Fort2:
+UNIT 0x7D Sage 0x00 Level(4,Enemy,True) [13,27] [15,25] [Elfire] NoAI
+UNIT 0x7C Halberdier 0x00 Level(6,Enemy,True) [13,27] [14,23] [Horseslayer] NoAI
+UNIT 0x72 FalcoKnight 0x00 Level(11,Enemy,True) [13,27] [11,29] [Runesword] AttackInRange
+UNIT 0x7C Halberdier 0x00 Level(9,Enemy,True) [13,27] [9,27] [Pilum] AttackInRange
+UNIT
+
+Fort3:
+UNIT 0x71 General_b 0x00 Level(7,Enemy,True) [18,20] [18,20] [SteelBow,SteelLance] AttackInRange
+UNIT 0x7E Paladin 0x00 Level(5,Enemy,True) [18,20] [15,16] [SteelLance] NoAI
+UNIT 0x7C Halberdier 0x00 Level(9,Enemy,True) [18,20] [17,17] [Greatlance] NoAI
+UNIT 0x6A Hero 0x00 Level(6,Enemy,True) [18,20] [16,18] [SteelAxe] NoAI
+UNIT 0x7D Sniper 0x00 Level(4,Enemy,True) [18,20] [17,21] [Longbow] AttackInRange
+UNIT 0x7C Halberdier 0x00 Level(9,Enemy,True) [18,20] [16,22] [ShortSpear] AttackInRange
+UNIT 0x6B GreatKnight 0x00 Level(7,Enemy,True) [18,20] [18,23] [BattleAxe] AttackInRange
+UNIT
+
+Fort4:
+UNIT 0x6B GreatKnight 0x00 Level(7,Enemy,True) [7,18] [8,16] [WindSword] NoAI
+UNIT 0x6C Valkyrie_b 0x00 Level(7,Enemy,True) [7,18] [7,18] [Physic] NoAI
+UNIT 0x6A Hero 0x00 Level(6,Enemy,True) [7,18] [9,19] [SteelBlade] NoAI
+UNIT 0x72 FalcoKnight 0x00 Level(6,Enemy,True) [7,18] [5,18] [Greatlance] NoAI
+UNIT 0x7D Sniper 0x00 Level(6,Enemy,True) [7,18] [6,19] [SteelBow] NoAI
+UNIT 0x7D Sage 0x00 Level(9,Enemy,True) [7,18] [8,20] [Shaver] NoAI
+UNIT
+
+Fort5:
+UNIT 0x7D Sage 0x00 Level(4,Enemy,True) [13,27] [15,25] [Elfire] NoAI
+UNIT 0x7C Halberdier 0x00 Level(6,Enemy,True) [13,27] [14,23] [Horseslayer] NoAI
+UNIT 0x72 FalcoKnight 0x00 Level(11,Enemy,True) [13,27] [11,27] [Greatlance] NoAI
+UNIT 0x7C Halberdier 0x00 Level(9,Enemy,True) [13,27] [13,27] [Pilum] NoAI
+UNIT
+
+Fort6:
+UNIT 0x6B GreatKnight 0x00 Level(7,Enemy,True) [7,18] [8,16] [Greatlance] NoAI
+UNIT 0x7F Bishop 0x00 Level(7,Enemy,True) [7,18] [7,18] [Divine,Mend] NoAI
+UNIT 0x6A Hero 0x00 Level(6,Enemy,True) [7,18] [9,19] [SteelAxe] NoAI
+UNIT 0x72 FalcoKnight 0x00 Level(6,Enemy,True) [7,18] [5,18] [SteelBlade] NoAI
+UNIT 0x7D Sniper 0x00 Level(6,Enemy,True) [7,18] [6,19] [SteelBow] NoAI
+UNIT 0x7D Sage 0x00 Level(9,Enemy,True) [7,18] [8,20] [Thunder] NoAI
+UNIT
+
+Fort1NPC:
+UNIT 0x73 Fighter 0x00 Level(17,NPC,True) [18,14] [18,14] [BattleAxe] NoAI
+UNIT
+
+Fort1NPC2:
+UNIT 0x73 Fighter 0x00 Level(16,NPC,True) [18,14] [18,14] [ShortAxe] NoAI
+UNIT
+
+Fort2NPC:
+UNIT 0x73 Warrior 0x00 Level(6,NPC,True) [5,19] [5,19] [SteelBow,BattleAxe] NoAI
+UNIT
+
+Fort3NPC:
+UNIT 0x74 Berserker 0x00 Level(8,NPC,True) [9,25] [9,25] [BattleAxe] NoAI
+UNIT 
+
+BallistaeMen:
+UNIT 0x7D Ballistician 0x00 Level(14,Enemy,True) [5,30] [5,30] [Killerarch] GuardTile
+UNIT 0x7D Ballistician 0x00 Level(12,Enemy,True) [13,32] [13,32] [Arrowspate] GuardTile
+UNIT 0x7D Ballistician 0x00 Level(13,Enemy,True) [9,33] [9,33] [Arrowspate] GuardTile
+UNIT 0x7D Ballistician 0x00 Level(12,Enemy,True) [17,34] [17,34] [Killerarch] GuardTile
+UNIT
+
+ThoseHalbs:
+UNIT 0x7C Halberdier 0x00 Level(9,Enemy,True) [14,12] [14,12] [Pilum] NoAI
+UNIT 0x6B GreatKnight 0x00 Level(8,Enemy,True) [16,12] [16,12] [SteelBlade] NoAI
+UNIT
+
+ThoseHalbs2:
+UNIT 0x7C Halberdier 0x00 Level(9,Enemy,True) [14,12] [14,12] [Greatlance] NoAI
+UNIT 0x7E Paladin 0x00 Level(8,Enemy,True) [16,12] [16,12] [SteelAxe] NoAI
+UNIT
+
+OhhhhMan:
+UNIT 0x6C Valkyrie_b 0x00 Level(9,Enemy,True) [12,26] [12,26] [Divine,Physic] NoAI
+UNIT 0x6A Hero 0x00 Level(10,Enemy,True) [13,27] [13,27] [SilverAxe] NoAI
+UNIT
+
+OhhhhMan2:
+UNIT 0x72 FalcoKnight 0x00 Level(9,Enemy,True) [12,26] [12,26] [Greatlance] NoAI
+UNIT 0x7E Paladin 0x00 Level(10,Enemy,True) [13,27] [13,27] [SteelAxe] NoAI
+UNIT
+
+FuckingArmors:
+UNIT 0x71 General 0x00 Level(7,Enemy,True) [18,20] [18,20] [SteelBlade,ShortSpear] NoAI
+UNIT
+
+Whorses:
+UNIT 0x7E Paladin 0x00 Level(8,Enemy,True) [3,29] [3,29] [SilverLance] NoAI
+UNIT
+
+Whorses2:
+UNIT 0x6B GreatKnight 0x00 Level(8,Enemy,True) [3,29] [3,29] [SteelBlade] NoAI
+UNIT
+
+Whorses3:
+UNIT 0x6C Valkyrie_b 0x00 Level(9,Enemy,True) [3,29] [3,29] [Divine,Physic] NoAI
+UNIT
+
+DickMunchers:
+UNIT 0x7D Ballistician 0x00 Level(19,Enemy,True) [12,26] [12,26] [Veninbolt] AttackInRange
+UNIT 0x7D Ballistician 0x00 Level(18,Enemy,True) [13,27] [13,27] [Arrowspate] AttackInRange
+UNIT
+
+FinalScene:
+UNIT Arcard GreatKnight 0x00 Level(12,Enemy,False) [4,35] [4,35] [SilverAxe,Spear] GuardTile
+UNIT Raven Hero 0x00 Level(10,Ally,False) [4,36] [4,36] [SteelBlade,SteelSword,IronRune,Elixir] NoAI
+UNIT
+
+TurnEvents:
+TURN 0x00 OpeningEvent [01,00] 0x0 0x00
+TURN 0x00 SeizeExplain [02,00] 0x0 0x00
+TURN 0x00 ArcardShit [04,00] 0x8 0x00
+TURN 0x00 NPCMasterControl [1,255] 0x4 0x00
+TURN 0x00 TurnSix [06,00] 0x8 0x00
+TURN 0x00 TurnEight [08,00] 0x8 0x00
+TURN 0x00 TurnTen [10,00] 0x8 0x00
+TURN 0x00 TurnTwelve [12,00] 0x8 0x00
+TURN 0x00 TurnThirteen [13,00] 0x8 0x00
+TURN 0x00 Nihoe [8,255] 0x8 0x00
+TURN 0x00 PhaseChange [15,00] 0x0 0x00
+TURN 0x00 Fort6Inf [15,255] 0x8 0x00
+TURN 0x00 ThoseHalbsInf [15,255] 0x8 0x00
+TURN 0x00 Etrurians4Inf [15,255] 0x8 0x00
+TURN 0x00 AchievementGo [24,00] 0x0 0x00
+TURN
+
+CharacterEvents:
+CharacterEventBothWays(0x10,HeathPriscilla,Heath,Priscilla)
+CharacterEventBothWays(0x15,GeitzLucius,Geitz,Lucius)
+CharacterEventBothWays(0x17,ShenPriscilla,Shen,Priscilla)
+CHAR
+
+LocationEvents:
+Village(0x0A,Village1,17,29)
+House(0x0B,House1,8,7)
+House(0x0C,House2,16,25)
+House(0x11,House3,20,28)
+House(0x12,House4,11,36)
+Seize(0x0D,FortSeize,18,14)
+Seize(0x0E,FortSeize,5,19)
+Seize(0x0F,FortSeize,9,25)
+LOCA
+
+MiscEvents:
+CauseGameOverIfLordDies
+ASME 0x00 EndingEvent 0xDE0211
+AFEV
+
+OpeningEvent:
+LOU1 Cornwell
+IFEF 0x01 0x95
+LOU1 Shen1
+ENIF 0x01
+LOU1 Guardsmen2
+LOU1 BallistaeMen
+ENUN
+BACG 0x5B
+TEXTCG 0xA77
+REBU 
+TEXTCG 0xA78
+REBU
+FAWI 2
+BACG 0x27
+FAWU 5
+TEX1 0xA74
+FADI 5
+ClearScreen
+BACG 0x0C
+FADU 5
+MUS1 0x51
+TEX1 0xA75
+MUEN 0x05
+MORETEXT 0xA76
+MUS1 0x6A
+MORETEXT 0xA79
+MUEN 0x05
+CAM1 [6,33]
+REMA
+CMOF
+STAL 0x40
+LOU1 Arcard1
+ENUN
+CURF [4,35]
+FADI 5
+BACG 0x19
+FADU 5
+MUS1 0x53
+TEX1 0xA7A
+REMA
+STAL 0x20
+LOU1 Etrurians
+ENUN
+LOU1 Guardsmen
+ENUN
+CMON
+LOU1 Fort1
+ENUN
+LOU1 Fort2
+ENUN
+LOU1 Fort3
+ENUN
+MUS1 0x22
+CAM1 [8,7]
+CMOF
+LOU1 Heath1
+ENUN
+FADI 5
+BACG 0x59
+FADU 5
+TEX1 0xA7B
+MUS1 0x57
+MORETEXT 0xA7C
+IFEF 0x03 0x95
+MORETEXT 0xA7D
+ELSE 0x04
+ENIF 0x03
+MORETEXT 0xA7E
+ENIF 0x04
+REMA
+ENDA
+
+SeizeExplain:
+CAM1 Raven
+MUS1 0x0B
+TEX1 0xA7F
+REMA
+CAM1 [13,14]
+CURF [18,14]
+TEX6 0x5 [0,0] 0xA80
+_ASM0x42 0x83181
+ENDA
+
+NPCMasterControl:
+IFET 0x01 0x0D
+IFAF 0x04 0xDE0181
+LOU1 Fort1NPC2
+ENUN
+ELSE 0x05
+ENIF 0x04
+IFAF 0x06 0xDE0161
+LOU1 Fort1NPC
+ENUN
+ENIF 0x06
+ENIF 0x05
+ENIF 0x01
+IFET 0x02 0x0E
+IFAF 0x02 0xDE0181
+LOU1 Fort2NPC
+ENIF 0x02
+IFET 0x03 0x0F
+LOU1 Fort3NPC
+ENIF 0x03
+ENDA
+
+ArcardShit:
+CAM1 Arcard
+CURF Arcard
+FADI 5
+BACG 0x19
+FADU 5
+MUS1 0x53
+TEX1 0xA81
+REMA
+CMOF
+LOU1 Etrurians2
+ENUN
+LOU1 Erk1
+ENUN
+CMON
+LOU1 OhhhhMan
+ENUN
+LOU1 ThoseHalbs
+ENUN
+ENDA
+
+EndingEvent:
+ENUT 0x14
+MUEN 0x02
+FADI 2
+CAM1 Arcard
+ClearAllUnits
+BACG 0x19
+LOU1 FinalScene
+ENUN
+FADU 2
+MUS1 0x36
+TEX1 0xA8E
+REPOS Raven [4,36]
+REMA
+ASMC 0xDE0251
+TEX1 0xA92
+REMA
+FIGH Arcard Raven Execution $00000000
+KILL Raven
+MUS1 Stratagem
+FADI 5
+ClearAllUnits
+BACG 0x19
+FADU 5
+TEX1 0xA90
+MUS1 0x51
+MORETEXT 0xA93
+MUEN 0x05
+REMA
+FADI 2
+BACG 0x0C
+FADU 2
+MUS1 0x6A
+TEX1 0xA94
+REBU
+ASMC 0xECFD
+MUEN 0x1A
+FROMBGTOCG 0x2D 2
+STAL 0xFF
+FADI 2
+ClearScreen
+BecomeNPC(Priscilla)
+BecomeNPC(Lucius)
+BecomeNPC(Geitz)
+BecomeNPC(Shen)
+BecomeNPC(Heath)
+BecomeNPC(Raven)
+ENUT Tale5Clear
+//ENUF 0x95
+GotoTaleSelect
+ENDA
+
+Execution:
+WORD $48010001
+BLDT
+
+Village1:
+MUSI
+FADI 5
+BACG 0x02
+FADU 5
+TEX1 0xA88
+REMA
+ITGV IronSword
+MUNO
+ENDA
+
+House1:
+MUSI
+FADI 5
+BACG 0x01
+FADU 5
+IFEF 0x01 0x13
+TEX1 0xA8D
+REMA 
+IFCA 0x00 0x02 Raven
+ITGV Elixir
+ENIF 0x02
+IFCA 0x00 0x03 Priscilla
+ITGV Hammerne
+ENIF 0x03
+IFCA 0x00 0x04 Heath
+ITGV Spear
+ENIF 0x04
+IFCA 0x00 0x05 Lucius
+ITGV Purge
+ENIF 0x05
+IFCA 0x00 0x06 Geitz
+ITGV TowerBow
+ENIF 0x06
+IFCA 0x00 0x07 Shen
+ITGV Swordreaver
+ENIF 0x07
+ENUT 0x13
+ELSE 0x08
+ENIF 0x01
+TEX1 0xA89
+REMA
+ENIF 0x08
+MUNO
+ENUF 0x0B
+ENDA
+
+House2:
+MUSI
+FADI 5
+BACG 0x01
+FADU 5
+TEX1 0xA8A
+REMA
+MUNO
+ENUF 0x0C
+ENDA
+
+House3:
+MUSI
+FADI 5
+BACG 0x01
+FADU 5
+TEX1 0xA8B
+REMA
+MUNO
+ENUF 0x11
+ENDA
+
+House4:
+MUSI
+FADI 5
+BACG 0x01
+FADU 5
+TEX1 0xA8C
+REMA
+MUNO
+ENUF 0x12
+ENDA
+
+TurnSix:
+MUS1 0x0E
+LOU1 OhhhhMan2
+ENUN
+ENDA
+
+TurnEight:
+MUS1 0x0E
+LOU1 Etrurians3
+ENUN
+LOU1 OhhhhMan
+ENUN
+LOU1 FuckingArmors
+ENUN
+LOU1 ThoseHalbs
+ENUN
+ENDA
+
+TurnTen:
+MUS1 0x0E
+LOU1 Fort4
+ENUN
+LOU1 Fort5
+ENUN
+ENDA
+
+TurnTwelve:
+MUS1 0x0E
+LOU1 Etrurians4
+ENUN
+LOU1 OhhhhMan2
+ENUN
+ENDA
+
+TurnThirteen:
+MUS1 0x0E
+LOU1 Fort6
+ENUN
+LOU1 OhhhhMan2
+ENUN
+ENDA
+
+PhaseChange:
+CAM1 Arcard
+CURF Arcard
+FADI 5
+LOMA 0x2A [6,35]
+BACG 0x19
+FADU 5
+MUS1 0x53
+TEX1 0xA82
+REMA
+CMOF
+LOU1 Etrurians4
+ENUN
+CHAI [7,36] $00000000
+CAM1 [8,29]
+LOU1 DickMunchers
+ENUN
+CAM1 Raven
+IFCD 0x01 Lucius
+ELSE 0x02
+ENIF 0x01
+MOVENEXTTO Lucius Raven
+ENUN
+ENIF 0x02
+MOVENEXTTO Priscilla Raven
+ENUN
+FADI 5
+BACG 0x59
+FADU 5
+MUS1 0x35
+TEX1 0xA83
+REMA
+ENDA
+
+FortSeize:
+MUSI
+TEX6 0x5 [0,0] 0xA87
+REBB
+MUNO
+ENDA
+
+Nihoe:
+MUS1 0x0E
+//IFAT 0x01 0xDE01A1
+//LOU1 Whorses3
+//ELSE 0x02
+//ENIF 0x01
+  IFAF 0x03 0xDE0181 //Every four turns
+  LOU1 Whorses2
+  ELSE 0x04
+  ENIF 0x03
+    IFAF 0x05 0xDE0161 //Every two turns
+    LOU1 Whorses
+    ENUN
+    ENIF 0x05
+  ENIF 0x04
+//ENIF 0x02
+ENDA
+
+Fort6Inf:
+IFAF 0x03 0xDE0181
+MUS1 0x0E
+LOU1 Fort6
+ENUN
+ENIF 0x03
+ENDA
+
+ThoseHalbsInf:
+IFAF 0x04 0xDE0181
+ELSE 0x05
+ENIF 0x04
+IFAF 0x06 0xDE0161
+LOU1 ThoseHalbs2
+ENUN
+ENIF 0x06
+ENIF 0x05
+ENDA
+
+Etrurians4Inf:
+IFAF 0x03 0xDE0181
+MUS1 0x0E
+LOU1 Etrurians4
+ENUN
+ENIF 0x03
+ENDA
+
+HeathPriscilla:
+MUS2 0x24
+TEX1 0xA98
+REMA
+//ITGC Heath Spear
+MURE 0x05
+ENDA
+
+ShenPriscilla:
+MUS2 0x40
+TEX1 0xA99
+REMA
+MURE 0x05
+ENDA
+
+GeitzLucius:
+MUS2 0x006A
+TEX1 0xA96
+REMA
+MURE 0x05
+ENDA
+
+AchievementGo:
+IFEF 0x01 NeverSayDie
+TEX6 0x5 [0,0] 0xA97
+REBB
+ENUT NeverSayDie
+ENIF 0x01
+ENDA
+
+MESSAGE Events end at currentOffset.

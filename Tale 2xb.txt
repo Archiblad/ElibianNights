@@ -1,0 +1,585 @@
+#include "EAstdlib.event"
+#include "BSFE7 definitions.txt"
+
+EventPointerTable(0x4B,ThisChapter)
+EventPointerTable(0x54,TileChanges)
+
+ORG 0xD84470
+ThisChapter:
+
+POIN TurnEvents TalkEvents LocationEvents MiscEvents
+POIN ObjectData ObjectData
+POIN Enemies Enemies Enemies Enemies 
+POIN CaelinCrew CaelinCrew CaelinCrew CaelinCrew
+POIN OpeningEvent EndingEvent
+
+CaelinCrew:
+UNIT Kent Paladin 0x00 Level(8,Ally,False) [16,11] [16,11] [SilverSword,Pilum,Elixir] NoAI
+UNIT Gaufrid Halberdier Kent Level(12,Ally,False) [16,11] [15,13] [Greatlance,KillerLance,ShortSpear,Tonic] NoAI
+UNIT 0xE5 General Kent Level(8,NPC,True) [16,11] [18,13] [BattleAxe,Pilum] NoAI
+UNIT 0xE5 General Kent Level(9,NPC,True) [16,11] [17,14] [SilverLance,QuickSword] NoAI
+UNIT 0xE6 Ranger Kent Level(8,NPC,False) [16,11] [14,11] [SilverSword,SteelBow,Tonic] NoAI
+UNIT 0xEA Paladin Kent Level(10,NPC,False) [16,11] [14,12] [SilverLance,ShortSpear] NoAI
+UNIT 0xEC Hero Kent Level(11,NPC,False) [16,11] [18,10] [SteelBlade,SteelAxe] NoAI
+UNIT
+
+CaelinCrew2:
+UNIT Florina FalcoKnight Kent 0x20 [14,22] [12,21] [SilverLance,SilverSword,Tonic] NoAI
+UNIT Lyn BladeLord Kent Level(6,Ally,False) [14,22] [14,22] [ManiKatti,SolKatti,ShortBow,Elixir] NoAI
+UNIT
+
+PheraeCrew:
+UNIT Dorcas Warrior Merlinus Level(7,Ally,False) [31,8] [29,9] [Hammer,SteelAxe,SteelBow] NoAI
+UNIT Natalie_EN Valkyrie_b 0x00 Level(3,Ally,False) [31,8] [31,8] [Physic,Mend,Lightning,Tonic] NoAI
+UNIT Wil Ranger Raven Level(6,Ally,False) [31,8] [28,8] [SilverBow,CleaveBow,Tonic] NoAI
+UNIT
+
+OstiaCrew:
+UNIT Matthew Rogue Hector Level(5,Ally,False) [0,18] [3,15] [RazorSword,QuickSword,Cutlass,Vulnerary] NoAI
+UNIT
+
+Enemies:
+UNIT Hervor Paladin_F 0x00 Level(13,Enemy,False) [29,22] [29,22] [SilverAxe,Spear,Tomahawk,Elixir] AttackInRange
+UNIT Yorrick MageKnight 0x00 Level(12,Enemy,False) [28,22] [28,22] [Bolting,Elfire,Elixir] GuardTile
+UNIT 0xE4 Hero Hervor Level(5,Enemy,True) [6,19] [6,19] [SteelBlade] NoAI
+UNIT 0xE1 Halberdier Hervor Level(4,Enemy,True) [8,18] [8,18] [ShortSpear] NoAI
+UNIT 0xDE Ranger Hervor Level(6,Enemy,True) [3,17] [3,17] [SteelBow,Tonic] AttackInRange
+UNIT 0xE2 Valkyrie Hervor Level(4,Enemy,True) [6,16] [6,16] [Thunder,Mend] NoAI
+UNIT 0xE0 General Hervor Level(5,Enemy,True) [9,16] [9,16] [Greatlance,SteelLance] AttackInRange
+UNIT 0xDE Ranger Hervor Level(6,Enemy,True) [1,23] [1,23] [QuickSword] NoAI
+UNIT 0xDF Paladin Hervor Level(6,Enemy,True) [0,22] [0,22] [SteelLance,ShortSpear] NoAI
+UNIT 0xE1 Halberdier Hervor Level(5,Enemy,True) [8,14] [8,14] [Greatlance] AttackInRange
+UNIT 0xEE FalcoKnight Hervor Level(6,Enemy,True) [6,14] [6,14] [SteelLance,ShortSpear] NoAI
+UNIT 0xE4 Hero Hervor Level(4,Enemy,True) [7,12] [7,12] [SteelAxe,Tonic] NoAI
+UNIT 0xDF Paladin Hervor Level(6,Enemy,True) [5,12] [5,12] [SteelBlade,SteelLance] AttackInRange
+UNIT 0xE0 General_b Hervor Level(5,Enemy,True) [21,19] [21,19] [SteelBow,SteelLance] AttackInRange
+UNIT 0xE1 Halberdier Hervor Level(5,Enemy,True) [19,22] [19,22] [SteelLance,Tonic] NoAI
+UNIT 0xEE FalcoKnight Hervor Level(4,Enemy,True) [18,23] [18,23] [SteelBlade,SteelLance] NoAI
+UNIT 0xDE Ranger Hervor Level(4,Enemy,True) [22,5] [22,5] [SilverSword] NoAI
+UNIT 0xE0 General Hervor Level(4,Enemy,True) [23,8] [23,8] [BattleAxe,SteelBlade] NoAI
+UNIT 0xDE Ranger Hervor Level(4,Enemy,True) [26,6] [26,6] [CleaveBow,SteelSword] AttackInRange
+UNIT 0xE1 Halberdier Hervor Level(5,Enemy,True) [28,3] [28,3] [ShortSpear] NoAI
+UNIT 0xEE FalcoKnight Hervor Level(3,Enemy,True) [30,15] [30,15] [Greatlance] AttackInRange
+UNIT 0xE4 Hero Hervor Level(5,Enemy,True) [23,6] [23,6] [Longsword] NoAI
+UNIT 0xDE Ranger Hervor Level(4,Enemy,True) [22,15] [22,15] [CleaveBow] NoAI
+UNIT 0xE1 Halberdier Hervor Level(5,Enemy,True) [23,13] [23,13] [Greatlance,Tonic] NoAI
+UNIT 0xE1 Halberdier Hervor Level(4,Enemy,True) [22,11] [22,11] [ShortSpear] NoAI
+UNIT 0xDF Paladin Hervor Level(6,Enemy,True) [26,14] [26,14] [SteelAxe,ShortSpear] AttackInRange
+UNIT 0xE2 Valkyrie Hervor Level(5,Enemy,True) [29,12] [29,12] [Elfire,Mend] AttackInRange
+UNIT 0xDF Paladin Hervor Level(6,Enemy,True) [0,22] [0,22] [SteelLance,ShortSpear] AttackInRange
+UNIT 0xE1 Halberdier Hervor Level(6,Enemy,True) [28,19] [28,19] [SteelLance] AttackInRange
+UNIT 0xE0 General Hervor Level(8,Enemy,True) [27,20] [27,20] [Tomahawk] AttackInRange
+UNIT 0xDF Paladin Hervor Level(10,Enemy,True) [25,18] [25,18] [SilverLance] AttackInRange
+UNIT 0xE2 Valkyrie Hervor Level(7,Enemy,True) [25,21] [25,21] [Physic,Aircalibur] AttackInRange
+UNIT 0xDF Paladin Hervor Level(11,Enemy,True) [31,21] [31,21] [SilverSword,Longsword] AttackInRange
+UNIT 0xE3 Ballistician Hervor Level(14,Enemy,True) [31,19] [31,19] [Arrowspate] GuardTile
+UNIT 0xE3 Ballistician Hervor Level(14,Enemy,True) [23,2] [23,2] [Arrowspate] GuardTile
+UNIT 0xE3 Ballistician Hervor Level(14,Enemy,True) [22,23] [22,23] [Arrowspate] GuardTile
+UNIT
+
+Tuscana1:
+UNIT Yorrick MageKnight 0x00 Level(12,Enemy,False) [17,23] [16,21] [Bolting,Elfire,Elixir] NoAI
+UNIT 0xA9 Sniper 0x00 Level(4,Enemy,False) [17,23] [15,21] [SteelBow] NoAI
+UNIT 0xA9 Sniper 0x00 Level(4,Enemy,False) [17,23] [14,22] [SteelBow] NoAI
+UNIT 0xAA MageKnight 0x00 Level(8,Enemy,False) [17,23] [17,23] [Thunder,Mend] NoAI
+UNIT 0xA9 Sage 0x00 Level(9,Enemy,False) [17,23] [18,22] [Divine,PureWater] NoAI
+UNIT 0xA9 Swordmaster 0x00 Level(6,Enemy,False) [17,23] [17,20] [SteelBlade] NoAI
+UNIT
+
+Tuscana2:
+UNIT 0xA9 Swordmaster 0x00 Level(6,Enemy,False) [8,0] [8,1] [SteelBlade] NoAI
+UNIT 0xA9 Swordmaster 0x00 Level(6,Enemy,False) [8,0] [10,3] [SteelBlade] NoAI
+UNIT 0xA9 Sniper 0x00 Level(4,Enemy,False) [8,0] [9,1] [SteelBow] NoAI
+UNIT 0xAA MageKnight 0x00 Level(8,Enemy,False) [8,0] [9,4] [Elfire] NoAI
+UNIT
+
+Tuscana3:
+UNIT 0xA9 Sage 0x00 Level(9,Enemy,False) [31,14] [31,14] [Divine,PureWater] NoAI
+UNIT 0xA9 Sniper 0x00 Level(4,Enemy,False) [31,14] [30,13] [SteelBow] NoAI
+UNIT 0xAA MageKnight 0x00 Level(8,Enemy,False) [31,14] [30,16] [Thunder] NoAI
+UNIT
+
+Reinforcement1:
+UNIT 0xA9 Sage 0x00 Level(9,Enemy,False) [8,0] [8,0] [Divine,PureWater] NoAI
+UNIT 0xA9 Sniper 0x00 Level(4,Enemy,False) [9,0] [9,0] [Longbow] NoAI
+UNIT 0xDE Ranger Hervor Level(4,Enemy,True) [8,0] [8,1] [BraveSword] NoAI
+UNIT 0xDF Paladin Hervor Level(8,Enemy,True) [9,0] [9,1] [Tomahawk] NoAI
+UNIT 
+
+
+CaelinScene:
+UNIT Kent Paladin 0x00 Level(8,Ally,False) [11,20] [11,20] [SilverSword,ShortSpear,Elixir] NoAI
+UNIT Gaufrid Halberdier Kent Level(12,Ally,False) [10,24] [10,24] [Greatlance,KillerLance,ShortSpear,Tonic] NoAI
+UNIT 0xDD Paladin_F 0x00 Level(13,NPC,False) [11,25] [11,25] [SilverAxe,Spear,Elixir] AttackInRange
+UNIT
+
+Hervor1:
+UNIT Hervor Paladin_F 0x00 Level(13,Enemy,False) [16,11] [24,15] [SilverAxe,Spear,Tomahawk,Elixir] AttackInRange
+UNIT
+
+Dawson1:
+UNIT Dawson Halberdier 0x00 Level(10,Enemy,False) [2,18] [4,13] [Axereaver,Spear,Elixir] Guard
+UNIT
+
+
+TurnEvents:
+TURN 0x00 OpeningEvent [01,00] 0x0 0x00
+TURN 0x00 EnemyOpening [01,00] 0x8 0x00
+TURN 0x00 OstianFriends [03,00] 0x0 0x00
+TURN 0x00 PheraenFriends [04,00] 0x0 0x00
+TURN 0x00 TurnTuscana [07,00] 0x8 0x00
+TURN 0x00 TurnNine [09,00] 0x8 0x00
+TURN 0x00 TurnEleven [11,00] 0x8 0x00
+TURN
+
+TalkEvents:
+CHAR 0x0E MatthewLyn Matthew Lyn $00000000
+CHAR 0x0E MatthewLyn Lyn Matthew $00000000
+CHAR 0x0F FlorinaWil Florina Wil $00000000
+CHAR 0x0F FlorinaWil Wil Florina $00000000
+CHAR 0x10 GaufridLyn Gaufrid Lyn $00000000
+CHAR 0x10 GaufridLyn Lyn Gaufrid $00000000
+CHAR 0x11 LynNatalie Natalie_EN Lyn $00000000
+CHAR 0x11 LynNatalie Lyn Natalie_EN $00000000
+CHAR 0x12 LynDorcas Dorcas Lyn $00000000
+CHAR 0x12 LynDorcas Lyn Dorcas $00000000
+CHAR 0x13 LynWil Wil Lyn $00000000
+CHAR 0x13 LynWil Lyn Wil $00000000
+CHAR 0x15 LynHervor Lyn Hervor $00000000
+CHAR 0x16 LynHervor2 Lyn Hervor 0x150003
+CHAR 0x02 LynHervor3 Lyn Hervor 0x160003
+CHAR 0x18 KentLyn Kent Lyn $00000000
+CHAR 0x19 KentGaufrid Gaufrid Kent $00000000
+CHAR 0x19 KentGaufrid Kent Gaufrid $00000000
+CHAR 0x20 MatthewGaufrid Matthew Gaufrid $000000000
+CHAR
+
+LocationEvents:
+Village(0x1F,Village1,7,22)
+Village(0x20,Village2,29,7)
+House(0x09,House1,14,22)
+House(0x0A,House2,16,19)
+House(0x0B,House3,4,13)
+House(0x0C,House4,1,12)
+House(0x0D,House5,27,11)
+LOCA
+
+MiscEvents:
+CauseGameOverIfLordDies
+DefeatBoss(EndingEvent)
+AFEV
+
+ObjectData:
+BLST
+ALIGN 4
+
+
+OpeningEvent:
+CMOF
+LOU1 CaelinScene
+ENUN
+LOMA 0x35 [11,21]
+STAL 0x20
+MOVE Gaufrid [11,21]
+ENUN
+TEX1 0xB06
+REMA
+MOVE Gaufrid [10,20]
+ENUN
+CMON
+MOVE 0xDD [11,21]
+ENUN
+CMOF
+MUS1 Stratagem
+TEX1 0xB07
+REMA
+MUEN 0x05
+FADI 5
+ClearAllUnits
+LOMA 0x11 [16,11]
+BACG 0x01
+FADU 5
+MUS1 DistantUtopia
+TEX1 0xB08
+MUEN 0x05
+REMA
+STAL 0x30
+CURF [16,11]
+MUEN 0x05
+FADI 10
+LOU1 Enemies
+ENUN
+BACG 0x10
+FADU 10
+MUS1 0x40
+TEX1 0xB09
+MUS1 0x22
+MORETEXT 0xB0A
+REMA
+LOU1 Hervor1
+ENUN
+DISA [24,15]
+ENUN
+STAL 0x20
+LOU1 CaelinCrew
+ENUN
+CAM1 [14,19]
+FADI 10
+BACG 0x04
+FADU 10
+TEX1 0xB0B
+REMA
+LOU1 CaelinCrew2
+ENUN
+ASMC 0xBE2640
+ENDA
+
+EnemyOpening:
+CAM1 Hervor
+MUS1 0x53
+FADI 10
+BACG 0x23
+FADU 10
+TEX1 0xB0E
+REMA
+MOVE Yorrick [28,24]
+ENUN
+DISA Yorrick
+ENDA
+
+OstianFriends:
+MUS1 0x42
+LOU1 OstiaCrew
+ENUN
+TEX1 0xB0C
+ENDA
+
+PheraenFriends:
+MUS1 0x42
+LOU1 PheraeCrew
+ENUN
+TEX1 0xB0D
+ENDA
+
+TurnTuscana:
+MUS1 0x53
+LOU1 Tuscana3
+ENUN
+LOU1 Tuscana2
+ENUN
+LOU1 Tuscana1
+ENUN
+FADI 10
+BACG 0x23
+FADU 10
+TEX1 0xB17
+REMA
+ENDA
+
+TurnSixShit:
+MUS1 0x0E
+LOU1 Reinforcement1
+ENUN
+ENDA
+
+TurnNine:
+MUS1 0x0E
+LOU1 Tuscana2
+ENUN
+ENDA
+
+TurnEleven:
+MUS1 0x0E
+LOU1 Tuscana3
+ENUN
+ENDA
+
+House1:
+MUSI
+FADI 10
+BACG 0x01
+FADU 10
+IFCA 0x00 0x01 Lyn
+IFEF 0x03 0x14
+TEX1 0xB0F //Lyn gets Swift
+REMA
+ITGV Swift
+ENUT 0x14
+ELSE 0x04
+ENIF 0x03
+TEX1 0xB11 //Lyn has already visited
+REMA
+ENIF 0x04
+ELSE 0x02
+ENIF 0x01
+TEX1 0xB10 //Somebody else visits
+REMA
+ENIF 0x02
+ENUF 0x09
+MUNO
+ENDA
+
+House2:
+MUSI
+FADI 10
+BACG 0x01
+FADU 10
+TEX1 0xB12
+REMA
+ENUF 0x0A
+MUNO
+ENDA
+
+House3:
+MUSI
+FADI 10
+BACG 0x01
+FADU 10
+TEX1 0xB64
+REMA
+ENUF 0x0B
+MUNO
+ENDA
+
+House4:
+MUSI
+FADI 10
+BACG 0x01
+FADU 10
+TEX1 0xB13
+REMA
+ENUF 0x0C
+MUNO
+ENDA
+
+House5:
+MUSI
+FADI 10
+BACG 0x01
+FADU 10
+TEX1 0xB14
+REMA
+ENUF 0x0D
+MUNO
+ENDA
+
+Village1:
+FADI 10
+BACG 0x02
+FADU 10
+TEX1 0x0B15
+REMA
+ITGV HeavySpear
+ENDA
+
+Village2:
+FADI 10
+BACG 0x02
+FADU 10
+TEX1 0x0B16
+REMA
+ITGV Hammerne
+ENDA
+
+MatthewLyn:
+MUS2 0x3F
+TEX1 0xB18
+REMA
+MURE 0x05
+ENDA
+
+FlorinaWil:
+MUS2 0x2A
+TEX1 0xB19
+REMA
+ITGC Wil BraveBow
+MURE 0x05
+ENDA
+
+GaufridLyn:
+MUS2 0x40
+TEX1 0xB1A
+REMA
+MURE 0x05
+ENDA
+
+LynNatalie:
+MUS2 0x3F
+TEX1 0xB1B
+REMA
+MURE 0x05
+ENDA
+
+LynDorcas:
+MUS2 0x3F
+TEX1 0xB51
+REMA
+MURE 0x05
+ENDA
+
+LynWil:
+MUS2 0x43
+TEX1 0xB1D
+REMA
+MURE 0x05
+ENDA
+
+LynHervor:
+MUS2 0x40
+TEX1 0xB1E
+REMA
+MURE 0x05
+ENDA
+
+LynHervor2:
+MUS2 0x34
+TEX1 0xB1F
+REMA
+MURE 0x05
+ENDA
+
+LynHervor3:
+MUS2 0x6A
+TEX1 0xB20
+REMA
+ENUT 0x1C
+BecomeNPC(Hervor)
+MURE 0x05
+ENDA
+
+KentLyn:
+MUS2 0x24
+TEX1 0xB21
+REMA
+MURE 0x05
+ENDA
+
+KentGaufrid:
+MUS2 0x43
+TEX1 0xB4C
+REMA
+ITGC Kent 0xB4
+MURE 0x05
+ENDA
+
+MatthewGaufrid:
+MUS2 0x40
+TEX1 0xB63
+REMA
+MURE 0x05
+ENDA
+
+EndingEvent:
+MUEN 0x01
+FADI 5
+ClearAllUnits
+LOMA 0x11 [16,11]
+FADU 5
+STAL 0xFF
+CURF [16,11]
+FADI 10
+BACG 0x10
+FADU 10
+IFEF 0x01 0x1C //Ending A
+MUS1 0x39
+TEX1 0xB57
+MUS1 0x54
+MORETEXT 0xB58
+REMA
+ELSE 0x02 //Ending B
+ENIF 0x01
+MUS1 0x38
+TEX1 0xB56
+CAM1 [14,19]
+MUEN 0x03
+REMA
+CURF [14,22]
+FADI 5
+BACG 0x01
+FADU 5
+MUS1 0x54
+TEX1 0xB60
+REMA
+ENIF 0x02
+MUEN 0x02
+CAM1 [6,13]
+CMOF
+LOU1 Dawson1
+ENUN
+DISA Dawson
+CURF [4,13]
+FADI 5
+BACG 0x01
+FADU 5
+MUS1 0x53
+IFEF 0x07 0x1C //Ending A
+TEX1 0xB59
+ELSE 0x08 //Ending B
+ENIF 0x07
+TEX1 0xB5F
+ENIF 0x08
+REMA
+MUEN 0x05
+IFEF 0x03 0x1C //Ending A
+FADI 3
+BACG 0x06
+FADU 5
+MUS1 0x58
+TEX1 0xB5A
+IFET 0x05 0x1B //If Matthew fought Yorrick
+MORETEXT 0xB5B
+ELSE 0x06
+ENIF 0x05
+MORETEXT 0xB5C
+ENIF 0x06
+ELSE 0x04 //Ending B
+ENIF 0x03
+FADI 5
+BACG 0x14
+FADU 5
+TEX1 0xB5D
+IFET 0x0A 0x20 //If Matthew talked to Gaufrid
+MORETEXT 0xB61
+ELSE 0x0B
+ENIF 0x0A
+MORETEXT 0xB62
+ENIF 0x0B
+ENIF 0x04
+MUEN 0x04
+FADI 2
+ClearScreen
+BecomeNPC(Matthew)
+BecomeNPC(Lyn)
+BecomeNPC(Kent)
+BecomeNPC(Dorcas)
+BecomeNPC(Natalie_EN)
+BecomeNPC(Wil)
+BecomeNPC(Gaufrid)
+ENUT Tale2xbClear
+GotoTaleSelect
+ENDA
+
+MESSAGE Tile changes begin at currentOffset
+
+TileChanges:
+TileMap(0x00,6,20,3,3,VillageDestroyed)
+TileMap(0x01,7,22,1,1,VillageGate)
+TileMap(0x02,28,5,3,3,VillageDestroyed)
+TileMap(0x03,29,7,1,1,VillageGate)
+TileMapEnd
+
+VillageGate:
+SHORT 0x0E28
+
+VillageDestroyed:
+SHORT 0x0E1C
+SHORT 0x0E20
+SHORT 0x0E24
+SHORT 0x0E9C
+SHORT 0x0EA0
+SHORT 0x0EA4
+SHORT 0x0F9C
+SHORT 0x0FA0
+SHORT 0x0F24
+
+MESSAGE Chapter ends at offset currentOffset

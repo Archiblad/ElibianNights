@@ -1,0 +1,553 @@
+	//For assembling as separate chapter
+#define DISABLE_TUTORIALS
+#include "EAstdlib.event"
+#include "BSFE7 definitions.txt"
+
+#define KarlaDead 0x32
+#define BartreDead 0x33
+#define ToniDead 0x34
+
+EventPointerTable(0x3D,ThisChapter)
+EventPointerTable(0x14,TileChanges)
+
+ORG 0xD834E0
+ThisChapter:
+
+//Actual events:
+POIN TurnEvents TalkEvents LocationEvents MiscEvents
+POIN ObjectData ObjectData
+POIN PrasadGang PrasadGang PrasadGang PrasadGang
+POIN Saviors Saviors Saviors Saviors
+POIN OpeningEvent EndingEvent
+
+Saviors:
+UNIT Rath NomadTrooper 0x00 Level(9,Ally,False) [26,25] [25,22] [KillerBow,SteelSword,Vulnerary] NoAI
+UNIT Dayan NomadTrooper Rath Level(14,Ally,False) [26,25] [26,21] [SilverBow,Longsword,Elixir] NoAI
+UNIT Florina FalcoKnight Rath 0x20 [26,25] [26,24] [SilverLance,SilverSword,KillerLance,Elixir] NoAI
+UNIT Niime Druid_F Rath Level(16,Ally,False) [26,25] [26,25] [Grimoire,Nosferatu,Sleep,Physic] NoAI
+UNIT Empty
+
+TheSopranos:
+UNIT Toni Sniper_F Rath Level(11,Ally,False) [0,16] [3,15] [TowerBow,ShortBow,Tonic,Salve] NoAI
+UNIT Lyn 0x8 Rath Level(6,Ally,False) [0,16] [2,14] [SolKatti,ManiKatti,ShortBow,Elixir] NoAI
+UNIT Empty
+
+HackReasons:
+UNIT Rath NomadTrooper 0x00 Level(9,Ally,False) [0,0] [0,0] [KillerBow,SteelSword,Vulnerary] NoAI
+UNIT Lyn 0x8 Rath Level(6,Ally,False) [0,1] [0,1] [SolKatti,ManiKatti,ShortBow,Elixir] NoAI
+UNIT
+
+PrasadGang:
+UNIT 0xAF Berserker 0xA6 Level(10,Enemy,False) [20,22] [20,22] [Halberd] NoAI
+UNIT 0x9B Swordmaster 0xA6 Level(8,Enemy,True) [24,18] [24,18] [PoisonSword] NoAI
+UNIT 0x9B Swordmaster 0xA6 Level(8,Enemy,True) [14,18] [14,18] [PoisonSword] AttackInRange
+UNIT 0x9A NomadTrooper 0xA6 Level(9,Enemy,True) [26,2] [26,2] [PoisonBow,SteelSword] NoAI
+UNIT 0xAF Berserker 0xA6 Level(10,Enemy,False) [25,14] [25,14] [SilverAxe] AttackInRange
+UNIT 0xB0 WyvernLord_F 0xA6 Level(12,Enemy,False) [2,12] [2,12] [BraveLance] AttackInRange
+UNIT 0xB1 Druid_F 0xA6 Level(5,Enemy,False) [17,15] [17,15] [Eclipse,Physic,Salve] AttackInRange
+UNIT 0x9A NomadTrooper 0xA6 Level(9,Enemy,True) [23,8] [23,8] [SteelBlade] AttackInRange
+UNIT 0xB0 WyvernLord_F 0xA6 Level(12,Enemy,False) [27,1] [27,1] [SteelLance] AttackInRange
+UNIT 0xAF Berserker 0xA6 Level(10,Enemy,False) [8,23] [8,23] [Swordreaver] $00000000
+UNIT 0xB0 WyvernLord_F 0xA6 Level(12,Enemy,False) [19,15] [19,15] [SteelLance] AttackInRange
+UNIT 0x9C Warrior 0xA6 Level(11,Enemy,True) [18,18] [18,18] [Longbow] AttackInRange
+UNIT 0x9C Warrior 0xA6 Level(11,Enemy,True) [15,9] [15,9] [Longbow] AttackInRange
+UNIT 0x9B Swordmaster 0xA6 Level(8,Enemy,True) [6,14] [6,14] [Shamshir] NoAI
+UNIT 0xB1 Druid_F 0xA6 Level(5,Enemy,False) [12,5] [12,5] [Eclipse,Berserk,Salve] AttackInRange
+UNIT 0x9A NomadTrooper 0xA6 Level(9,Enemy,True) [6,18] [6,18] [ShortBow] AttackInRange
+UNIT 0xB1 Druid_F 0xA6 Level(5,Enemy,False) [1,23] [1,23] [Flux,Sleep,ChestKey] GuardTile
+UNIT 0x9B Swordmaster 0xA6 Level(8,Enemy,True) [1,4] [1,4] [SleepSword] AttackInRange
+UNIT 0xB0 WyvernLord_F 0xA6 Level(12,Enemy,False) [16,3] [16,3] [KillerAxe] AttackInRange
+UNIT 0x9C Warrior 0xA6 Level(11,Enemy,True) [19,1] [19,1] [Longbow] AttackInRange
+UNIT 0x9A NomadTrooper 0xA6 Level(11,Enemy,True) [11,7] [11,7] [SilverBow] NoAI
+UNIT 0x9A NomadTrooper 0xA6 Level(11,Enemy,True) [4,24] [4,24] [SilverBow] NoAI
+UNIT Empty
+
+DaBoss:
+UNIT 0xA6 NomadTrooper 0x00 Level(8,Enemy,False) [2,1] [2,1] [0xB7,KillingEdge,Elixir,IronRune] AttackInRange
+UNIT Empty
+
+WaveOfEnemies:
+UNIT 0x9A NomadTrooper 0xA6 Level(8,Enemy,True) [0,18] [0,18] [PoisonSword] NoAI
+UNIT 0x9C Warrior 0xA6 Level(11,Enemy,True) [13,17] [13,17] [Longbow] AttackInRange
+UNIT 0xAF Berserker 0xA6 Level(10,Enemy,False) [6,8] [6,8] [DevilAxe] NoAI
+UNIT 0x9C Druid 0xA6 Level(5,Enemy,True) [9,8] [9,8] [Thunder] NoAI
+UNIT Empty
+
+TheOddCouple:
+UNIT Karla Swordmaster_F 0x00 Level(10,NPC,False) [29,10] [27,10] [WoDao,Elixir] NoAI
+UNIT Bartre Warrior 0x00 Level(12,NPC,False) [29,10] [28,11] [SilverAxe,SteelBow] NoAI
+UNIT Empty
+
+PrasadDummy:
+UNIT Prasad NomadTrooper Migal Level(9,Enemy,False) [13,24] [22,22] [0xB7] AttackInRange
+UNIT Empty
+
+WayraPWND:
+UNIT 0x65 Druid 0xA6 Level(12,Enemy,False) [25,20] [25,20] [Berserk] AttackInRange
+UNIT Empty
+
+CrouchingTigerHiddenPenis1:
+UNIT 0x9B Rogue 0xA6 Level(6,Enemy,True) [7,21] [7,22] [BraveSword] StealFromUnits
+UNIT Empty
+
+CrouchingTigerHiddenPenis2:
+UNIT 0x9B Rogue 0xA6 Level(6,Enemy,True) [20,14] [20,15] [BraveSword] StealFromUnits
+UNIT Empty
+
+CrouchingTigerHiddenPenis3:
+UNIT 0x9B Rogue 0xA6 Level(6,Enemy,True) [17,2] [17,3] [BraveSword] StealFromUnits
+UNIT Empty
+
+TurnEvents:
+TURN 0x00 OpeningEvent [01,00] 0x0 0x00
+TURN 0x00 TurnTwo [02,00] 0x0 0x00
+TURN 0x00 TurnThree [06,00] 0x0 0x00
+TURN 0x00 TurnEight [10,00] 0x0 0x00
+TURN 0x00 Wave [13,00] 0x8 0x00
+TURN 0x00 Wave [20,00] 0x8 0x00
+TURN
+
+TalkEvents:
+CharacterEvent(0x07,RathOddCouple,Rath,Karla)
+CharacterEvent(0x07,RathOddCouple,Rath,Bartre)
+CharacterEvent(0x07,GuyOddCouple,Florina,Karla)
+CharacterEvent(0x07,GuyOddCouple,Florina,Bartre)
+CharacterEventBothWays(0x08,RathLyn,Rath,Lyn)
+CharacterEventBothWays(0x09,DayanToni,Dayan,Toni)
+CharacterEventBothWays(0x10,DayanNiime,Dayan,Niime)
+CharacterEventBothWays(0x11,LynFlorina,Lyn,Florina)
+CHAR 0x0A DayanRath1 Dayan Rath 0x0B0003
+CHAR 0x0C DayanRath2 Dayan Rath 0x0D0003
+CHAR 0x0E DayanRath3 Dayan Rath 0x0F0003
+CHAR
+
+LocationEvents:
+CHES 0x12 0x00 [5,23] 0x12
+CHES 0x14 0x00 [7,21] 0x12
+CHES 0x16 0x00 [16,14] 0x12
+CHES 0x18 0x00 [20,14] 0x12
+CHES 0x1A ChestKey [17,13] 0x12
+CHES 0x1C 0x00 [19,13] 0x12
+CHES 0x1E ChestKey [0,16] 0x12
+CHES 0x20 AngelicRobe [27,1] 0x12
+CHES 0x22 0x00 [17,4] 0x12
+CHES 0x24 0x00 [15,2] 0x12
+CHES 0x26 0x00 [17,2] 0x12
+CHES 0x28 ChestKey [19,2] 0x12
+CHES 0x2A 0x00 [17,0] 0x12
+LOCA
+
+MiscEvents:
+DefeatBoss(EndingEvent)
+CauseGameOverIfLordDies
+AFEV 0x13 Chest1 0x12
+AFEV 0x15 Chest2 0x14
+AFEV 0x17 Chest4 0x16
+AFEV 0x19 Chest5 0x18
+AFEV 0x1B OtherChest 0x1A
+AFEV 0x1D Chest7 0x1C
+AFEV 0x1F Chest8 0x1E
+AFEV 0x21 OtherChest 0x20
+AFEV 0x23 Chest8 0x22
+AFEV 0x25 Chest9 0x24
+AFEV 0x27 OtherChest 0x26
+AFEV 0x29 Chest8 0x28
+AFEV 0x2B OtherChest 0x2A
+
+AFEV 0x35 KarlaGTFO KarlaDead
+AFEV 0x35 BartreGTFO BartreDead
+
+AREA 0x2C ChatUnlock1 [11,22] [18,25]
+AREA 0x2C ChatUnlock1 [11,20] [18,21]
+AREA 0x2D ChatUnlock2 [0,5] [9,16]
+AREA 0x2E ChatUnlock3 [9,0] [18,7]
+AFEV
+
+
+ObjectData:
+GAST [11,21] 0x0 [1,1] //Left
+GAST [4,18] 0x3 [1,1] //Up
+GAST [9,15] 0x0 [1,1] //Left
+GAST [10,15] 0x3 [1,1] //Up
+GAST [19,10] 0x0 [1,1] //Left
+GAST [7,8] 0x0 [1,1] //Left
+GAST [1,7] 0x1 [1,1] //Right
+FIRE [17,13] 0x0 [1,1]
+BLST
+ALIGN 4
+
+
+OpeningEvent:
+UNCR Rath 04
+UNCR Florina 04
+UNCR Dayan 04
+BecomeNPC(Lyn)
+BecomeNPC(Renault)
+BecomeNPC(Rath)
+BecomeNPC(MorphDarin)
+LOMA 0x02 [17,8]
+MUS1 0x33
+STAL 0x20
+CURF [15,9]
+FADI 10
+CMOF
+LOU1 HackReasons
+ENUN
+ASMC 0xBE2670
+DISA Rath 
+UNCM Lyn 0x04
+BACG 0x00
+FADU 10
+TEX1 0x08A8
+REMA
+MUEN 0x05
+FADI 3
+BACG 0x1E
+FADU 5
+MUS1 SilentGround
+TEX1 0x08A9
+MUS1 Stratagem
+MORETEXT 0x08AA
+FADI 5
+ClearScreen
+BACG 0x00
+FADU 5
+MUS1 0x32
+TEX1 0xAF4
+MUEN 0x05
+FADI 5
+LOMA 0x0D [2,1]
+VCBF 0x02
+FADI 5
+BACG 0x57
+FADU 5
+MUS1 0x29
+TEX1 0x08AB
+REMA
+MUEN 0x02
+CMOF
+BecomeAlly(Rath)
+LOU1 Saviors
+ENUN
+CAM1 Rath
+CURF Rath
+TEX1 0x08AC
+LOU1 PrasadGang DaBoss
+LOU1 PrasadDummy
+MUS1 AnUnexpectedCaller
+MORETEXT 0x08AD
+REMA
+WarpIn(WayraPWND,25,20)
+MUS2 0x52
+TEX1 0x08AE
+REMA
+MOVE Prasad [24,21]
+ENUN
+FIGH Prasad Wayra Fight $00000000
+UNCM Prasad 10b
+WarpOut(Wayra)
+MURE 0x02
+STAL 0x20
+MOVE Prasad [17,22]
+ENUN
+STAL 0x20
+TEX1 0x08AF
+REMA
+ITGC Rath 0x8F
+DISA Prasad
+ENUN
+ENDA
+
+Fight:
+WORD $2C010001
+BLDT
+
+TurnTwo:
+LOU1 TheOddCouple
+ENUN
+MUS1 BindingTies
+TEX1 0x08B0
+REMA
+ENDA
+
+TurnThree:
+CAM1 0xA6
+FADI 5
+BACG 0x57
+FADU 5
+TEX1 0xAF6
+REMA
+ENDA
+
+TurnEight:
+UNCR Lyn 0x04
+LOU1 TheSopranos
+ENUN
+TEX1 0xAF7
+REMA
+ENDA
+
+EndingEvent:
+MUS1 0x39
+FADI 10
+BACG 0x57
+FADU 10
+TEX1 0x8B8
+MORETEXT 0x8B9
+IFEF 0x01 0x35
+FADI 5
+ClearScreen
+BACG 0x57
+FADU 5
+TEX1 0xB00
+ENIF 0x01
+IFEF 0x02 0x34
+FADI 5
+ClearScreen
+BACG 0x1F
+FADU 5
+TEX1 0xB01
+ENIF 0x02
+FADI 5
+ClearScreen
+BACG 0x00
+FADU 5
+MUS1 0x4F
+TEX1 0x8BA
+FADI 5
+ClearScreen
+BACG 0x5B
+BecomeNPC(Rath)
+BecomeNPC(Dayan)
+BecomeNPC(Guy)
+BecomeNPC(Karla)
+BecomeNPC(Bartre)
+ENUT Tale2xaClear
+GotoTaleSelect
+ENDA
+
+RathOddCouple:
+MUS1 TogetherWeRide
+TEX1 0x08B1
+REMA
+BecomeAlly(Bartre)
+BecomeAlly(Karla)
+ENDA
+
+GuyOddCouple:
+MUS1 TogetherWeRide
+TEX1 0x08B2
+REMA
+BecomeAlly(Bartre)
+BecomeAlly(Karla)
+ENDA
+
+DayanRath1:
+MUS2 0x40
+TEX1 0xAF8
+REMA
+MURE 0x05
+ENDA
+
+DayanRath2:
+MUS2 0x40
+TEX1 0xAF9
+REMA
+MURE 0x05
+ENDA
+
+DayanRath3:
+MUS2 0x5D
+TEX1 0xAFA
+REMA
+MURE 0x05
+ENDA
+
+RathLyn:
+MUS2 0x3F
+TEX1 0xAFB
+REMA
+MURE 0x05
+ENDA
+
+DayanToni:
+MUS2 0x40
+TEX1 0xAFC
+REMA
+MURE 0x05
+ENDA
+
+LynFlorina:
+MUS2 0x3F
+TEX1 0xAFD
+REMA
+MURE 0x05
+ENDA
+
+DayanNiime:
+MUS2 0x75
+TEX1 0xAFE
+REBU
+MORETEXT 0xAFF
+REMA
+MURE 0x05
+ENDA
+
+Chest1:
+IFAT 0x1 0xBE2321
+ITGV BronzeSword
+ELSE 0x2
+ENIF 0x1
+ITGV SilverSword
+ENIF 0x2
+CALL OtherChest
+ENDA
+
+Chest2:
+LOU1 CrouchingTigerHiddenPenis1
+ENUN
+CALL OtherChest
+ENDA
+
+Chest4:
+IFAT 0x03 0xBE2321
+ITGV BronzeAxe
+ELSE 0x04
+ENIF 0x03
+ITGV BraveAxe
+ENIF 0x04
+CALL OtherChest
+ENDA
+
+Chest5:
+LOU1 CrouchingTigerHiddenPenis2
+ENUN
+CALL OtherChest
+ENDA
+
+Chest7:
+IFAT 0x05 0xBE2321
+ITGV BronzeBow
+ELSE 0x06
+ENIF 0x05
+ITGV BraveBow
+ENIF 0x06
+CALL OtherChest
+ENDA
+
+Chest8:
+IFAT 0x07 0xBE2321
+ITGV FakeElixir
+ELSE 0x08
+ENIF 0x07
+ITGV Elixir
+ENIF 0x08
+CALL OtherChest
+ENDA
+
+Chest9:
+LOU1 CrouchingTigerHiddenPenis3
+ENUN
+CALL OtherChest
+ENDA
+
+OtherChest:
+IFEF 0x20 Trororo
+IFET 0x20 0x12
+IFET 0x20 0x14
+IFET 0x20 0x16
+IFET 0x20 0x18
+IFET 0x20 0x1A
+IFET 0x20 0x1C
+IFET 0x20 0x1E
+IFET 0x20 0x20
+IFET 0x20 0x22
+IFET 0x20 0x24
+IFET 0x20 0x26
+IFET 0x20 0x28
+IFET 0x20 0x2A
+TEX6 0x5 [0,0] 0x8B3
+REBB
+ENUT Trororo
+ENIF 0x20
+ENDA
+
+Wave:
+CMOF
+LOU1 WaveOfEnemies
+ENUN
+ENDA
+
+ChatUnlock1:
+IFCA 0x00 0x01 Rath
+ENUT 0x0B
+ELSE 0x02
+ENIF 0x01
+ENUF 0x2C
+ENIF 0x01
+ENDA
+
+ChatUnlock2:
+IFCA 0x00 0x01 Rath
+ENUT 0x0D
+ELSE 0x02
+ENIF 0x01
+ENUF 0x2D
+ENIF 0x01
+ENDA
+
+ChatUnlock3:
+IFCA 0x00 0x01 Rath
+ENUT 0x0F
+ELSE 0x02
+ENIF 0x01
+ENUF 0x2E
+ENIF 0x01
+ENDA
+
+KarlaGTFO:
+//MUS2 
+FADI 5
+BACG 0x57
+FADU 5
+TEX1 0xB03
+DISA Bartre
+REMA
+MURE 0x05
+ENDA
+
+BartreGTFO:
+//MUS2 
+FADI 5
+BACG 0x57
+FADU 5
+TEX1 0xB04
+DISA Karla
+REMA
+MURE 0x05
+ENDA
+
+MESSAGE Tile changes begin at currentOffset
+
+TileChanges:
+TileMap(0x00,5,23,0x01,0x01,ChestOpened)
+TileMap(0x01,7,21,0x01,0x01,ChestOpened)
+TileMap(0x02,16,14,0x01,0x01,ChestOpened)
+TileMap(0x03,20,14,0x01,0x01,ChestOpened)
+TileMap(0x04,17,13,0x01,0x01,ChestOpened)
+TileMap(0x05,19,13,0x01,0x01,ChestOpened)
+TileMap(0x06,0,16,0x01,0x01,ChestOpened)
+TileMap(0x07,27,1,0x01,0x01,ChestOpened)
+TileMap(0x08,17,4,0x01,0x01,ChestOpened)
+TileMap(0x09,15,2,0x01,0x01,ChestOpened)
+TileMap(0x0A,17,2,0x01,0x01,ChestOpened)
+TileMap(0x0B,19,2,0x01,0x01,ChestOpened)
+TileMap(0x0C,17,0,0x01,0x01,ChestOpened)
+TileMapEnd
+
+ChestOpened:
+SHORT 0x00 0x04
+
+#ifndef RELEASE_FE4A
+MESSAGE Events end at offset currentOffset
+#endif //End of RELEASE_FE4A

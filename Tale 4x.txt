@@ -1,0 +1,451 @@
+
+#include "EAstdlib.event"
+#include "BSFE7 definitions.txt"
+
+EventPointerTable(0x43,ThisChapter)
+EventPointerTable(0x42,TileChanges)
+
+ORG 0xD87C50
+ThisChapter:
+
+
+POIN Turn_events Character_events Location_events Misc_events
+POIN Ballista_filler Ballista_filler
+POIN Assassins Assassins Assassins Assassins
+POIN Players Players Players Players
+POIN Opening_event Ending_event
+
+Pent1:
+UNIT Pent Sage 0x00 Level(14,Ally,False) [11,6] [11,6] [Fimbulvetr,Shine,Aircalibur,Elixir] NoAI
+UNIT Empty
+
+Douglas1:
+UNIT Douglas General 0x00 Level(11,Ally,False) [11,15] [11,7] [SilverLance,SilverAxe,Vulnerary,ChestKey] NoAI
+UNIT Empty
+
+Players:
+UNIT Pent Sage 0x00 Level(14,Ally,False) [11,6] [11,6] [Forblaze,Shine,Elixir] NoAI
+UNIT Douglas General 0x00 Level(11,Ally,False) [10,7] [10,7] [SilverLance,SilverAxe,Vulnerary] NoAI
+UNIT 0x39 Sniper_F Pent Level(8,Ally,False) [12,7] [12,7] [SilverBow,BraveBow,Vulnerary] NoAI
+UNIT Erk MageKnight Pent Level(7,Ally,False) [19,2] [19,2] [Dimebolt,Bolting,Heal,ChestKey] NoAI
+UNIT Canas Druid Pent Level(9,Ally,False) [20,3] [20,3] [Nosferatu,Shaver,Unlock,IronRune] NoAI
+UNIT Empty
+
+Assassins:
+UNIT Cedric Bishop 0x00 Level(3,Enemy,False) [5,23] [5,23] [Purge,Divine] AttackInRange
+UNIT Tessa FalcoKnight Cedric Level(9,Enemy,False) [8,25] [8,25] [WingSpear,Axereaver,Tonic] NoAI
+UNIT 0xCF Hero Cedric Level(9,Enemy,False) [4,24] [4,24] [Armorslayer] PursueWithoutHeed
+UNIT 0xBD Sniper Cedric Level(6,Enemy,False) [11,3] [11,3] [Longbow] PursueWithoutHeed
+UNIT 0xBD Sage Cedric Level(6,Enemy,False) [6,24] [6,24] [Elfire] PursueWithoutHeed
+UNIT 0xBB Assassin Cedric Level(7,Enemy,False) [20,8] [20,8] [SilverSword,LockPick] PursueWithoutHeed
+UNIT 0xBB Assassin Cedric Level(6,Enemy,False) [2,9] [2,9] [SilverSword,LockPick] PursueWithoutHeed
+UNIT 0xBD Sniper Cedric Level(6,Enemy,False) [21,10] [21,10] [SteelBow] PursueWithoutHeed
+UNIT 0xBB Assassin Cedric Level(6,Enemy,False) [10,16] [10,16] [SilverSword] PursueWithoutHeed
+UNIT 0xBB Assassin Cedric Level(6,Enemy,False) [12,16] [12,16] [SilverSword] PursueWithoutHeed
+UNIT 0xBD Sniper Cedric Level(6,Enemy,False) [2,7] [2,7] [SteelBow] AttackInRange
+UNIT 0xBB Assassin Cedric Level(6,Enemy,False) [3,12] [3,12] [SleepSword] PursueWithoutHeed
+UNIT 0xBC Rogue Cedric Level(6,Enemy,False) [1,1] [1,1] [SteelSword,DoorKey] StealFromChests
+UNIT 0xBC Swordmaster Cedric Level(6,Enemy,False) [10,1] [10,1] [SilverSword] PursueWithoutHeed
+UNIT 0xBC Swordmaster Cedric Level(6,Enemy,False) [12,1] [12,1] [SilverSword] PursueWithoutHeed
+UNIT 0xBC Swordmaster Cedric Level(6,Enemy,False) [20,9] [20,9] [SilverSword] AttackInRange
+UNIT 0xCF Hero Cedric Level(8,Enemy,False) [16,12] [16,12] [SteelAxe] GuardTile
+UNIT 0xBD Sage Cedric Level(8,Enemy,False) [16,15] [16,15] [Thunder] PursueWithoutHeed
+UNIT 0xBC Swordmaster Cedric Level(8,Enemy,False) [11,20] [11,20] [VeninEdge] AttackInRange
+UNIT 0xBD Druid Cedric Level(7,Enemy,False) [6,11] [6,11] [Worm] PursueWithoutHeed
+UNIT 0xBF Warrior Cedric Level(7,Enemy,False) [15,17] [15,17] [SilverAxe] AttackInRange
+UNIT 0xBC Rogue Cedric Level(4,Enemy,False) [22,25] [22,25] [SteelSword,LockPick] StealFromChests
+UNIT 0xBD Sniper Cedric Level(6,Enemy,False) [16,18] [16,18] [CleaveBow] AttackInRange
+UNIT 0xBF Warrior Cedric Level(7,Enemy,False) [20,23] [20,23] [ShortAxe] PursueWithoutHeed
+UNIT 0xBD Druid Cedric Level(7,Enemy,False) [19,23] [19,23] [Luna] PursueWithoutHeed
+UNIT Empty
+
+Jaffar1:
+UNIT Jaffar Assassin 0x00 Level(17,Enemy,False) [8,24] [8,24] [KillingEdge,Elixir] PursueWithoutHeed
+UNIT Empty
+
+Nino1:
+UNIT Nino Sage_F 0x00 Level(9,NPC,False) [2,3] [2,3] [Elfire,Combust,Vulnerary] PursueWithoutHeed
+UNIT Empty
+
+Reinforcements1:
+UNIT 0xBC Swordmaster Cedric Level(8,Enemy,False) [2,3] [2,2] [SteelBlade] PursueWithoutHeed
+UNIT 0xBF Berserker Cedric Level(7,Enemy,False) [2,3] [3,2] [SteelAxe] PursueWithoutHeed
+UNIT 0xBC Rogue Cedric Level(4,Enemy,False) [2,3] [2,3] [SteelSword,LockPick] StealFromChests
+UNIT 0xBD Sniper Cedric Level(6,Enemy,False) [2,3] [2,4] [CleaveBow] PursueWithoutHeed
+UNIT Empty
+
+North:
+UNIT 0xBC Swordmaster Cedric Level(8,Enemy,False) [2,3] [2,3] [SteelBlade] PursueWithoutHeed
+UNIT Empty
+
+East:
+UNIT 0xBC Assassin Cedric Level(9,Enemy,True) [16,11] [15,11] [SilverSword] PursueWithoutHeed
+UNIT Empty
+
+West:
+UNIT 0xBF Berserker Cedric Level(7,Enemy,False) [1,9] [1,9] [SteelAxe] PursueWithoutHeed
+UNIT 0xBC Swordmaster Cedric Level(8,Enemy,False) [2,10] [2,10] [LightBrand] PursueWithoutHeed
+UNIT Empty
+
+Reinforcements2:
+UNIT 0xBC Assassin Cedric Level(9,Enemy,True) [16,11] [15,11] [SilverSword] PursueWithoutHeed
+UNIT 0xBC Assassin Cedric Level(9,Enemy,True) [16,11] [16,12] [LightBrand] PursueWithoutHeed
+UNIT Empty
+
+ThroneAssassin:
+UNIT 0xBC Assassin Cedric Level(9,Enemy,True) [16,7] [16,7] [SilverSword] PursueWithoutHeed
+UNIT Empty
+
+BigBatch:
+UNIT 0xBC Swordmaster Cedric Level(8,Enemy,False) [18,22] [17,22] [SteelBlade] PursueWithoutHeed
+UNIT 0xBF Berserker Cedric Level(7,Enemy,False) [18,22] [18,21] [SteelAxe] PursueWithoutHeed
+UNIT 0xBC Assassin Cedric Level(9,Enemy,True) [18,22] [18,23] [SilverSword] PursueWithoutHeed
+UNIT 0xBD Sniper Cedric Level(6,Enemy,False) [18,22] [17,21] [CleaveBow] PursueWithoutHeed
+UNIT 0xBC Swordmaster Cedric Level(8,Enemy,False) [18,22] [17,23] [SteelBlade] PursueWithoutHeed
+UNIT 0xBF Berserker Cedric Level(7,Enemy,False) [18,22] [19,22] [SteelAxe] PursueWithoutHeed
+UNIT 0xBC Assassin Cedric Level(9,Enemy,True) [18,22] [18,24] [SilverSword] PursueWithoutHeed
+UNIT 0xBC Assassin Cedric Level(9,Enemy,True) [18,22] [19,23] [SilverSword] PursueWithoutHeed
+UNIT Empty
+
+EndingUnits:
+UNIT Pent Sage 0x00 Level(14,Ally,False) [11,6] [11,6] [Forblaze,Shine,Elixir] PursueWithoutHeed
+UNIT 0xFA General 0x00 Level(11,Ally,False) [11,7] [11,7] [SilverLance,SilverAxe,Vulnerary] PursueWithoutHeed
+UNIT Empty
+
+EndingCeodore:
+UNIT 0xFD Bishop 0x00 Level(10,Enemy,False) [11,7] [11,7] [Purge,Divine] AttackInRange
+UNIT Empty
+
+NinoJaffar2:
+UNIT Pent Sage 0x00 Level(14,Ally,False) [11,23] [11,23] [Forblaze,Shine,Elixir] PursueWithoutHeed
+UNIT Nino Sage_F 0x00 Level(9,Ally,False) [10,24] [10,24] [Elfire,Combust,Vulnerary] PursueWithoutHeed
+UNIT Jaffar Assassin 0x00 Level(17,Ally,False) [12,24] [12,24] [KillingEdge,Elixir] PursueWithoutHeed
+UNIT Empty
+
+Turn_events:
+TURN 0x00 Opening_event [01,00] 0x0 0x00
+TURN 0x00 Turn3 [03,00] 0x0 0x00
+TURN 0x00 Turn32 [04,00] 0x0 0x00
+TURN 0x00 Turn6 [06,00] 0x8 0x00
+TURN 0x00 NorthReinforcements [08,00] 0x8 0x00
+TURN 0x00 Turn9 [09,00] 0x8 0x00
+TURN 0x00 NorthReinforcements [10,00] 0x8 0x00
+TURN 0x00 ThroneRoom [11,00] 0x8 0x00
+TURN 0x00 Turn12 [12,00] 0x8 0x00
+TURN 0x00 Ending_event [16,00] 0x0 0x00
+TURN
+
+Character_events:
+CHAR 0x0B DouglasErk Douglas Erk $00000000
+CHAR 0x0B DouglasErk Erk Douglas $00000000
+CHAR 0x0D CanasNino Canas Nino $00000000
+CHAR 0x0D CanasNino Nino Canas $00000000
+CHAR 0x0C PentNino Pent Nino $00000000
+CHAR 0x0C PentNino Nino Pent $00000000
+CHAR 0x0E NinoJaffar Nino Jaffar $00000000
+CHAR
+
+Location_events:
+Door(8,4)
+Door(14,4)
+Door(5,4)
+Door(17,4)
+Chest(Meteor,3,2)
+Chest(Rescue,19,2)
+Chest(Physic,6,7)
+Chest(Dulam,9,2)
+Chest(TorchStaff,11,2)
+Chest(Berserk,13,2)
+Chest(Gespenst,2,16)
+Chest(Shaver,3,17)
+Chest(Sleep,20,16)
+Chest(Elixir,19,17)
+LOCA
+
+
+Misc_events:
+CauseGameOverIfLordDies
+DefeatBoss(Ending_event)
+AFEV
+
+
+Ballista_filler:
+BLST
+ALIGN 4
+
+
+Opening_event:
+MUS1 0x005D
+BACG 0x4B
+FADU 10
+TEX1 0x0917
+FADI 5
+MUEN 10
+STAL 0x30
+LOU1 Pent1
+LOMA 0x2D [11,6]
+FADU 5
+MUS1 0x43
+STAL 0x10
+CMOF
+LOU1 Douglas1
+ENUN
+TEX1 0x0918
+REMA
+MOVE 0x3C [5,5]
+MUEN 5
+FADI 3
+ClearAllUnits
+LOMA 0x0E [11,6]
+VCBF 0x04
+LOU1 Players
+ENUN
+STAL 0x20
+CAM1 [11,6]
+FADU 3
+MUS1 0x004F
+STAL 0x20
+TEX1 0x0919
+REMA 
+MUS1 0x0000
+CAM1 Erk
+TEX1 0x091A
+REMA
+CAM1 [11,6]
+TEX1 0x091B
+REMA
+CMOF
+LOU1 Assassins
+ENUN
+FIGH 0xBD Pent Fight $00000000
+UNCR 0xBD 0x02
+MUS1 0x22
+TEX1 0x091C
+REMA
+CAM1 [7,21]
+MUS1 0x0052
+TEX1 0x091F
+REMA
+ASMC 0xBE26A1
+ENDA
+
+Turn3:
+MUS1 0x0008
+LOU1 Nino1
+ENUN
+TEX1 0x0920
+REMA
+ENDA
+
+NorthReinforcements:
+CMOF
+LOU1 North
+ENUN
+ENDA
+
+EastReinforcements:
+CMOF
+LOU1 East
+ENUN
+ENDA
+
+Turn6:
+CMOF
+LOU1 Reinforcements1
+ENUN
+ENDA
+
+Turn9:
+CMOF
+LOU1 Reinforcements2
+ENUN
+ENDA
+
+ThroneRoom:
+CMOF
+LOU1 ThroneAssassin
+ENUN
+ENDA
+
+Turn12:
+CMOF
+LOU1 BigBatch
+ENUN
+ENDA
+
+PentNino:
+MUS2 0x0042
+TEX1 0x0921
+REMA
+BecomeAlly(Nino)
+MURE 0x05
+ENDA
+
+NinoJaffar:
+MUS2 0x005D
+TEX1 0x0923
+REMA
+BecomeAlly(Jaffar)
+MURE 0x05
+ENDA
+
+Turn32:
+MUS1 0x0013
+CAM1 [7,21]
+TEX1 0x0922
+LOU1 Jaffar1
+ENUN
+ENDA
+
+Ending_event:
+IFEF 0x0B 0x9B //Homeward Bound Unlock
+IFEF 0x0A 0x3D
+TEX6 0x5 [0,0] 0xDE0
+REBB
+ENUT 0x9B
+ENIF 0x0A
+ENIF 0x0B
+STAL 0x40
+IFEF 0x09 AngelOfLife
+IFEF 0x07 0x3A
+IFEF 0x0C 0x3B
+IFEF 0x0E 0x3C
+IFEF 0x21 0x3D
+IFEF 0x22 0x3E
+IFEF 0x23 0x3F
+TEX6 0x5 [0,0] 0x0927
+_ASM0x42 0x83181
+ENUT AngelOfLife
+STAL 0x20
+BonusContentUnlocked
+ENIF 0x23
+ENIF 0x22
+ENIF 0x21
+ENIF 0x0E
+ENIF 0x0C
+ENIF 0x07
+ENIF 0x09
+VCBF 0x00
+IFEF 0x08 0x02
+CAM1 Cedric
+CURF Cedric
+TEX1 0x092A
+REMA
+ENIF 0x08
+MUEN 10
+FAWI 10
+ClearAllUnits
+LOMA 0x2D [11,6]
+LOU1 EndingUnits
+ENUN
+UNCM 0x3C 0x10
+FAWU 10
+MUS1 0x0039
+TEX1 0x092B
+REMA
+MOVE 0xFA [11,8]
+UNCR 0xFA 0x10
+LOU1 EndingCeodore
+ENUN
+TEX1 0x092C
+REMA
+IFET 0x24 0x0E
+IFEF 0x05 0x3E
+IFEF 0x25 0x3F
+FADI 10
+ClearAllUnits
+LOU1 NinoJaffar2
+ENUN
+CAM1 Pent
+FADU 10
+MUS1 0x004F
+TEX1 0x092F
+REMA
+MOVE Nino [1,25]
+MOVE Jaffar [2,25]
+STAL 0x10
+ENIF 0x25
+ENIF 0x05
+ENIF 0x24
+FADI 5
+BACG 0x14
+BecomeNPC(Pent)
+BecomeNPC(0x39)
+BecomeNPC(0x3C)
+BecomeNPC(Canas)
+BecomeNPC(Erk)
+BecomeNPC(Nino)
+BecomeNPC(Jaffar)
+ClearAllUnits
+FADU 5
+MUS1 0x0039
+TEX1 0x0930
+FADI 5
+BACG 0x15
+ClearPortraits
+FADU 5
+MUS1 0x77
+CAM1 [11,6]
+TEX1 0x0932
+REMA
+ENUT 0x74
+GotoTaleSelect
+ENDA
+
+DouglasErk:
+MUS2 0x43
+TEX1 0x0924
+REMA
+ITGC Erk Elixir
+ENDA
+
+CanasNino:
+MUS2 0x4F
+TEX1 0x0925
+REMA
+MURE 0x05
+ENDA
+
+Fight:
+WORD $00010002
+WORD $00800000
+
+MESSAGE Tile Changes begin at currentOffset
+
+TileChanges:
+TileMap(0x00,0x11,0x04,0x01,0x01,WallBreak)
+TileMap(0x01,0x13,0x02,0x01,0x01,ChestOpened)
+TileMap(0x02,0x0E,0x04,0x01,0x01,SmallDoor)
+TileMap(0x03,0x08,0x04,0x01,0x01,SmallDoor)
+TileMap(0x04,0x05,0x04,0x01,0x01,WallBreak)
+TileMap(0x05,0x03,0x02,0x01,0x01,ChestOpened)
+TileMap(0x06,0x06,0x07,0x01,0x01,ChestOpened)
+TileMap(0x07,0x09,0x02,0x01,0x01,ChestOpened)
+TileMap(0x08,0x0B,0x02,0x01,0x01,ChestOpened)
+TileMap(0x09,0x0D,0x02,0x01,0x01,ChestOpened)
+TileMap(0x0A,0x02,0x10,0x01,0x01,ChestOpened)
+TileMap(0x0B,0x03,0x11,0x01,0x01,ChestOpened)
+TileMap(0x0C,0x14,0x10,0x01,0x01,ChestOpened)
+TileMap(0x0D,0x13,0x11,0x01,0x01,ChestOpened)
+TileMapEnd
+
+ChestOpened:
+SHORT 0x0004
+
+WallBreak:
+SHORT 0x0B40
+
+SmallDoor:
+SHORT 0x0C40
+
+
+/* Death Quote Notes:
+Louise   0x3A
+Douglas  0x3B
+Erk      0x3C
+Canas    0x3D
+Nino     0x3E
+Jaffar   0x3F      */
+
+
+MESSAGE Events end at offset currentOffset

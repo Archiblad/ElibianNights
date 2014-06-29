@@ -1,0 +1,778 @@
+
+#include "EAstdlib.event"
+#include "BSFE7 definitions.txt"
+
+EventPointerTable(0x15,ThisChapter)
+EventPointerTable(0x46,TileChanges)
+
+ORG 0xD85440
+ThisChapter:
+
+POIN Turn_events Character_events Location_events Misc_events
+POIN Ballista_filler Ballista_filler
+POIN Rebels Rebels Rebels Rebels
+POIN Players Players Players Players
+POIN Opening_event EndingEvent
+
+ConCarne:
+UNIT Hector GreatLord 0x00 Level(8,Ally,False) [7,27] [7,27] [SilverSword,Tomahawk,Elixir] NoAI
+UNIT Empty
+
+ConHole:
+UNIT Hector GreatLord 0x00 Level(8,Ally,False) [7,27] [7,27] [SecretBook,Tomahawk,Elixir] NoAI
+UNIT Empty
+
+Players: 
+UNIT Oswin General 0x00 Level(12,Ally,False) [7,27] [7,29] [Spear,SteelBlade,PureWater] NoAI
+UNIT Serra Bishop_F 0x00 Level(6,Ally,False) [7,27] [6,30] [Fortify,Rescue,Shine,Elixir] NoAI
+UNIT Empty
+
+Hector2:
+UNIT Lyn_t Halberdier Lyn_t Level(8,Enemy,False) [7,27] [15,24] [WolfBeil,Tomahawk,Elixir] NoAI
+UNIT Empty
+
+Dickhead:
+UNIT Carjiga Halberdier 0x00 Level(10,Enemy,False) [26,6] [26,6] [Axereaver,Spear,Elixir] Guard
+UNIT Empty
+
+Holydickhead:
+UNIT Carjiga Halberdier 0x00 Level(10,Enemy,False) [26,6] [26,6] [Speedwings,Elixir] Guard
+UNIT Empty
+
+Rebels:
+UNIT Eubans MageKnight 0x00 Level(12,Enemy,False) [27,6] [27,6] [Elfire,Bolting,EarthSeal] NoAI
+UNIT 0xA7 Paladin 0x00 Level(11,Enemy,True) [28,3] [28,3] [SilverLance,ShortSpear] AttackInRange
+UNIT 0xA7 Paladin 0x00 Level(11,Enemy,True) [30,5] [30,5] [SilverSword,Vulnerary] AttackInRange
+UNIT 0xA7 Paladin 0x00 Level(11,Enemy,True) [27,4] [27,4] [SilverAxe,ShortAxe] AttackInRange
+UNIT 0xA8 General 0x00 Level(5,Enemy,False) [13,12] [13,12] [SteelLance,Javelin] Guard
+UNIT 0xA9 Sniper 0x00 Level(4,Enemy,False) [29,10] [29,10] [SteelBow] AttackInRange
+UNIT 0xA8 General 0x00 Level(5,Enemy,False) [30,14] [30,14] [SteelLance,Javelin] Guard
+UNIT 0xA7 Paladin 0x00 Level(7,Enemy,False) [31,9] [31,9] [SilverAxe,HandAxe] AttackInRange
+UNIT 0xA9 Sniper 0x00 Level(4,Enemy,False) [13,17] [13,17] [SilverBow] AttackInRange
+UNIT 0xED Bishop 0x00 Level(9,Enemy,False) [15,15] [15,15] [Physic] AttackInRange
+UNIT 0xAB Halberdier 0x00 Level(5,Enemy,False) [13,15] [13,15] [SteelLance] AttackInRange
+UNIT 0x8F GreatKnight 0x00 Level(7,Enemy,False) [24,29] [24,29] [SteelAxe] AttackInRange
+UNIT 0xAA MageKnight 0x00 Level(8,Enemy,False) [17,17] [17,17] [Fire] NoAI
+UNIT 0xA9 Sniper 0x00 Level(9,Enemy,False) [22,31] [22,31] [SteelBow] AttackInRange
+UNIT 0xA9 Druid 0x00 Level(9,Enemy,False) [26,22] [26,22] [Luna] AttackInRange
+UNIT 0xDD WyvernKnight 0x00 Level(5,Enemy,False) [25,33] [25,33] [SteelLance] AttackInRange
+UNIT 0xAB Halberdier 0x00 Level(5,Enemy,False) [25,28] [25,28] [Axereaver] NoAI
+UNIT 0xA7 Paladin 0x00 Level(7,Enemy,False) [26,16] [26,16] [Cutlass] NoAI
+UNIT 0xDD WyvernKnight 0x00 Level(7,Enemy,False) [24,19] [24,19] [Axereaver,IronRune] AttackInRange
+UNIT 0xA9 Sniper 0x00 Level(7,Enemy,False) [22,20] [22,20] [SteelBow] AttackInRange
+UNIT 0xA9 Sage 0x00 Level(9,Enemy,False) [26,21] [26,21] [Divine,Thunder,PureWater] AttackInRange
+UNIT 0xAB Halberdier 0x00 Level(5,Enemy,False) [16,14] [16,14] [HeavySpear,MemberCard] AttackInRange
+UNIT 0xAB Halberdier 0x00 Level(5,Enemy,False) [24,16] [24,16] [Greatlance] AttackInRange
+UNIT 0xAB Halberdier 0x00 Level(5,Enemy,False) [23,15] [23,15] [Axereaver] AttackInRange
+UNIT 0xA8 General 0x00 Level(5,Enemy,False) [23,22] [23,22] [BattleAxe,Vulnerary] AttackInRange
+UNIT 0xA7 Paladin 0x00 Level(7,Enemy,False) [19,21] [19,21] [SteelAxe,Vulnerary] AttackInRange
+UNIT 0xA7 Paladin 0x00 Level(7,Enemy,False) [18,24] [18,24] [SteelSword,ShortSpear] AttackInRange
+UNIT 0x8F GreatKnight 0x00 Level(7,Enemy,False) [21,23] [21,23] [SteelAxe] AttackInRange
+UNIT 0xAB Halberdier 0x00 Level(5,Enemy,False) [25,25] [25,25] [SteelLance] AttackInRange
+UNIT 0xAA MageKnight 0x00 Level(8,Enemy,False) [30,12] [30,12] [Fire] NoAI
+UNIT 0xAA MageKnight 0x00 Level(8,Enemy,False) [31,13] [31,13] [Thunder] NoAI
+UNIT 0xED Bishop 0x00 Level(9,Enemy,False) [18,30] [18,30] [Physic,PureWater] AttackInRange
+UNIT 0xAB Halberdier 0x00 Level(5,Enemy,False) [20,25] [20,25] [SilverLance] NoAI
+UNIT 0xA9 Sniper 0x00 Level(7,Enemy,False) [22,24] [22,24] [SteelBow] AttackInRange
+UNIT 0xA9 Sniper 0x00 Level(7,Enemy,False) [17,22] [17,22] [SteelBow] NoAI
+UNIT 0xAB Halberdier 0x00 Level(5,Enemy,False) [20,31] [20,31] [SteelLance] NoAI
+UNIT 0xA8 General 0x00 Level(5,Enemy,False) [18,27] [18,27] [SteelAxe,Javelin] AttackInRange
+UNIT 0xDB Cavalier 0x00 Level(20,Enemy,False) [26,2] [26,2] [SilverLance,SilverSword,Vulnerary] NoAI
+UNIT 0xD0 Swordmaster 0x00 Level(20,Enemy,True) [29,32] [29,32] [MasterSword] Guard
+UNIT Empty
+
+Rienforcement1Unit:
+UNIT 0xAB Halberdier 0x00 Level(5,Enemy,False) [16,14] [16,14] [SteelLance] NoAI
+UNIT Empty
+
+Rienforcement2Unit:
+UNIT 0xAB Halberdier 0x00 Level(5,Enemy,False) [16,14] [16,14] [Spear] NoAI
+UNIT Empty
+
+SleepTight:
+UNIT 0xED Bishop 0x00 Level(2,Enemy,True) [31,23] [30,23] [Purge] NoAI
+UNIT Empty
+
+Thria1:
+UNIT Orun GreatKnight Hector Level(5,Ally,False) [16,33] [14,31] [DragonAxe,ShortSpear,Elixir] NoAI
+UNIT Matthew Rogue Hector Level(5,Ally,False) [16,33] [15,31] [RazorSword,BraveSword,Vulnerary] NoAI
+UNIT 0x70 GreatKnight 0x00 Level(8,NPC,True) [16,33] [14,32] [SilverLance] NoAI
+UNIT 0x70 GreatKnight 0x00 Level(8,NPC,True) [16,33] [15,32] [SilverLance] NoAI
+UNIT Empty
+
+Laus1:
+UNIT Erik Cavalier 0x00 Level(20,Enemy,False) [3,8] [3,8] [SilverRapier,SilverLance,Elixir] TalkToLord
+UNIT 0xA5 Paladin 0x00 Level(4,Enemy,True) [4,4] [4,4] [Lancereaver,Vulnerary] PursueWithoutHeed
+UNIT 0xA5 Paladin 0x00 Level(4,Enemy,True) [5,10] [5,10] [SteelAxe,Javelin] PursueWithoutHeed
+UNIT 0x79 NomadTrooper 0x00 Level(4,Enemy,True) [1,7] [1,7] [ShortBow,SteelBow] PursueWithoutHeed
+UNIT 0x79 NomadTrooper 0x00 Level(4,Enemy,True) [6,5] [6,5] [ShortBow,SteelBow] PursueWithoutHeed
+UNIT 0x79 NomadTrooper 0x00 Level(4,Enemy,True) [5,6] [5,6] [Greatbow,Vulnerary] PursueWithoutHeed
+UNIT 0xA5 Paladin 0x00 Level(4,Enemy,True) [0,9] [0,9] [LightBrand,PureWater] PursueWithoutHeed
+UNIT 0xA5 Paladin 0x00 Level(4,Enemy,True) [3,11] [3,11] [Greatlance,Javelin] PursueWithoutHeed
+UNIT Empty
+
+Ostia1:
+UNIT 0x6E General 0x00 Level(6,NPC,True) [13,25] [13,25] [SilverAxe,Tonic] NoAI
+UNIT 0x6E General 0x00 Level(6,NPC,True) [14,26] [14,26] [SilverLance,Tonic] NoAI
+UNIT 0x6E General 0x00 Level(6,NPC,True) [6,28] [6,28] [SilverSword] AttackInRange
+UNIT 0x6E General 0x00 Level(6,NPC,True) [8,28] [8,28] [Tomahawk] AttackInRange
+UNIT 0x6F Knight 0x00 Level(14,NPC,True) [10,26] [10,26] [SilverLance] NoAI
+UNIT 0x6F Knight 0x00 Level(14,NPC,True) [11,27] [11,27] [SilverLance] NoAI
+UNIT 0x6F Knight 0x00 Level(14,NPC,True) [9,30] [9,30] [Horseslayer] NoAI
+UNIT 0x6F Knight 0x00 Level(14,NPC,True) [8,31] [8,31] [Pilum] NoAI
+UNIT Empty
+
+CavalryBrigade:
+UNIT 0xAA MageKnight 0x00 Level(8,Enemy,False) [20,33] [17,31] [Mend,Thunder] NoAI
+UNIT 0xAA MageKnight 0x00 Level(8,Enemy,False) [21,33] [20,32] [Mend,Thunder] NoAI
+UNIT 0xA7 Paladin 0x00 Level(7,Enemy,False) [20,33] [15,32] [ShortSpear,Vulnerary] NoAI
+UNIT 0xA7 Paladin 0x00 Level(7,Enemy,False) [21,33] [16,28] [HandAxe,Vulnerary] NoAI
+UNIT 0x8F GreatKnight 0x00 Level(7,Enemy,False) [20,33] [17,32] [SteelAxe,Vulnerary] NoAI
+UNIT 0x8F GreatKnight 0x00 Level(7,Enemy,False) [21,33] [21,33] [SteelLance,Vulnerary] NoAI
+UNIT 0x8F GreatKnight 0x00 Level(7,Enemy,False) [20,33] [20,33] [SteelAxe,Vulnerary] NoAI
+UNIT 0x8F GreatKnight 0x00 Level(7,Enemy,False) [21,33] [18,29] [SteelSword,Vulnerary] NoAI
+UNIT Empty
+
+ErikScene:
+UNIT 0xDB Cavalier 0x00 Level(20,Enemy,False) [7,27] [15,18] [SilverLance,SilverSword,Vulnerary] NoAI
+UNIT Empty
+
+Fargus1:
+UNIT Fargus Berserker 0x00 Level(18,Ally,False) [13,12] [13,13] [KillerAxe,Elixir] NoAI
+UNIT Empty
+
+Civilians:
+UNIT 0xF0 0x47 0x00 Level(1,NPC,False) [6,4] [6,4] [0x00,0x00,0x00,0x00] NoAI
+UNIT 0xF0 0x48 0x00 Level(1,NPC,False) [7,5] [7,5] [0x00,0x00,0x00,0x00] NoAI
+UNIT 0xF0 0x47 0x00 Level(1,NPC,False) [8,5] [8,5] [0x00,0x00,0x00,0x00] NoAI
+UNIT 0xF0 Thief 0x00 Level(1,NPC,False) [9,9] [9,9] [0x00,0x00,0x00,0x00] NoAI
+UNIT 0xF0 0x47 0x00 Level(1,NPC,False) [2,6] [2,6] [0x00,0x00,0x00,0x00] NoAI
+UNIT 0xF0 0x57 0x00 Level(1,NPC,False) [2,7] [2,7] [0x00,0x00,0x00,0x00] NoAI
+UNIT 0xF0 0x48 0x00 Level(1,NPC,False) [13,3] [13,3] [0x00,0x00,0x00,0x00] NoAI
+UNIT 0xF0 0x58 0x00 Level(1,NPC,False) [14,3] [14,3] [0x00,0x00,0x00,0x00] NoAI
+UNIT 0xF0 Knight 0x00 Level(1,NPC,False) [3,1] [3,1] [0x00,0x00,0x00,0x00] NoAI
+UNIT 0xF0 Knight 0x00 Level(1,NPC,False) [4,1] [4,1] [0x00,0x00,0x00,0x00] NoAI
+UNIT Empty
+
+HectorCity:
+UNIT 0xF2 Halberdier 0x00 Level(10,Enemy,False) [5,9] [5,9] [Axereaver,SilverLance,Elixir] Guard
+UNIT 0xF0 MageKnight 0x00 Level(1,Enemy,False) [4,9] [4,9] [0x00,0x00,0x00,0x00] NoAI
+UNIT Empty
+
+HectorCity2:
+UNIT Hector GreatLord 0x00 Level(8,Ally,False) [5,4] [5,4] [SteelBlade,Tomahawk,Elixir] NoAI
+UNIT Empty
+
+Turn_events:
+TURN 0x00 Opening_event [01,00] 0x0 0x00
+TURN 0x00 TurnTwo [02,00] 0x8 0x00
+TURN 0x00 TurnFive [04,00] 0x0 0x00
+TURN 0x00 TurnEight [08,00] 0x0 0x00
+TURN 0x00 TurnTen [10,00] 0x8 0x00
+TURN 0x00 TurnEleven [6,00] 0x8 0x00
+TURN 0x00 TurnNine [14,00] 0x8 0x00
+AFEV 0x0F ErikJoins 0x27
+TURN
+
+Character_events:
+CHAR 0x0A HectorOswin Hector Oswin $00000000
+CHAR 0x0A HectorOswin Oswin Hector $00000000
+CHAR 0x0B HectorOrun Hector Orun $00000000
+CHAR 0x0B HectorOrun Orun Hector $00000000
+CHAR 0x0C HectorErik Hector Erik $00000000
+CHAR 0x27 ErikHector Erik Hector $00000000
+CHAR 0x0D MatthewSerra Matthew Serra $00000000
+CHAR 0x0D MatthewSerra Serra Matthew $00000000
+CHAR 0x0E HectorFargus Fargus Hector $00000000
+CHAR 0x0E HectorFargus Hector Fargus $00000000
+CHAR 0x3F ErikSerra Erik Serra $000C0008
+CHAR 0x3F ErikSerra Erik Serra $000C0008
+CHAR
+
+Location_events:
+Village(0x24,Village1,13,12)
+Village(0x25,EltonVillage,27,31)
+Village(0x26,Village3,2,28)
+Armory(ArmoryData,8,32)
+Vendor(ShopData,10,25)
+House(0x10,House1,3,30)
+House(0x11,House2,5,31)
+House(0x12,House3,29,32)
+House(0x13,House4,27,33)
+SHOP 0x29 SecretShop [7,27] 0x15
+LOCA
+
+
+Misc_events:
+CauseGameOverIfLordDies
+DefeatBoss(EndingEvent)
+AREA 0x38 KingOfHeartsUnlock [7,27] [7,27]
+AFEV 0x16 TraitorousSwineUnlock 0x15
+AREA 0x2A Drawbridge [7,0] [17,6]
+AREA 0x2B MatthewDew [18,1] [18,1]
+AREA 0x2C OrunLex [17,11] [17,11]
+AFEV 0x2E TempleOfTimeUnlock 0x2D
+AFEV
+
+Ballista_filler:
+BLST
+ALIGN 4
+
+
+Opening_event:
+FADI 10
+LOU1 Civilians
+ENUN
+LOMA 0x2F [0,0]
+FADU 5
+MUS1 TheInn
+STAL 0x10
+CURF [6,4]
+TEX1 0x8BB
+REMA
+LOU1 HectorCity
+ENUN
+STAL 0x20
+MOVE 0xF2 [5,3]
+MOVE [4,9] [4,3]
+ENUN
+STAL 0x20
+TEX1 0x8BC
+REMA
+TEX6 0x0 [20,70] 0x8BD
+REMA
+MOVE [13,3] [9,4]
+ENUN
+MOVE [14,3] [9,5]
+ENUN
+TEX6 0x0 [90,30] 0x8BE
+REMA
+MOVE [2,6] [3,4]
+MOVE [2,7] [4,5]
+ENUN
+MUS1 Stratagem
+REMA
+STAL 0x20
+TEX1 0x8BF
+REMA
+TEX6 0x0 [90,35] 0x8C0
+STAL 0x90
+REMA
+TEX1 0x08C1
+REMA
+TEX6 0x0 [80,50] 0x8C2
+STAL 0x60
+TEX6 0x0 [20,30] 0x8C3
+STAL 0x80
+TEX6 0x0 [50,50] 0x8C4
+STAL 0x70
+REMA
+TEX1 0x08C5
+REMA
+FADI 5
+ClearAllUnits
+LOMA 0x03 [7,27]
+FADU 5
+CMOF
+LOU1 Hector2
+ENUN
+STAL 0x20
+CURF [7,27]
+FADI 5
+ClearAllUnits
+BACG 0x10
+FADU 5
+MUS1 0x22
+TEX1 0x8C6
+LOU1 Ostia1
+IFET 0x01 HolyWarMode
+LOU1 Holydickhead
+ELSE 0x02
+ENIF 0x01
+LOU1 Dickhead
+ENIF 0x02
+LOU1 Rebels
+REMA
+STAL 0x20
+IFET 0x03 HolyWarMode
+LOU1 ConHole
+ELSE 0x04
+ENIF 0x03
+LOU1 ConCarne
+ENIF 0x04
+LOU1 Players
+ENUN
+CAM1 [24,6]
+MUS1 Stratagem
+TEX1 0x8C7
+REMA
+CMOF
+MOVE Eubans [29,8]
+ENUN
+MOVE [26,2] [26,5]
+ENUN
+TEX1 0x8C8
+REMA
+MOVE [26,5] [15,4]
+ENUN
+DISA [15,4]
+CURF Carjiga
+TEX1 0x8C9
+REMA
+LOU1 Laus1
+ENUN
+STAL 0x10
+CAM1 Hector
+MUS1 0x57
+TEX1 0x8CA
+REMA
+ENDA
+
+TurnTwo:
+ASMC 0xBE2571
+ENUT 0x14
+MUS1 0x000D
+CAM1 Erik
+CURF Erik
+TEX1 0x08CC
+REMA
+ENDA
+
+TurnFive:
+MUS1 TogetherWeRide
+LOU1 Thria1
+ENUN
+TEX1 0x08CD
+REMA
+ENDA
+
+TurnEight:
+CAM1 [13,12]
+CURF [13,12]
+FADI 10
+BACG 0x02
+FADU 10
+MUS1 TogetherWeRide
+TEX1 0x08D4
+REMA
+ENDA
+
+ErikSerra:
+MUS2 HappinessAbounds
+TEX1 0x8D0
+REMA
+MURE 0x05
+ENDA
+
+HectorOswin:
+MUS2 0x003E
+TEX1 0x8D1
+REMA
+ITGC Hector WolfBeil
+MURE 5
+ENDA
+
+MatthewSerra:
+MUS2 0x0066
+TEX1 0x8D2
+REMA
+MURE 5
+ENDA
+
+HectorOrun:
+MUS2 0x005D
+TEX1 0x8D3
+REMA
+MURE 5
+ENDA
+
+EndingEvent:
+MUS1 0x0038
+FADI 10
+BACG 0x10
+ClearAllUnits
+FADU 10
+TEX1 0x08EB
+FADI 5
+ClearPortraits
+MUEN 10
+LOMA 0x2F [0,0]
+LOU1 Civilians
+LOU1 HectorCity2
+ENUN
+FADU 5
+STAL 0x20
+TEX1 0x08EC
+MUS1 Loyalty_HectorsTheme
+MORETEXT 0x08ED
+REMA
+STAL 0x20
+FADI 2
+ClearAllUnits
+LOMA 0x03 [7,27]
+FADU 2
+STAL 0x20
+FADI 5
+BACG 0x10
+FADU 5
+IFEF 0x05 0x15
+MUS1 SilentGround
+TEX1 0x08EE
+ELSE 0x06
+ENIF 0x05
+TEX1 0xDA0
+ENIF 0x06
+REMA
+BecomeNPC(Hector)
+BecomeNPC(Oswin)
+BecomeNPC(Matthew)
+BecomeNPC(Orun)
+BecomeNPC(Fargus)
+BecomeNPC(Serra)
+BecomeNPC(Erik)
+ENUT Tale3Clear
+GotoTaleSelect
+ENDA
+
+TurnTen:
+MUS1 0x000D
+CAM1 Carjiga
+FADI 5
+BACG 0x1D
+FADU 5
+TEX1 0x08D5
+REMA
+ENDA
+
+TurnNine:
+CMOF
+LOU1 SleepTight
+ENUN
+ENDA
+
+Rienforcement1:
+LOU1 Rienforcement1Unit
+ENUN
+ENDA
+
+Rienforcement2:
+LOU1 Rienforcement2Unit
+ENUN
+ENDA
+
+HectorErik:
+TEX1 0x08CE
+MUS2 0x0042
+MORETEXT 0x08CF
+REMA
+BecomeAlly(Erik)
+BecomeNPC(0xA5)
+BecomeNPC(0xA5)
+BecomeNPC(0xA5)
+BecomeNPC(0xA5)
+BecomeNPC(0x79)
+BecomeNPC(0x79)
+BecomeNPC(0x78)
+ENUT 0x16
+ENUT 0x27
+ENDA
+
+ErikHector:
+TEX1 0x08CE
+MUS2 0x0042
+MORETEXT 0x08CF
+REMA
+ENUF 0x0C
+BecomeNPC(0xA5)
+BecomeNPC(0xA5)
+BecomeNPC(0xA5)
+BecomeNPC(0xA5)
+BecomeNPC(0x79)
+BecomeNPC(0x79)
+BecomeNPC(0x78)
+ENUT 0x0C
+ENUT 0x16
+ENDA
+
+ErikJoins:
+BecomeAlly(Erik)
+ENDA
+
+TraitorousSwineUnlock:
+TEX6 0x5 [0,0] 0x08E3
+_ASM0x42 0x83181
+ENUT TraitorousSwine
+ENDA
+
+MESSAGE Erik's death quote at currentOffset
+
+ErikDeathQuote:
+IFEF 0x07 0x27
+TEX1 0xD9D
+ELSE 0x08
+ENIF 0x07
+TEX1 0xD9E
+ENIF 0x08
+REMA
+ENDA
+
+Village1:
+MUS2 0x0042
+FADI 10
+BACG 0x02
+FADU 10
+IFCA 0x00 0x01 Hector
+TEX1 0x97B
+ELSE 0x02
+ENIF 0x01
+TEX1 0x8DA
+ENIF 0x02
+REMA
+LOU1 Fargus1
+ENUN
+MURE 0x05
+ENDA
+
+EltonVillage:
+MUS2 0x76
+FADI 10
+BACG 0x02
+FADU 10
+TEX1 0x08DD
+REMA
+ITGV BraveLance
+ENUT EltonFound
+IFEF 0x01 TheThreeAmigops
+IFET 0x01 SigludFound
+IFET 0x01 EltonFound
+IFET 0x01 QuinnFound
+TEX6 0x5 [0,0] 0xE0F
+REBB
+ENUT TheThreeAmigops
+ENIF 0x01
+MURE 0x05
+ENDA
+
+Village3:
+FADI 10
+BACG 0x02
+FADU 10
+TEX1 0x08DE
+REMA
+ITGV Elixir
+ENDA
+
+HectorFargus:
+MUS2 TheInn
+TEX1 0x8DF
+REMA
+ENUT 0x88
+IFEF 0x04 0x79
+IFET 0x03 0x88
+IFET 0x02 BabyTalkToMe
+TEX6 0x5 [0,0] 0xDE0
+REBB
+ENUT 0x79 //Unlocks "A Pirate's Life"
+ENIF 0x02
+ENIF 0x03
+ENIF 0x04
+MURE 5
+ENDA
+
+House1:
+MUSI
+FADI 10
+BACG 0x01
+FADU 10
+IFCA 0x00 0x01 Hector
+IFEF 0x02 0x3E
+TEX1 0x091D
+REMA
+ITGC Hector Claymore
+ENUT 0x3E
+ELSE 0x03
+ENIF 0x02
+ENIF 0x01
+TEX1 0x08E6
+REMA
+ENIF 0x03
+MUNO
+ENUF 0x10
+ENDA
+
+House2:
+MUSI
+FADI 10
+BACG 0x0D
+FADU 10
+TEX1 0x08E5
+REMA
+MUNO
+ENUF 0x11
+ENDA
+
+House3:
+MUSI
+FADI 10
+BACG 0x01
+FADU 10
+TEX1 0x08E7
+REMA
+MUNO
+ENUF 0x12
+ENDA
+
+House4:
+MUSI
+FADI 10
+BACG 0x35
+FADU 10
+TEX1 0x8E8
+REMA
+MUNO
+ENUF 0x13
+ENDA
+
+House5:
+MUSI
+FADI 10
+BACG 0x0D
+FADU 10
+TEX1 0x08E9 //Write this!
+REMA
+MUNO
+ENUF 0x14
+ENDA
+
+House6:
+MUSI
+FADI 10
+BACG 0x01
+FADU 10
+TEX1 0x08EA //Write this!
+REMA
+MUNO
+ENUF 0x17
+ENDA
+
+KingOfHeartsUnlock:
+IFEF 0x25 KingOfSecrets
+IFAF 0x23 0x7D3F9
+TEX6 0x5 [0,0] 0x08E1
+_ASM0x42 0x83181
+ENUT KingOfSecrets
+ELSE 0x24
+ENIF 0x23
+ENUF 0x38
+ENIF 0x24
+ENIF 0x25
+ENDA
+
+TempleOfTimeUnlock:
+ENUT 0x8F
+STAL 0x20
+IFEF 0x04 TempleOfTime
+IFEF 0x01 0x8F 
+IFEF 0x02 0x90
+IFEF 0x03 0x91
+TEX6 0x5 [0,0] 0x97A
+REBB
+ENUT TempleOfTime
+ENIF 0x03
+ENIF 0x02
+ENIF 0x01
+ENIF 0x04
+ENDA
+
+TurnEleven:
+MUS1 0x0D
+LOU1 CavalryBrigade
+ENUN
+LOU1 Rienforcement1Unit
+ENUN
+ENDA
+
+Drawbridge:
+MUS2 Stratagem
+CAM1 [24,4]
+TEX1 0x968
+MOVE [27,4] [27,6]
+ENUN
+MORETEXT 0x969
+REMA
+MOVE [27,6] [21,1]
+ENUN
+STAL 0x20
+MAC1 0x00 0x0
+STAL 0x20
+MOVE [21,1] [27,4]
+ENUN
+MUEN 0x05
+ENDA
+
+MatthewDew:
+IFCA 0x00 0x01 Matthew
+TEX1 0x96A
+REMA
+ELSE 0x02
+ENIF 0x01
+ENUF 0x2B
+ENIF 0x02
+ENDA
+
+OrunLex:
+IFCA 0x00 0x03 Orun
+CAM1 Orun
+TEX1 0x977
+MUS2 0x24
+MORETEXT 0x978
+REMA
+ITGC Orun BraveAxe
+MUEN 0x05
+ELSE 0x04
+ENIF 0x03
+ENUF 0x2C
+ENIF 0x04
+ENDA
+
+ArmoryData:
+//SHLI SilverSword QuickSword SilverLance Horseslayer SilverAxe Hammer //SteelBow Heal
+SHLI BronzeSword BronzeLance BronzeAxe BronzeBow
+
+ShopData:
+SHLI 0x9A
+
+SecretShop:
+SHLI VeninEdge Cutlass QuickAxe Aircalibur Dulam PowerStaff RuneStaff AngelicRobe Vulnerary Salve
+
+
+TileChanges:
+TileMap(0x00,0x12,0x01,0x03,0x01,Bridge)
+TileMap(0x01,0x01,0x1A,0x03,0x03,VillageDestroyed)
+TileMap(0x02,0x02,0x1C,0x01,0x01,VillageGate)
+TileMap(0x03,0x1A,0x1D,0x03,0x03,VillageDestroyed)
+TileMap(0x04,0x1B,0x1F,0x01,0x01,VillageGate)
+TileMap(0x05,0x0C,0x0A,0x03,0x03,VillageDestroyed)
+TileMap(0x06,0x0D,0x0C,0x01,0x01,VillageGate)
+TileMapEnd
+
+Bridge:
+SHORT 0x0598
+SHORT 0x0970
+SHORT 0x0974
+
+VillageGate:
+SHORT 0x0E28
+
+VillageDestroyed:
+SHORT 0x0E1C
+SHORT 0x0E20
+SHORT 0x0E24
+SHORT 0x0E9C
+SHORT 0x0EA0
+SHORT 0x0EA4
+SHORT 0x0F9C
+SHORT 0x0FA0
+SHORT 0x0F24
+
+MESSAGE Events end at offset currentOffset

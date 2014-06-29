@@ -1,0 +1,455 @@
+	//For assembling as separate chapter
+#define DISABLE_TUTORIALS
+#include "EAstdlib.event"
+#include "BSFE7 definitions.txt"
+
+EventPointerTable(0x25,ThisChapter)
+
+ORG 0xD8A8D0
+ThisChapter:
+
+POIN TurnBasedEvents
+POIN CharacterBasedEvents
+POIN LocationBasedEvents
+POIN MiscBasedEvents
+POIN BallistaEliwoodMode BallistaEliwoodMode
+POIN EnemyUnitsENM EnemyUnitsENM EnemyUnitsENM EnemyUnitsENM
+POIN AllyUnitsENM AllyUnitsENM AllyUnitsENM AllyUnitsENM
+POIN BeginningScene EndingScene
+
+AllyUnitsENM:
+UNIT Karel Swordmaster 0x0 Level(17,Ally,False) [0,0] [0,0] [WoDao,WoDao,Elixir,IronRune] NoAI
+UNIT Empty
+
+EnemyUnitsENM:
+UNIT Empty
+
+label12:
+UNIT 0xF4 Cyclops 0x0 Level(20,Enemy,False) [4,5] [4,5] [SilverAxe] PursueWithoutHeed
+UNIT Empty
+
+Tenard1:
+UNIT Bug Warrior 0x0 Level(12,Enemy,False) [11,11] [11,11] [Tomahawk] NoAI
+UNIT 0xE7 Brigand 0x0 Level(20,Enemy,False) [8,6] [8,6] [SteelAxe] NoAI
+UNIT 0xE7 Brigand 0x0 Level(20,Enemy,False) [4,9] [4,9] [QuickAxe] NoAI
+UNIT 0xE7 Brigand 0x0 Level(20,Enemy,False) [7,9] [7,9] [SteelAxe] NoAI
+UNIT 0xE7 Brigand 0x0 Level(20,Enemy,False) [7,12] [7,12] [SteelAxe] NoAI
+UNIT 0xE7 Brigand 0x0 Level(20,Enemy,False) [4,10] [4,10] [Swordreaver] NoAI
+UNIT 0xE7 Brigand 0x0 Level(20,Enemy,False) [14,10] [14,10] [SteelAxe] NoAI
+UNIT 0xE7 Brigand 0x0 Level(20,Enemy,False) [1,11] [1,11] [SteelAxe] NoAI
+UNIT 0xE7 Brigand 0x0 Level(20,Enemy,False) [11,9] [11,9] [SteelAxe] NoAI
+UNIT Empty
+
+Barbaros1:
+UNIT Zugu Summoner 0x0 Level(14,Enemy,False) [1,1] [1,1] [Fenrir,IronRune] GuardTile
+UNIT Empty
+
+Phantom1:
+UNIT 0x66 Phantom 0x0 Level(12,Enemy,True) [1,7] [1,7] [QuickAxe] NoAI
+UNIT Empty
+
+Phantom2:
+UNIT 0x66 Phantom 0x0 Level(13,Enemy,True) [2,4] [2,4] [DevilAxe] NoAI
+UNIT Empty
+
+Phantom3:
+UNIT 0x66 Phantom 0x0 Level(10,Enemy,True) [5,3] [5,3] [SilverAxe] NoAI
+UNIT Empty
+
+KarlaPhantom:
+UNIT 0xF5 Swordmaster_F 0x0 Level(10,Enemy,False) [2,1] [2,1] [IronBlade] NoAI
+UNIT Empty
+
+BartreKarla:
+UNIT Karla Swordmaster_F 0x0 Level(10,NPC,False) [10,5] [9,6] [WoDao] NoAI
+UNIT Bartre Warrior 0x0 Level(10,NPC,False) [10,5] [11,6] [SilverAxe] NoAI
+UNIT Empty
+
+Karmann1:
+UNIT Bool Swordmaster 0x0 Level(20,Enemy,False) [10,5] [10,5] [Shamshir,IronRune] GuardTile
+UNIT Empty
+
+Bern1:
+UNIT 0xF4 0x56 0x0 0xA4 [10,10] [10,10] [GigantAxe,IronRune] PursueWithoutHeed
+UNIT Empty
+
+BernArmy:
+UNIT 0x53 General 0x53 Level(20,Enemy,False) [10,2] [10,2] [Tomahawk] GuardTile
+UNIT 0x75 Ballistician 0x53 Level(20,Enemy,True) [7,2] [7,2] [Arrowspate] GuardTile
+UNIT Empty
+
+Scout:
+UNIT 0xF1 WyvernRider 0x0 Level(1,Enemy,False) [12,12] [10,2] [IronLance] NoAI
+UNIT Empty
+
+Real1Boss:
+UNIT 0x54 Hero_F 0x54 Level(17,Enemy,False) [10,2] [10,2] [MasterSword] PursueWithoutHeed
+UNIT Empty
+
+MoreBern:
+UNIT 0x76 WyvernLord 0x53 Level(7,Enemy,True) [10,2] [9,5] [ShortSpear] NoAI
+UNIT 0x76 WyvernLord_F 0x53 Level(9,Enemy,True) [10,2] [11,6] [DevilAxe] NoAI
+UNIT 0x76 WyvernLord 0x53 Level(8,Enemy,True) [10,2] [13,4] [SteelBlade] NoAI
+UNIT 0x76 WyvernLord_F 0x53 Level(9,Enemy,True) [5,19] [5,19] [HandAxe] NoAI
+UNIT 0x75 Ballistician 0x53 Level(17,Enemy,True) [10,12] [10,12] [Arrowspate] AttackInRange
+UNIT 0x75 Ballistician 0x53 Level(17,Enemy,True) [1,6] [1,6] [Arrowspate] NoAI
+UNIT 0x76 WyvernLord_F 0x53 Level(9,Enemy,True) [8,15] [8,15] [SteelLance] NoAI
+UNIT Empty
+
+MoreBern3:
+UNIT 0x76 Knight 0x53 Level(19,Enemy,True) [10,2] [9,3] [SteelLance] AttackInRange
+UNIT 0x76 Knight 0x53 Level(20,Enemy,True) [10,2] [10,4] [SilverLance] AttackInRange
+UNIT 0x76 Knight 0x53 Level(19,Enemy,True) [10,2] [11,3] [SteelLance] AttackInRange
+UNIT Empty
+
+MoreBern2:
+UNIT 0x76 WyvernRider 0x53 Level(12,Enemy,True) [10,2] [7,5] [SteelLance] NoAI
+UNIT 0x76 WyvernRider 0x53 Level(14,Enemy,True) [10,2] [9,7] [SteelLance] NoAI
+UNIT 0x76 WyvernRider 0x53 Level(13,Enemy,True) [10,2] [10,7] [HeavySpear] NoAI
+UNIT 0x76 WyvernRider 0x53 Level(12,Enemy,True) [10,2] [5,3] [Axereaver] NoAI
+UNIT 0x76 WyvernRider 0x53 Level(12,Enemy,True) [10,2] [5,2] [Horseslayer] NoAI
+UNIT 0x76 WyvernRider 0x53 Level(14,Enemy,True) [10,2] [14,2] [SteelLance] NoAI
+UNIT 0x76 WyvernRider 0x53 Level(14,Enemy,True) [10,2] [13,6] [SteelLance] NoAI
+UNIT 0x77 Soldier 0x53 Level(16,Enemy,True) [3,13] [3,13] [SteelLance] NoAI
+UNIT 0x77 Soldier 0x53 Level(16,Enemy,True) [4,16] [4,16] [Greatlance] NoAI
+UNIT Empty
+
+TurnBasedEvents:
+TURN 0x0 BeginningScene [1,0] 0x0 0x0
+TURN 0x0 BaitAndSwitch [3,0] 0x8 0x0
+TURN 0x0 MasterTurnEvent [2,255] 0x0 0x0
+TURN 0x0 KarlaWarps [2,255] 0x8 0x00
+AFEV 0x2A BarbarosFlees 0x29
+TURN
+
+CharacterBasedEvents:
+CHAR
+
+LocationBasedEvents:
+House(0x1C,House1,4,5)
+LOCA
+
+MiscBasedEvents:
+CauseGameOverIfLordDies
+AFEV 0x27 EndingScene 0x17
+AFEV 0x28 KillKarmann 0x19
+AFEV
+
+BallistaEliwoodMode:
+BLST
+ALIGN 4
+
+
+BeginningScene:
+LOU1 BernArmy
+LOU1 AllyUnitsENM
+ENUN
+REPOS Karel [10,18]
+CMOF
+MUS1 0x22
+LOU1 Scout
+ENUN
+DISA 0xF1
+FADI 10
+BACG 0x15
+FADU 10
+TEX1 0xA0B
+REMA
+LOU1 MoreBern
+ENUN
+LOU1 MoreBern2
+ENUN
+LOU1 MoreBern3
+ENUN
+CAM1 Karel
+ENUT 0x1C
+ENDA
+
+BaitAndSwitch:
+CAM1 0x53
+CURF 0x53
+FADI 10
+BACG 0x15
+FADU 10
+MUS1 0x3C
+TEX1 0xA0C
+REMA
+DISA 0x53
+ENUN
+LOU1 Real1Boss
+ENUN
+ENDA
+
+MasterTurnEvent:
+IFET 0x06 0x18 //Map #2 Load
+ENUF 0x1C
+TEX1 0xA0D
+REMA
+FAWI 5
+ClearAllUnits
+BACG 0x02
+FAWU 5
+MUS1 0x75
+TEX1 0xA10
+FAWI 5
+HIDEMAP
+ClearScreen
+LOMA 0x13 [0,0]
+REPOS Karel [3,9]
+CAM1 Karel
+FAWU 5
+SHOWMAP
+MUEN 0x05
+TEX1 0xA11
+REMA
+SOUN 0xDF
+STAL 32
+LOU1 label12
+ENUN
+MUS1 0x0032
+TEX1 0xA12
+REMA
+ENUF 0x18
+ENIF 0x06
+IFET 0x01 0x13 //Map #3 Load
+ENUT 0x1C
+MUS1 0x0075
+FAWI 5
+REPOS Karel [0,0]
+ClearAllUnits
+BACG 0x02
+FAWU 5
+TEX1 0xA13
+FAWI 5
+ClearPortraits
+BACG 0x0D
+STAL 0x20
+FAWU 5
+MUS1 0x006B
+LOU1 Tenard1
+ENUN
+TEX1 0xA14
+MUS1 0x0032
+MORETEXT 0x0A15
+FADI 10
+LOMA 0x14 [0,0]
+FADU 10
+LOU1 AllyUnitsENM
+MOVE Karel [4,4]
+ENUN
+CAM1 Bug
+TEX1 0xA16
+REMA
+ENUF 0x13
+ENIF 0x01
+IFET 0x02 0x14 //Map #4 Load
+MUS1 0x0039
+FADI 10
+BACG 0x07
+REPOS Karel [0,0]
+ClearAllUnits
+FADU 10
+TEX1 0x0A19
+MUS1 0x0074
+FAWI 5
+LOMA 0x15 [0,0]
+BACG 0x30
+FAWU 5
+TEX1 0x0A1A
+MUS1 0xFFFF
+FAWI 5
+ClearScreen
+LOU1 AllyUnitsENM
+ENUN
+REPOS Karel [7,12]
+CAM1 Karel
+REMA
+WEA1 0x06
+SOUN 0x00C7
+TEX1 0x0A1B
+REMA
+FADI 10
+REPOS Karel [4,5]
+LOU1 Barbaros1
+ENUN
+CAM1 Karel
+FADU 10
+MUS1 0x0064
+TEX1 0x0A1C
+REMA
+WarpIn(KarlaPhantom,2,1)
+WarpIn(Phantom1,1,7)
+WarpIn(Phantom2,2,4)
+WarpIn(Phantom3,5,3)
+ENUF 0x14
+ENIF 0x02
+IFET 0x03 0x15 //Map #5 Load
+TEX1 0x0A21
+REMA
+FAWI 5
+ClearAllUnits
+LOMA 0x16 [10,5]
+BACG 0x02
+MUS1 0x0035
+FAWU 5
+TEX1 0x0A22
+REMA
+MUS1 0x004F
+STAL 0x20
+CURF [10,5]
+FADI 10
+BACG 0x00
+FADU 10
+TEX1 0x0A23
+REMA
+REPOS Karel [0,14]
+MOVE Karel [3,11]
+CAM1 Karel
+MUS1 0x0032
+TEX1 0x0A24
+REMA
+MOVE Karel [8,7]
+ENUN
+LOU1 BartreKarla
+ENUN
+TEX1 0x0A25
+REMA
+MOVE Bartre [9,7]
+ENUN
+FIGH Bartre Karel BattleFun $00000000
+UNCR Bartre 10b
+TEX1 0xA26
+REMA
+LOU1 Karmann1
+ENUN
+TEX1 0x0A27
+REMA
+MOVE Bool [10,6]
+ENUN
+MOVE Karla [10,5]
+DISA Karla
+ENUN
+MOVE Bartre [10,5]
+DISA Bartre
+ENUN
+MOVE Bool [10,5]
+ENUN
+ENUF 0x15
+ENUF 0x20
+ENIF 0x03
+IFET 0x04 0x16 //Map #6 Loading
+UNCM Karel 0x01
+FADI 10
+BACG 0x1D
+FADU 10
+MUS1 0x0034
+TEX1 0x0A2B
+REMA
+ClearAllUnits
+FAWI 5
+LOMA 0x29 [13,6]
+BACG 0x02
+FAWU 5
+TEX1 0x0A2C
+REMA
+MUS1 0x0036
+STAL 0x10
+CURF [13,6]
+FADI 10
+BACG 0x02
+FADU 10
+LOU1 Bern1
+ENUN
+TEX1 0x0A2D
+MUS1 0x0032
+MORETEXT 0x0A2E
+REMA
+REPOS Karel [13,6]
+ENUN
+UNCR Karel 04
+ITGC Karel Vulnerary
+ENUF 0x16
+ENIF 0x04
+IFET 0x05 0x19
+JUMP KillKarmann
+ENIF 0x05
+ENDA
+
+
+
+House1:
+FADI 5
+BACG 0x01
+FADU 5
+TEX1 0xA29
+REMA
+ITGV 0xBE
+ENDA
+
+BarbarosFlees:
+TEX1 0xA20
+REMA
+WarpOut(Barbaros)
+ENUT 0x15
+ENDA
+
+KarlaWarps:
+IFET 0x06 0x15
+ELSE 0x07
+ENIF 0x06
+IFET 0x05 0x20
+WarpIn(KarlaPhantom,2,1)
+IFEF 0x09 0x1B
+WarpIn(Phantom1,1,7)
+WarpIn(Phantom3,5,3)
+ENUT 0x1B
+ENIF 0x09
+UNCM Zugu 0x02
+ENUF 0x20
+ENIF 0x05
+ENIF 0x07
+ENDA
+
+EndingScene:
+FADI 10
+BACG 0x02
+ClearAllUnits
+FADU 10
+MUS1 Triumph
+TEX1 0x0A2F
+MUS1 0x6A
+MORETEXT 0xA30
+REMA
+FAWI 5
+BACG 0x02
+FAWU 5
+MUS1 RespiteinBattle
+TEX1 0x0A31
+REMA
+BecomeNPC(Karel)
+ENUT Tale6Clear
+GotoTaleSelect
+ENDA
+
+KillKarmann:
+IFEF 0x01 DemonicStreak
+TEX6 0x5 [0,0] 0x0A33
+_ASM0x42 0x83181
+ENUT DemonicStreak
+ENIF 0x01
+FADI 5
+BACG 0x14
+FADU 5
+TEXTIFTACTF 0xA34 0xA35
+REMA
+BecomeNPC(Karel)
+GotoTaleSelect
+ENDA
+
+BattleFun:
+AttackerMiss(0x00)
+AttackerMiss(0x01)
+AttackerMiss(0x02)
+EndOfBattle
+
+MESSAGE Tale6 ends at currentOffset.

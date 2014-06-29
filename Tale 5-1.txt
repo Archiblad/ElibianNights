@@ -1,0 +1,440 @@
+
+#include "EAstdlib.event"
+#include "BSFE7 definitions.txt"
+
+EventPointerTable(0x21,ThisChapter)
+EventPointerTable(0x4A,TileChanges)
+
+ORG 0xD889C0
+ThisChapter:
+
+POIN TurnEvents CharacterEvents LocationEvents MiscEvents
+POIN Ballista Ballista
+POIN Etrurians Etrurians Etrurians Etrurians
+POIN Cornwell Cornwell Cornwell Cornwell
+POIN OpeningEvent EndingEvent
+
+
+CornwellScene:
+UNIT Raven Hero 0x00 Level(10,Ally,False) [10,8] [10,7] [SteelBlade,SteelSword,IronRune,Elixir] NoAI
+UNIT Priscilla Valkyrie Raven Level(4,Ally,False) [11,7] [11,7] [Physic,Thunder] NoAI
+UNIT Lucius Bishop Raven Level(5,Ally,False) [9,8] [9,8] [Divine,Lightning,Heal,Tonic] NoAI
+UNIT Geitz Warrior Raven Level(7,Ally,False) [11,9] [11,9] [QuickBow,CleaveBow,SteelAxe,Tonic] NoAI
+UNIT Heath WyvernKnight Raven Level(10,Ally,False) [12,9] [12,9] [Axereaver,Greatlance] NoAI
+UNIT Empty
+
+EpicShowdown:
+UNIT Raven Hero 0x00 Level(10,Ally,False) [20,2] [20,2] [SteelBlade,BattleAxe,IronRune,Elixir] NoAI
+UNIT Alastor Assassin 0x00 Level(10,Enemy,False) [20,0] [20,0] [MasterSword,Elixir,Berveil] NoAI
+UNIT 0x7F Bishop 0x00 Level(4,Enemy,True) [12,1] [12,1] [Physic] NoAI
+UNIT Empty
+
+Cornwell:
+UNIT Priscilla Valkyrie Raven Level(4,Ally,False) [21,16] [21,16] [Mend,Physic,Thunder] NoAI
+UNIT Lucius Bishop Raven Level(5,Ally,False) [20,15] [20,15] [Divine,Lightning,Mend,Tonic] NoAI
+UNIT Geitz Warrior Raven Level(7,Ally,False) [23,17] [23,17] [QuickBow,CleaveBow,SteelAxe,Tonic] NoAI
+UNIT Heath WyvernKnight Raven Level(10,Ally,False) [22,15] [22,15] [Axereaver,Greatlance] NoAI
+UNIT Empty
+
+Etrurians:
+UNIT 0x7D Sage 0x00 Level(4,Enemy,True) [19,8] [18,12] [Elfire] NoAI
+UNIT 0x7E Paladin 0x00 Level(7,Enemy,True) [14,21] [12,13] [ShortSpear] NoAI
+UNIT 0x7C Halberdier 0x00 Level(6,Enemy,True) [8,11] [11,11] [Axereaver,Tonic] AttackInRange
+UNIT 0x7F Bishop 0x00 Level(4,Enemy,True) [11,17] [11,17] [Physic,Lightning] NoAI
+UNIT 0x7E Paladin 0x00 Level(7,Enemy,True) [11,4] [11,4] [BattleAxe] AttackInRange
+UNIT 0x7D Sniper 0x00 Level(4,Enemy,True) [20,20] [19,17] [SteelBow] NoAI
+UNIT 0x7C Halberdier 0x00 Level(4,Enemy,True) [22,9] [22,9] [Pilum] AttackInRange
+UNIT 0x73 Warrior 0x00 Level(7,Enemy,True) [20,7] [20,7] [SteelAxe] AttackInRange
+UNIT 0x7D Sniper 0x00 Level(4,Enemy,True) [8,8] [8,8] [SteelBow] NoAI
+UNIT 0x71 General 0x00 Level(7,Enemy,True) [12,21] [12,21] [Pilum,Tonic] NoAI
+UNIT 0x7E Paladin 0x00 Level(7,Enemy,True) [9,18] [9,18] [SteelBlade] NoAI
+UNIT 0x72 FalcoKnight 0x00 Level(6,Enemy,True) [18,6] [18,6] [SteelLance] AttackInRange
+UNIT 0x73 Warrior 0x00 Level(9,Enemy,True) [16,21] [16,21] [ShortAxe] AttackInRange
+UNIT 0x74 Berserker 0x00 Level(8,Enemy,True) [8,17] [8,17] [BattleAxe] AttackInRange
+UNIT 0x7D Sage 0x00 Level(4,Enemy,True) [14,19] [14,19] [Aircalibur,Tonic] AttackInRange
+UNIT 0x72 FalcoKnight 0x00 Level(6,Enemy,True) [7,13] [7,13] [Dragonspear] NoAI
+UNIT 0x7D Sniper 0x00 Level(6,Enemy,True) [7,5] [7,5] [Greatbow,Tonic] AttackInRange
+UNIT 0x71 General 0x00 Level(6,Enemy,True) [13,5] [13,5] [SteelBlade,SteelLance] AttackInRange
+UNIT 0x7C Halberdier 0x00 Level(4,Enemy,True) [7,19] [7,19] [Greatlance] NoAI
+UNIT 0x7C Halberdier 0x00 Level(4,Enemy,True) [9,7] [9,7] [QuickLance] AttackInRange
+UNIT Empty
+
+ShenHalb:
+UNIT 0x7C Halberdier 0x00 Level(6,Enemy,True) [8,21] [10,20] [ShortSpear] AttackInRange
+UNIT Empty
+
+Raven1:
+UNIT Raven Hero 0x00 Level(10,Ally,False) [21,13] [21,13] [SteelBlade,IronRune,Elixir] NoAI
+UNIT Empty
+
+AssassinDouche:
+UNIT 0x5F Assassin 0x00 Level(10,Enemy,False) [14,12] [14,12] [MasterSword,Elixir,Berveil] NoAI
+UNIT Empty
+
+SoldierDouche:
+UNIT 0x7C Halberdier 0x00 Level(6,Enemy,True) [20,21] [21,18] [Greatlance] NoAI
+UNIT Empty
+
+ShenStraightOuttaFE7x:
+UNIT Shen Warrior 0x00 Level(12,Enemy,False) [10,20] [10,21] [ShortAxe,BattleAxe,Tonic] NoAI
+UNIT Empty
+
+EndingUnits:
+UNIT Raven Hero 0x00 Level(10,Ally,False) [20,4] [20,4] [SteelBlade,SteelSword,IronRune,Elixir] NoAI
+UNIT Priscilla Valkyrie Raven Level(4,Ally,False) [21,6] [21,6] [Physic,Thunder] NoAI
+UNIT Lucius Bishop Raven Level(5,Ally,False) [20,7] [20,7] [Divine,Lightning,Heal,Tonic] NoAI
+UNIT Empty
+
+EndingBuddies:
+UNIT Geitz Warrior Raven Level(7,Ally,False) [19,10] [19,10] [QuickBow,CleaveBow,SteelAxe,Tonic] NoAI
+UNIT Heath WyvernKnight Raven Level(10,Ally,False) [18,11] [18,11] [Axereaver,Greatlance] NoAI
+UNIT Empty
+
+EndingShen:
+UNIT Shen Warrior 0x00 Level(12,Ally,False) [23,11] [23,11] [ShortAxe,BattleAxe,Tonic] NoAI
+UNIT Empty
+
+EndingEnemies:
+UNIT Arcard GreatKnight 0x00 Level(10,Enemy,False) [20,21] [20,17] [SilverAxe,BraveLance,Elixir] GuardTile
+UNIT Empty
+
+EndingEnemies2:
+UNIT 0x7C Halberdier 0x00 Level(6,Enemy,True) [20,21] [20,21] [Axereaver,Tonic] AttackInRange
+UNIT 0x7E Paladin 0x00 Level(7,Enemy,True) [20,21] [18,20] [SteelBlade] NoAI
+UNIT 0x7C Halberdier 0x00 Level(6,Enemy,True) [21,21] [21,19] [Axereaver,Tonic] AttackInRange
+UNIT Empty
+
+EndingEnemies21:
+UNIT 0x72 Paladin 0x00 Level(6,Enemy,True) [14,21] [11,18] [SteelLance] AttackInRange
+UNIT 0x7E Paladin 0x00 Level(7,Enemy,True) [14,21] [13,17] [ShortSpear] NoAI
+UNIT 0x7E GreatKnight 0x00 Level(7,Enemy,True) [14,21] [14,19] [ShortSpear] NoAI
+UNIT Empty
+
+EndingEnemies22:
+UNIT 0x7C Halberdier 0x00 Level(6,Enemy,True) [15,21] [15,21] [Axereaver,Tonic] AttackInRange
+UNIT 0x7C Halberdier 0x00 Level(6,Enemy,True) [16,21] [16,21] [Axereaver,Tonic] AttackInRange
+UNIT Empty
+
+EndingEnemies3:
+UNIT Erk MageKnight Pent Level(7,Enemy,False) [20,21] [21,17] [Dimebolt,Bolting,Heal,ChestKey] NoAI
+UNIT 0x7D Sniper 0x00 Level(4,Enemy,True) [21,21] [21,21] [SteelBow] NoAI
+UNIT Empty
+
+
+TurnEvents:
+TURN 0x00 OpeningEvent [01,00] 0x0 0x00
+TURN 0x00 Convo2 [02,00] 0x0 0x00
+TURN 0x00 Turn2 [02,00] 0x8 0x00
+TURN
+
+CharacterEvents:
+CHAR 0x09 PriscillaShen Priscilla Shen $00000000
+CHAR 0x09 LuciusShen Lucius Shen $00000000
+CHAR 0x09 HeathShen Heath Shen $00000000
+CHAR 0x09 GeitzShen Geitz Shen $00000000
+CHAR 0x11 HeathPriscilla Heath Priscilla $000E0003
+CHAR 0x11 HeathPriscilla Priscilla Heath $000E0003
+CHAR
+
+LocationEvents:
+Village(0x06,Village1,21,11)
+Village(0x07,Village3,12,20)
+Armory(ArmoryList,11,7)
+Village(0x0A,BrownVillage2,10,20)
+Village(0x0B,BrownVillage1,14,10)
+
+LOCA
+
+MiscEvents:
+CauseGameOverIfLordDies
+AREA 0x0C PugiHiding [1,14] [1,14]
+DefeatBoss(EndingEvent)
+AFEV
+
+
+OpeningEvent:
+LOU1 CornwellScene
+ENUN
+LOMA 0x38 [0,0]
+BACG 0x10
+TEX1 0x97E
+MUEN 0x05
+REMA
+STAL 0x40
+TEX1 0x97F
+REMA
+FADI 4
+LOMA 0x05 [0,0]
+ClearAllUnits
+LOU1 Cornwell Raven1
+CAM1 Raven
+MUS1 0x0052
+BACG 0x14
+FADU 4
+TEX1 0x980
+MUEN 0x05
+REMA
+STAL 0x30
+MUS1 0x4F
+TEX1 0x981
+REMA
+MUEN 0x05
+STAL 0x20
+CAM1 [14,12]
+_0xE3 0xCB401C [224,192] //Assassin Arrival Effect
+SOUN 0x2F6
+LOU1 AssassinDouche
+ENUN
+STAL 0x20
+TEX1 0x982
+REMA
+MOVE [14,12] [19,12]
+ENUN
+MOVE Raven ExclamationPoint
+ENUN
+MUS1 0x32
+TEX1 0x983
+REMA
+MOVE Raven [19,13]
+ENUN
+FIGH Raven 0x5F FightData $00000000
+UNCR Raven 10b
+TEX1 0x984
+REMA
+TEX1 0x998
+REMA
+CMOF
+MOVE Raven [20,5]
+MOVE 0x5F [20,6]
+ENUN
+DISA Raven
+DISA 0x5F
+ENUN
+LOU1 EpicShowdown
+ENUN
+CAM1 [16,16]
+TEX1 0x985
+REMA
+STAL 0x20
+MUS1 0x22
+LOU1 SoldierDouche
+ENUN
+TEX1 0x986
+REMA
+//LOU1 Etrurians
+ENUN
+CAM1 Raven
+ENUT 0x95
+ENDA
+
+ExclamationPoint:
+MOMA notice
+ALIGN 4
+
+FightData:
+AttackerMiss(0x00)
+DefenderMiss(0x01)
+EndOfBattle
+
+PriscillaShen:
+MUS2 0x3B
+TEX1 0x999
+REMA
+BecomeAlly(Shen)
+ENUF 0x95
+MURE 0x05
+ENDA
+
+LuciusShen:
+MUS2 0x3B
+TEX1 0x99A
+REMA
+BecomeAlly(Shen)
+MURE 0x05
+ENUF 0x95
+ENDA
+
+GeitzShen:
+MUS2 0x3B
+TEX1 0x99B
+REMA
+BecomeAlly(Shen)
+ENUF 0x95
+MURE 0x05
+ENDA
+
+HeathShen:
+MUS2 0x3B
+TEX1 0x99C
+REMA
+BecomeAlly(Shen)
+ENUF 0x95
+MURE 0x05
+ENDA
+
+HeathPriscilla:
+MUS2 0x51
+TEX1 0x987
+REMA
+MURE 0x05
+ENDA
+
+Convo2:
+ENUT 0x0E
+ENDA
+
+Turn2:
+MUS1 0x0E
+LOU1 ShenHalb
+ENUN
+FADI 5
+BACG 0x35
+FADU 5
+TEX1 0x988
+REMA
+LOU1 ShenStraightOuttaFE7x
+ENUN
+ENDA
+
+Village1:
+MUSI
+FADI 10
+BACG 0x02
+FADU 10
+TEX1 0x989
+REMA
+ITGV Pilum
+MUNO
+ENDA
+
+Village3:
+MUSI
+FADI 10
+BACG 0x02
+FADU 10
+TEX1 0x98B
+REMA
+ITGV Elixir
+MUNO
+ENDA
+
+BrownVillage1:
+MUSI
+FADI 10
+BACG 0x02
+FADU 10
+TEX1 0x98C
+REMA
+MUNO
+ENUF 0x0B
+ENDA
+
+BrownVillage2:
+IFCA 0x00 0x01 Shen
+MUSI
+FADI 10
+BACG 0x35
+FADU 10
+TEX1 0x997
+REMA
+ITGV Pugi
+MUNO
+ELSE 0x02
+ENIF 0x01
+MUSI
+FADI 10
+BACG 0x35
+FADU 10
+TEX1 0x98D
+REMA
+MUNO
+ENIF 0x02
+ENUF 0x0A
+ENDA
+
+EndingEvent:
+MUEN 0x03
+FADI 3 
+ClearAllUnits
+BACG 0x39
+CMOF
+LOU1 EndingBuddies
+ENUN
+IFEF 0x06 0x95
+LOU1 EndingShen
+ENIF 0x06
+LOU1 EndingUnits
+ENUN
+CMON
+FADU 3
+MUS1 0x38
+TEX1 0xA08
+REMA
+MUEN 0x05
+STAL 0x20
+FADI 2
+CAM1 [16,17]
+FADU 2
+MUS1 Stratagem
+LOU1 EndingEnemies
+ENUN
+CMOF
+STAL 0x20
+LOU1 EndingEnemies2
+ENUN
+LOU1 EndingEnemies21
+ENUN
+LOU1 EndingEnemies22
+ENUN
+LOU1 EndingEnemies3
+ENUN
+TEX1 0xA09
+REMA
+MOVE [21,17] [21,22]
+ENUN
+DISA [21,22]
+ENUN
+MUEN 0x03
+CAM1 Raven
+MUS1 0x22
+MOVE Geitz [19,7]
+MOVE Heath [19,5]
+ENUN
+IFEF 0x05 0x95
+MOVE Shen [22,8]
+ENUN
+ENIF 0x05
+TEX1 0xA0A
+IFEF 0x02 0x95
+REBU
+MORETEXT 0xA91
+ENIF 0x02
+REMA
+MNCH 0x27
+ENDA
+
+PugiHiding:
+ITGV Pugi
+STAL 0x20
+ENDA
+
+
+ArmoryList:
+SHLI Longsword WingClipper SteelLance Greatlance BattleAxe Hammer Tomahawk SteelBow SilverBow Elfire Tonic
+
+ALIGN 4
+
+TileChanges:
+TileMap(0x00,21,11,0x01,0x01,VillageGate)
+TileMap(0x01,11,7,0x01,0x01,VillageGate)
+TileMap(0x02,12,20,0x01,0x01,VillageGate2)
+TileMapEnd
+
+
+VillageGate:
+SHORT 0x01F0
+
+VillageGate2:
+SHORT 0x0170
+
+MESSAGE Events end at offset CurrentOffset.

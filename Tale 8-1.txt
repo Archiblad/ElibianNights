@@ -1,0 +1,273 @@
+//Tale 8 of Elibian Nights
+#include "EAstdlib.event"
+#include "BSFE7 definitions.txt"
+
+EventPointerTable(0x2C,ThisChapter)
+
+ORG 0xD8CA50
+ThisChapter:
+
+POIN TurnEvents TalkEvents LocationEvents MiscEvents
+POIN BallistaData BallistaData
+POIN BountyHunters BountyHunters BountyHunters BountyHunters
+POIN BlackFang BlackFang BlackFang BlackFang
+POIN OpeningEvent EndingEvent
+
+
+BlackFang1:
+UNIT Legault Assassin 0x00 Level(11,Ally,False) [6,16] [6,16] [RegalBlade,Lancereaver] NoAI
+UNIT Jan Brigand Legault Level(17,Ally,False) [5,17] [5,17] [Basilikos,Elixir] NoAI
+UNIT Empty
+
+BountyHunters:
+UNIT 0xC0 Transporter Ortega Level(1,Enemy,False) [16,8] [16,8] [NoItems] GuardTile
+UNIT Ortega Swordmaster 0x00 Level(13,Enemy,False) [19,5] [19,5] [SteelBlade] AttackInRange
+UNIT 0xC3 Warrior Ortega Level(7,Enemy,True) [20,5] [20,5] [QuickAxe,Vulnerary] PursueWithoutHeed
+UNIT 0xC3 Warrior Ortega Level(3,Enemy,True) [11,14] [11,14] [CleaveBow] NoAI
+UNIT 0xC2 Druid Ortega Level(2,Enemy,True) [8,17] [8,17] [Dulam,Mend] NoAI
+UNIT 0xCC WyvernKnight Ortega Level(4,Enemy,True) [8,7] [8,7] [Axereaver,Vulnerary] AttackInRange
+UNIT 0xC1 Hero Ortega Level(3,Enemy,True) [14,15] [14,15] [SteelAxe] NoAI
+UNIT 0xC1 Hero Ortega Level(4,Enemy,True) [16,10] [16,10] [Tomahawk] AttackInRange
+UNIT 0xCC Assassin Ortega Level(7,Enemy,True) [14,11] [14,11] [SilverSword] AttackInRange
+UNIT 0xC2 Sage Ortega Level(4,Enemy,True) [19,13] [19,13] [Elfire] NoAI
+UNIT Empty
+
+NewBlackFang:
+UNIT Opal Sniper_F Legault Level(9,Ally,False) [16,8] [14,8] [NoItems] NoAI
+UNIT Nando MageKnight Legault Level(7,Ally,False) [16,8] [18,8] [NoItems] NoAI
+UNIT Everrett Hero Legault Level(12,Ally,False) [16,8] [17,9] [NoItems] NoAI
+UNIT Empty
+
+EndingEnemies:
+UNIT Dieter GreatKnight 0x00 Level(14,Enemy,False) [20,3] [20,3] [Spear,BraveAxe,Elixir] GuardTile
+UNIT Ortega Swordmaster 0x00 Level(13,Enemy,False) [19,5] [19,5] [SteelBlade] AttackInRange
+UNIT Vaida WyvernLord 0x00 Level(16,NPC,True) [6,16] [6,16] [Spear,SilverAxe] NoAI
+UNIT Empty
+
+Fafnir:
+UNIT 0x40 GreatKnight 0x00 Level(14,Enemy,False) [19,0] [20,3] [Spear,BraveAxe,Elixir] GuardTile
+UNIT Empty
+
+Fafnir2:
+UNIT 0xC4 WyvernLord 0x00 Level(8,Enemy,True) [19,0] [19,0] [ShortSpear] NoAI
+UNIT 0xC4 WyvernLord 0x00 Level(8,Enemy,True) [20,0] [20,0] [IronBlade] NoAI
+UNIT 0xC4 WyvernLord_F 0x00 Level(8,Enemy,True) [21,0] [21,0] [SteelAxe] NoAI
+UNIT Empty
+
+TurnEvents:
+TURN 0x00 OpeningEvent [01,00] 0x0 0x00
+AFEV 0x10 DietingBarrage 0x06
+TURN 0x00 FafnirReinforcements [01,255] 0x0 0x00
+TURN
+
+TalkEvents:
+CHAR
+
+LocationEvents:
+House(0x22,House1,9,11)
+House(0x23,House2,20,18)
+//Seize(0x11,Arrive,3,3)
+LOCA
+
+MiscEvents:
+AFEV 0x06 Freedom 0x0F
+CauseGameOverIfLordDies
+AFEV 0x8E DieterDefeated 0x24
+AREA 0x12 JakeFound [19,17] [19,17]
+AREA 0x11 Arrive [3,3] [3,3]
+AFEV
+
+BallistaData:
+BLST
+ALIGN 4
+
+OpeningEvent:
+CMOF
+LOU1 BountyHunters
+CAM1 0xC0
+OOBB
+CURF 0xC0
+FADI 10
+BACG 0x1B
+FADU 10
+MUS1 0x4F
+TEX1 0x9B1
+REMA
+CAM1 Ortega
+MUS1 0x53
+TEX1 0x9B2
+MOVE [20,5] [18,8]
+MORETEXT 0x9B3
+REMA
+CAM1 [5,14]
+CURF [6,16]
+FADI 5
+BACG 0x2C
+FADU 5
+MURE 0x05
+TEX1 0x9B4
+REBU
+SOUN 0xD2
+MORETEXT 0x9B5
+MORETEXT 0x9B6
+REBU
+SOUN 0xD2
+MORETEXT 0x9B7
+MORETEXT 0x9B8
+REBU
+SOUN 0xD2
+MORETEXT 0x9B9
+MUS1 0x50
+MORETEXT 0x9BA
+LOU1 BlackFang1
+REMA
+ENDA
+
+Freedom:
+IFEF 0x02 TheLastReed
+IFEF 0x01 0x14
+TEX6 0x5 [0,0] 0x9AA
+REBB
+ENUT TheLastReed
+ENIF 0x01
+ENIF 0x02
+MUS1 0x42
+FADI 5
+BACG 0x1B
+FADU 5
+IFCA 0x00 0x04 Legault
+TEX1 0x9BB
+ELSE 0x05
+ENIF 0x04
+TEX1 0x9BC
+ENIF 0x05
+REMA
+LOU1 NewBlackFang
+ENDA
+
+DietingBarrage:
+LOU1 Fafnir
+ENUN
+FADI 5
+LOMA 0x28 [20,3]
+BACG 0x2C
+FADU 5
+MUS1 0x3C
+TEX1 0x9BD
+REMA
+ENUT 0x04
+ENDA
+
+Arrive:
+IFET 0x01 0x06
+IFCA 0x00 0x07 Legault
+TEX1 0x9C6
+ENIF 0x07
+IFCA 0x00 0x08 Jan
+TEX1 0x9C7
+REMA
+UNCM Jan 0x02
+DISA Jan
+ENIF 0x08
+IFCA 0x00 0x09 Nando
+TEX1 0x9C8
+ENIF 0x09
+IFCA 0x00 0x0A Opal
+TEX1 0x9C9
+ENIF 0x0A
+IFCA 0x00 0x0B Everrett
+TEX1 0x9CA
+ENIF 0x0B
+REMA
+JUMP EndingEvent
+ENUF 0x11
+ELSE 0x02
+ENIF 0x01
+TEX1 0x9CB
+REMA
+ENUF 0x11
+ENIF 0x02
+ENDA 
+
+FafnirReinforcements:
+IFET 0x03 0x10
+LOU1 Fafnir2
+ENUN
+ENIF 0x03
+ENDA
+
+EndingEvent:
+MUS1 0x38
+FADI 5
+BACG 0x03
+FADU 5
+TEX1 0x9CC
+ClearAllUnits
+CMOF
+LOU1 EndingEnemies
+ENUN
+MUEN 0x05
+MORETEXT 0x9CD
+REMA
+CAM1 Dieter
+STAL 0x20
+MOVE Ortega [20,4]
+CURF Dieter
+FADI 5
+BACG 0x2C
+FADU 5
+MUS1 0x3C
+TEX1 0x9CE
+REMA
+MOVE Ortega [19,0]
+DISA Ortega
+MOVE Dieter [19,0]
+DISA Dieter
+ENUN
+MUEN 0x05
+STAL 0x20
+CAM1 Vaida
+CURF Vaida
+FADI 5
+BACG 0x2C
+FADU 5
+TEX1 0x9CF
+SOUN 0xD2
+MORETEXT 0xA71
+REBU
+MORETEXT 0xA72
+REBU
+MORETEXT 0xA73
+ClearAllUnits
+REMA
+MNCH 0x09
+ENDA
+
+House1:
+FADI 5
+BACG 0x01
+FADU 5
+TEX1 0x9BE
+REMA
+ENUF 0x22
+ENDA
+
+House2:
+FADI 5
+BACG 0x01
+FADU 5
+TEX1 0x9BF
+REMA
+ENUF 0x23
+ENDA
+
+DieterDefeated:
+TEX6 0x5 [0,0] 0xDE0
+REBB
+ENDA
+
+JakeFound:
+ITGV 0xBD
+ENDA
+
+MESSAGE Events end at offset currentOffset

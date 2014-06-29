@@ -1,0 +1,625 @@
+	
+#define DISABLE_TUTORIALS
+#include "EAstdlib.event"
+#include "BSFE7 definitions.txt"
+
+EventPointerTable(0x1B,ThisChapter)
+EventPointerTable(0x1A,TileChanges)
+
+ORG 0xD86A30
+ThisChapter:
+
+//Actual events:
+POIN Turn_events Character_events Location_events Misc_events
+POIN Ballista_filler Ballista_filler
+POIN Morphs Morphs Morphs Morphs
+POIN Players Players Players Players
+POIN Opening_event EndingEvent
+
+Pent1:
+UNIT Pent Sage 0x00 Level(14,Ally,False) [7,3] [7,3] [Forblaze,Elfire,Shine,Elixir] NoAI
+UNIT Empty
+
+Helpers:
+UNIT Erk MageKnight Pent Level(7,Ally,False) [8,9] [8,5] [Thunder,Bolting,Mend] NoAI
+UNIT Hawkeye 0x54 Pent Level(11,Ally,False) [7,9] [7,5] [Tomahawk,IronRune] NoAI
+UNIT Empty
+
+Renault1:
+UNIT Renault UberSage 0x00 Level(20,Ally,False) [7,9] [7,4] [Luce,Rescue,Warp,Physic] NoAI
+UNIT Empty
+
+Players:
+UNIT Pent Sage 0x00 Level(14,Ally,False) [24,16] [24,16] [Forblaze,Shine,Elixir] NoAI
+UNIT Renault UberSage Pent Level(20,Ally,False) [23,16] [23,16] [Luce,Rescue,Physic] NoAI
+UNIT Erk MageKnight Pent Level(7,Ally,False) [26,17] [26,17] [OrionsBolt,Mend] NoAI
+UNIT Louise_EN Sniper_F Pent Level(8,Ally,False) [22,18] [22,18] [SilverBow,BraveBow,Elixir,RuneBow] NoAI
+UNIT Empty
+
+Hawkeye1:
+UNIT Hawkeye 0x54 Pent Level(11,Ally,False) [25,9] [25,9] [Tomahawk,Vulnerary] NoAI
+UNIT
+
+Canas1:
+UNIT Canas Druid Pent Level(9,NPC,False) [29,2] [29,2] [Nosferatu,TorchStaff,ChestKey] Guard
+UNIT Empty
+
+Ephidel1:
+UNIT 0x5B Sage 0x00 Level(14,Enemy,False) [4,21] [4,21] [Bolting,Fimbulvetr] GuardTile
+UNIT Empty
+
+Ephidel2:
+UNIT 0x5B Sage 0x00 Level(14,Enemy,False) [23,13] [23,13] [Bolting,Fimbulvetr] GuardTile
+UNIT Empty
+
+Morphs: 
+UNIT Ephidel Sage 0x00 Level(14,Enemy,False) [4,5] [4,5] [Bolting,Fenrir] AttackInRange
+UNIT 0xEB Druid Ephidel Level(9,Enemy,False) [3,11] [3,11] [Fimbulvetr] GuardTile
+UNIT 0xA4 Berserker Ephidel Level(12,Enemy,True) [10,9] [10,9] [Armads] AttackInRange
+UNIT 0xA1 Sage Ephidel Level(3,Enemy,False) [33,5] [33,5] [Shaver] AttackInRange
+UNIT 0xA4 Berserker Ephidel Level(5,Enemy,False) [30,8] [30,8] [BattleAxe] AttackInRange
+UNIT 0xEB Druid Ephidel Level(3,Enemy,False) [25,9] [25,9] [Nosferatu,Unlock] NoAI
+UNIT 0xA1 Sage Ephidel Level(3,Enemy,False) [26,10] [26,10] [Thunder] NoAI
+UNIT 0xF1 Sniper Ephidel Level(5,Enemy,False) [24,5] [24,5] [Longbow,RuneBow] NoAI
+UNIT 0xA2 Swordmaster Ephidel Level(5,Enemy,False) [32,9] [32,9] [PoisonSword] NoAI
+UNIT 0xA2 Swordmaster Ephidel Level(3,Enemy,False) [16,2] [16,2] [WindSword] AttackInRange
+UNIT 0xA3 General Ephidel Level(8,Enemy,False) [22,1] [22,1] [ShortSpear] GuardTile
+UNIT 0xA3 General Ephidel Level(8,Enemy,False) [22,2] [22,2] [Runesword] GuardTile
+UNIT 0xA1 Bishop Ephidel Level(3,Enemy,False) [20,9] [20,9] [Physic] NoAI
+UNIT 0xA4 Berserker Ephidel Level(5,Enemy,False) [17,7] [17,7] [ShortAxe] AttackInRange
+UNIT 0xA4 Berserker Ephidel Level(5,Enemy,False) [18,7] [18,7] [Halberd] NoAI
+UNIT 0xA1 Sage_F Ephidel Level(3,Enemy,False) [11,1] [11,1] [Thunder] AttackInRange
+UNIT 0x82 Assassin Ephidel Level(5,Enemy,False) [8,6] [8,6] [VeninEdge] NoAI
+UNIT 0xEB Druid Ephidel Level(9,Enemy,False) [17,0] [17,0] [Dulam,ChestKey] NoAI
+UNIT 0xA3 General Ephidel Level(8,Enemy,False) [11,21] [11,21] [SilverAxe] GuardTile
+UNIT 0xA3 General Ephidel Level(8,Enemy,False) [24,21] [24,21] [SilverLance] GuardTile
+UNIT 0xA2 Sniper Ephidel Level(5,Enemy,False) [6,22] [6,22] [SteelBow] NoAI
+UNIT 0xA1 Druid Ephidel Level(9,Enemy,False) [17,12] [17,12] [Flux] AttackInRange
+UNIT 0xA1 Sage Ephidel Level(4,Enemy,True) [2,18] [2,18] [Silence,Divine] NoAI
+UNIT 0xA2 Sniper Ephidel Level(5,Enemy,False) [13,16] [13,16] [RuneBow] AttackInRange
+UNIT 0xA1 Druid_F Ephidel Level(3,Enemy,False) [12,18] [12,18] [Luna] AttackInRange
+UNIT 0xA1 Sage Ephidel Level(3,Enemy,False) [16,20] [16,20] [Combust,Mend] NoAI
+UNIT 0x82 Assassin Ephidel Level(5,Enemy,False) [18,23] [18,23] [SteelSword] AttackInRange
+UNIT 0xA4 Berserker Ephidel Level(5,Enemy,False) [7,16] [7,18] [HandAxe] AttackInRange
+UNIT 0xEB Sage Ephidel Level(3,Enemy,False) [8,17] [8,17] [Shaver] NoAI
+UNIT 0xA1 Druid Ephidel Level(3,Enemy,False) [8,16] [8,16] [Shaver] AttackInRange
+UNIT 0xA2 Sniper Ephidel Level(5,Enemy,False) [25,21] [25,21] [SteelBow] AttackInRange
+UNIT 0x81 Valkyrie Ephidel Level(3,Enemy,False) [5,24] [5,24] [Thunder] AttackInRange
+UNIT 0xA2 Sniper Ephidel Level(5,Enemy,False) [18,17] [18,17] [SteelBow] AttackInRange
+UNIT 0xA2 Sniper Ephidel Level(5,Enemy,False) [18,4] [18,4] [SteelBow] AttackInRange
+UNIT 0x81 Valkyrie Ephidel Level(5,Enemy,False) [17,15] [17,15] [Elfire] AttackInRange
+UNIT 0xF1 Swordmaster Ephidel Level(5,Enemy,False) [32,24] [32,24] [Longsword,Tonic] AttackInRange
+UNIT 0x81 Valkyrie Ephidel Level(5,Enemy,False) [28,25] [28,25] [Elfire,Mend] NoAI
+UNIT 0xA1 Bishop Ephidel Level(3,Enemy,False) [12,12] [12,12] [Physic] NoAI
+UNIT 0xA4 Berserker Ephidel Level(5,Enemy,False) [20,21] [20,21] [SteelAxe] AttackInRange
+UNIT 0x82 Assassin Ephidel Level(5,Enemy,False) [12,15] [12,15] [0xAC] AttackInRange
+UNIT Empty
+
+Efta1:
+UNIT Efta Shaman Ephidel Level(1,Enemy,False) [31,18] [31,18] [NoItems] GuardTile
+UNIT Empty 
+
+DarkDruid1:
+UNIT 0x44 DarkDruid Ephidel Level(9,Enemy,False) [31,18] [31,18] [Nosferatu,Fenris,HeavenSeal] NoAI
+UNIT Empty 
+
+ExecutionCourt:
+UNIT 0xEB Druid Ephidel Level(3,Enemy,False) [20,6] [20,6] [Flux,Antitoxin] NoAI
+UNIT 0xA4 Berserker Ephidel Level(5,Enemy,False) [15,11] [15,11] [Hammer] NoAI
+UNIT 0xA2 Swordmaster Ephidel Level(5,Enemy,False) [15,6] [15,6] [SteelSword] NoAI
+UNIT 0xA2 Sniper Ephidel Level(5,Enemy,False) [20,11] [20,11] [SteelBow] NoAI
+UNIT Empty
+
+TheSwordmasterz:
+UNIT 0xA2 Swordmaster Ephidel Level(5,Enemy,False) [17,25] [17,25] [0xAC] NoAI
+UNIT 0xA2 Swordmaster Ephidel Level(5,Enemy,False) [18,25] [18,25] [0xAC] NoAI
+UNIT Empty
+
+
+RogueBastard:
+UNIT 0xA2 Thief Ephidel Level(5,Enemy,False) [33,0] [33,0] [SteelSword,LockPick] StealFromChests
+UNIT Empty
+
+RogueBastard2:
+UNIT 0xA2 Thief Ephidel Level(5,Enemy,False) [32,19] [32,19] [SteelSword,LockPick] StealFromChests
+UNIT Empty
+
+PentEnd:
+UNIT Pent Sage 0x00 Level(14,Ally,False) [4,2] [4,2] [Forblaze,Shine,Elixir] NoAI
+UNIT Empty
+
+LouiseEnd:
+UNIT Louise_EN Sniper_F Pent Level(8,Ally,False) [10,10] [4,3] [SilverBow,BraveBow,Elixir] NoAI
+UNIT Empty
+
+RenaultDieing:
+UNIT Pent Sage 0x00 Level(14,Ally,False) [3,12] [3,12] [Forblaze,Shine,Elixir] NoAI
+UNIT Louise_EN Sniper_F Pent Level(8,Ally,False) [4,12] [4,12] [SilverBow,BraveBow,Elixir] NoAI
+UNIT Renault UberSage Pent Level(20,Ally,False) [3,10] [3,10] [Luce,Rescue,Warp,Physic] NoAI
+UNIT Empty
+
+
+Turn_events:
+TURN 0x00 Opening_event [01,00] 0x0 0x00
+TURN 0x00 TurnTwo [02,00] 0x0 0x00
+TURN 0x00 TurnThree [07,00] 0x0 0x00
+TURN 0x00 Execution [11,00] 0x8 0x00
+TURN 0x00 SwordmastersGAH [17,00] 0x8 0x00
+TURN 0x00 TurnEleven [24,00] 0x0 0x00
+TURN
+
+Character_events:
+CHAR 0x0A PentLouise Pent Louise_EN $00000000
+CHAR 0x0A PentLouise Louise_EN Pent $00000000
+CHAR 0x0B PentErk Pent Erk $00000000
+CHAR 0x0B PentErk Erk Pent $00000000
+CHAR 0x0C HawkeyeRenault Hawkeye Renault $00000000
+CHAR 0x0C HawkeyeRenault Renault Hawkeye $00000000
+CHAR 0x0D PentCanas Pent Canas $00000000
+CHAR 0x18 PentCanas2 Canas Pent $000D0003
+CHAR 0x0E RenaultCanas Canas Renault $000D0003
+CHAR 0x0E RenaultCanas Renault Canas $000D0003
+CHAR 0x13 LouiseHawkeye Louise_EN Hawkeye $00000000
+CHAR 0x13 LouiseHawkeye Hawkeye Louise_EN $00000000
+CHAR 0x20 PentEfta Pent Efta $00000000
+CHAR 0x20 CanasEfta Canas Efta $00000000
+CHAR
+
+Location_events:
+Chest(Warp,24,5)
+Chest(Combust,23,4)
+Chest(BoltAxe,11,1)
+Chest(Meteor,2,18)
+Chest(Dulam,12,5)
+Door(24,7)
+Door(31,20)
+Door(11,7)
+Door(2,20)
+LOCA
+
+Misc_events:
+CauseGameOverIfLordDies
+AREA 0x14 KishunaEvent [3,10] [3,10]
+AREA 0x16 ArriveAtExit [4,0] [4,0]
+AREA 0x17 BaldoScroll [30,15] [33,15]
+AREA 0x17 BaldoScroll [31,14] [33,14]
+AREA 0x1A StrangeOrb [30,2] [30,3]
+AREA 0x1A StrangeOrb [29,1] [30,1]
+AREA 0x1A StrangeOrb [29,0] [32,0]
+AREA 0x19 HiddenSword [1,24] [2,24]
+AREA 0x19 HiddenSword [1,25] [4,25]
+AFEV 0x1C EmblemologistCheck 0x0D
+AFEV 0x22 BasiliskglanceUnlock 0x21
+AFEV
+
+
+Ballista_filler:
+BLST
+ALIGN 4
+
+
+Opening_event:
+MUS1 0x005D
+LOU1 Pent1
+LOMA 0x37 [0,0]
+ENUN
+TEX1 0x08F0
+REMA
+STAL 0x60
+LOU1 Helpers
+ENUN
+MUS1 0x0033
+TEX1 0x08F1
+REMA
+LOU1 Renault1
+ENUN
+MUS1 0x0037
+TEX1 0x08F2
+REMA
+FADI 10
+ClearAllUnits
+LOMA 0x2C [14,16]
+LOU1 Players
+ENUN
+VCBF 0x03
+//CAM1 Pent
+CMOF
+LOU1 Hawkeye1
+ENUN
+FADU 10
+TEX1 0x08F3
+REMA
+MOVE Hawkeye [24,17]
+LOU1 Ephidel1
+ENUN
+TEX1 0x08F4
+REMA
+MUEN 0x01
+STAL 0x10
+FIGH 0x5B Renault Fight $00000000
+DISA 0x5B
+MUS1 0x0052
+TEX1 0x08F5
+REMA
+WarpIn(Ephidel2,23,13)
+TEX1 0x08F6
+REMA
+WarpOut(0x5B)
+TEX1 0x08F7
+REMA
+LOU1 Morphs
+LOU1 Efta1
+ENUN
+LOMA 0x04 [23,16]
+ENDA
+
+TurnTwo:
+CAM1 [26,2]
+MUS1 0x0008
+WarpIn(Canas1,29,2)
+FADI 10
+BACG 0x41
+FADU 10
+TEX1 0x8F8
+REMA
+ENDA
+
+ArriveAtExit:
+//Character Arrive Quotes
+IFCA 0x00 0x01 Pent
+TEX1 0x0904
+REMA
+ENIF 0x01
+IFCA 0x00 0x02 Hawkeye
+TEX1 0x0905
+REMA
+ENIF 0x02
+IFCA 0x00 0x03 Louise_EN //Louise
+TEX1 0x0906
+REMA
+ENIF 0x03
+IFCA 0x00 0x04 Canas
+TEX1 0x0907
+REMA
+ENIF 0x04
+IFCA 0x00 0x05 Erk
+TEX1 0x0908
+REMA
+ENIF 0x05
+IFCA 0x00 0x06 Renault
+TEX1 0x0909
+REMA
+ENIF 0x06
+//If Ephidel wasn't defeated
+IFEF 0x07 0x02
+CAM1 Ephidel
+CURF Ephidel
+TEX1 0x090B
+REMA
+WarpOut(Ephidel)
+TEX6 0x5 [0,0] 0xDE0
+_ASM0x42 0x83181
+ENUT 0x87 //Ephidel's bonus content
+ENIF 0x07
+CALL EndingEvent
+ENDA
+
+EndingEvent:
+ENUT Tale4Clear
+MUS1 0x0000
+FADI 10
+STAL 0x60
+ClearAllUnits
+LOU1 PentEnd
+ENUN
+CMOF
+VCWF 0x00
+LOU1 LouiseEnd
+ENUN
+TEX1 0x090C
+REMA
+FADI 10
+ClearAllUnits
+LOU1 RenaultDieing
+CAM1 [5,11]
+FADU 10
+MUS1 0x006A
+STAL 0x30
+TEX1 0x090D
+REMA
+KILL Renault
+STAL 0x60
+IFET 0x08 0x14
+IFET 0x08 0x0A
+TEX1 0x090F
+REMA
+IFEF 0x09 Tale4xUnlock
+TEX6 0x5 [0,0] 0xDE1
+_ASM0x42 0x83181
+ENUT Tale4xUnlock
+ENIF 0x09
+ELSE 0x0A
+ENIF 0x08
+TEX1 0x090E
+REMA
+ENIF 0x0A
+MOVE Louise_EN [5,17]
+ENUN
+STAL 0x30
+TEX1 0x0910
+REMA
+NEVENTS
+IFET 0x0B Tale4xUnlock
+FADI 5
+BACG 0x5B
+FADU 5
+TEX6 0x5 [0,0] 0x96C
+_ASM0x42 0x83181
+IFYN 0x0C
+BecomeNPC(Hawkeye)
+ASMC 0xDE0111
+STAL 0x50
+ASMC 0xBE22A1
+MNCH 0x0E
+ELSE 0x0D
+ENIF 0x0C
+BecomeNPC(Pent)
+BecomeNPC(Louise_EN)
+BecomeNPC(Hawkeye)
+BecomeNPC(Erk)
+BecomeNPC(Canas)
+GotoTaleSelect
+ENIF 0x0D
+ELSE 0x0E
+ENIF 0x0B
+BecomeNPC(Pent)
+BecomeNPC(Louise_EN)
+BecomeNPC(Hawkeye)
+BecomeNPC(Erk)
+BecomeNPC(Canas)
+GotoTaleSelect
+ENIF 0x0E
+ENDA
+
+PentCanas:
+MUS2 0x0042
+TEX1 0x08FA
+REMA
+BecomeAlly(Canas)
+MURE 0x05
+ENDA
+
+PentCanas2:
+MUS2 0x40
+TEX1 0xB65
+REMA
+ITGC Pent RedGem
+ENUT 0x18
+CALL EmblemologistCheck
+MURE 0x05
+ENDA
+
+PentLouise:
+MUS2 0x005D
+TEX1 0x08FB
+REMA
+MURE 0x05
+ENDA
+
+PentErk:
+MUS2 AKnightsOath
+TEX1 0x08FC
+REMA
+ITGC Erk Dimebolt
+MURE 0x05
+ENDA
+
+RenaultCanas:
+MUS2 0x0037
+TEX1 0x08FD
+REMA
+MURE 0x05
+ENDA
+
+HawkeyeRenault:
+MUS2 0x0037
+TEX1 0x08FE
+REMA
+MURE 0x05
+ENDA
+
+LouiseHawkeye:
+MUS2 0x005D
+TEX1 0x08FF
+REMA
+MURE 0x05
+ENDA
+
+PentEfta:
+NEVENTS
+MUS1 0x75
+TEX1 0x911
+MUEN 0x05
+FAWI 5
+ClearPortraits
+CMOF
+DISA Efta
+ENUN
+LOU1 DarkDruid1
+ENUN
+TEX1 0x966
+FAWU 5
+MUS1 0x36
+MORETEXT 0x965
+REMA
+ENUT 0x04
+ENDA
+
+CanasEfta:
+NEVENTS
+MUS1 0x75
+TEX1 0x912
+MUEN 0x05
+FAWI 5
+ClearPortraits
+CMOF
+DISA Efta
+ENUN
+LOU1 DarkDruid1
+ENUN
+TEX1 0x966
+FAWU 5
+MUS1 0x36
+MORETEXT 0x965
+REMA
+ENUT 0x04
+ENDA
+
+TurnThree:
+CMOF
+LOU1 RogueBastard
+ENUN
+ENDA
+
+Execution:
+CMOF
+LOU1 ExecutionCourt
+ENUN
+ENDA
+
+SwordmastersGAH:
+CMOF
+LOU1 TheSwordmasterz
+ENUN
+ENDA
+
+TurnEleven:
+CMOF
+LOU1 RogueBastard2
+ENUN
+ENDA
+
+KishunaEvent:
+IFCA 0x00 0x0F Renault
+TEX1 0x0900
+FAWI 10
+STAL 0x20
+REBU
+MORETEXT 0x0901
+FAWU 10
+MUS1 0x006A
+MORETEXT 0x0902
+REMA
+ELSE 0x10
+ENIF 0x0F
+ENUF 0x14
+ENIF 0x10
+ENDA
+
+BaldoScroll:
+IFAF 0x11 0x7A2F1 //Player phase condition
+ENUF 0x17 //Enemy trigger refresh
+ELSE 0x12
+ENIF 0x11
+IFAT 0x13 0xBE2321 //Luck ASM condition
+ENUF 0x17 //Item not found
+ELSE 0x14
+ENIF 0x13
+ITGV WhiteGem //Item found 
+ENUT 0x17
+CALL EmblemologistCheck
+ENIF 0x14
+ENIF 0x12
+ENDA
+
+StrangeOrb:
+IFAF 0x15 0x7A2F1 //Player phase condition
+ENUF 0x1A //Enemy trigger refresh
+ELSE 0x16
+ENIF 0x15
+IFAT 0x17 0xBE2321 //Luck ASM condition
+ENUF 0x1A //Item not found
+ELSE 0x18
+ENIF 0x17
+ITGV BlueGem //Item found
+ENUT 0x1A
+CALL EmblemologistCheck
+ENIF 0x04
+ENIF 0x16
+ENDA
+
+HiddenSword:
+IFAF 0x19 0x7A2F1 //Player phase condition
+ENUF 0x19 //Enemy trigger refresh
+ELSE 0x1A
+ENIF 0x19
+IFAT 0x1B 0xBE2321 //Luck ASM condition
+ENUF 0x19 //Item not found
+ELSE 0x1C
+ENIF 0x1B
+ITGV RustySword //Item found
+ENUT 0x19
+CALL EmblemologistCheck
+ENIF 0x1C
+ENIF 0x1A
+ENDA
+
+EmblemologistCheck:
+IFEF 0x1D Emblemologist
+IFET 0x1E 0x17
+IFET 0x1F 0x18
+IFET 0x20 0x19
+IFET 0x21 0x1A
+TEX6 0x5 [0,0] 0x0903
+_ASM0x42 0x83181
+ENUT Emblemologist
+ENIF 0x21
+ENIF 0x20
+ENIF 0x1F
+ENIF 0x1E
+ENIF 0x1D
+ENDA
+
+BasiliskglanceUnlock:
+ENUF 0x04
+IFEF 0x22 Basiliskglance
+ENUT Basiliskglance
+TEX6 0x5 [0,0] 0x090A 
+_ASM0x42 0x83181
+ENIF 0x22
+ENDA
+
+Fight:
+WORD $1E010001
+BLDT
+
+ 
+MESSAGE Tile changes begin at currentOffset.
+
+TileChanges:
+TileMap(0x00,24,5,1,1,ChestOpened)
+TileMap(0x01,23,4,1,1,ChestOpened)
+TileMap(0x02,11,1,1,1,ChestOpened)
+TileMap(0x03,2,18,1,1,ChestOpened)
+TileMap(0x04,31,18,1,1,ChestOpened)
+TileMap(0x05,12,5,1,1,ChestOpened)
+TileMap(0x06,24,7,1,2,DoorOpened)
+TileMap(0x08,11,7,1,1,DoorOpened)
+TileMap(0x07,31,20,1,1,DoorOpened2)
+TileMap(0x09,2,20,1,1,DoorOpened2)
+TileMapEnd
+
+ChestOpened:
+SHORT 0x04 0x00
+
+DoorOpened:
+BYTE 0xB8 
+BYTE 0x0E
+BYTE 0xC4
+BYTE 0x0E
+
+DoorOpened2:
+BYTE 0xB8 
+BYTE 0x0E
+
+MESSAGE Events end at offset currentOffset
